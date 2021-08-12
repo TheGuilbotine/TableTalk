@@ -1,3 +1,10 @@
+#Price Range:
+# 1 : under $10 per plate
+# 2 : $11-$20 per plate
+# 3 : $21-$30 per plate
+# 4 : $31+ per plate
+
+
 # Monte
 # 1 { name: "Crazy Rock'N Sushi", phone_number: "(626) 334-2430", address_id: 1, business_id: 1, description: "text", price_range: 2, cuisine_id: 1, created_at: new Date(), updated_at: new Date() },
 # 2 { name: "name", phone_number: "number", address_id: 2, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
