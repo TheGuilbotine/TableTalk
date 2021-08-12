@@ -1,5 +1,5 @@
 # Monte
-# 1 { img_url: "https://stayquaint.s3.us-west-1.amazonaws.com/carmelriverinn/53916706.jpeg", restaurant_id: "1", created_at: new Date(), updated_at: new Date() },
+# 1 { img_url: "https://tabletalkproject.s3.us-west-1.amazonaws.com/Crazy+Rockn+Sushi/Crazy-Rockn-Sushi.jpg", restaurant_id: "1", created_at: new Date(), updated_at: new Date() },
 # 1 { img_url: "https://stayquaint.s3.us-west-1.amazonaws.com/carmelriverinn/64442050.jpeg", restaurant_id: "1", created_at: new Date(), updated_at: new Date() },
 # 1 { img_url: "https://stayquaint.s3.us-west-1.amazonaws.com/carmelriverinn/53916777.jpeg", restaurant_id: "1", created_at: new Date(), updated_at: new Date() },
 # 1 { img_url: "https://stayquaint.s3.us-west-1.amazonaws.com/carmelriverinn/53916701.jpeg", restaurant_id: "1", created_at: new Date(), updated_at: new Date() },
