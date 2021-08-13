@@ -11,9 +11,9 @@
 # 3 { name: "name", phone_number: "number", address_id: 3, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() }
 
 # Sunny
-# 4 { name: "name", phone_number: "number", address_id: 4, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 5 { name: "name", phone_number: "number", address_id: 5, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 6 { name: "name", phone_number: "number", address_id: 6, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() }
+# 4 { name: "The Park Cafe", phone_number: "(801) 487-1670", address_id: 4, business_id: "2", description: "text", price_range: "1", cuisine_id: "9", created_at: new Date(), updated_at: new Date() },
+# 5 { name: "My Thai", phone_number: "(801) 505-4999", address_id: 5, business_id: "2", description: "text", price_range: "1", cuisine_id: "4", created_at: new Date(), updated_at: new Date() },
+# 6 { name: "Saffron Valley", phone_number: "(801) 203-3325", address_id: 6, business_id: "2", description: "text", price_range: "2", cuisine_id: "11", created_at: new Date(), updated_at: new Date() }
 
 # Pierre
 # TODO Add cuisine type ids.

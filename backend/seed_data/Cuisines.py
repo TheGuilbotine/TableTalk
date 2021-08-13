@@ -8,3 +8,4 @@
 # { type: "Korean", created_at: new Date(), updated_at: new Date() },
 # { type: "American", created_at: new Date(), updated_at: new Date() },
 # { type: "Southern", created_at: new Date(), updated_at: new Date() },
+# { type: "Indian", created_at: new Date(), updated_at: new Date() }
