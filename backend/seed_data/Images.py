@@ -28,7 +28,7 @@
 
 # Pierre
 # 7 { img_url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.78sZKhhTjSnFtNHty_v35AHaE6%26pid%3DApi&f=1", restaurant_id: "7", created_at: new Date(), updated_at: new Date() },
-# 7 { img_url: "", restaurant_id: "7", created_at: nehttps://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.IjNGVcWHOOSOfnd8wT_qVgHaE8%26pid%3DApi&f=1w Date(), updated_at: new Date() },
+# 7 { img_url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.IjNGVcWHOOSOfnd8wT_qVgHaE8%26pid%3DApi&f=1", restaurant_id: "7", created_at: new Date(), updated_at: new Date() },
 # 7 { img_url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.i4yzmBcjOHJR0jdmk4GuaAHaFj%26pid%3DApi&f=1", restaurant_id: "7", created_at: new Date(), updated_at: new Date() },
 # 7 { img_url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.FY8tBbIbaA0mJs_ZmKc-0wHaD4%26pid%3DApi&f=1", restaurant_id: "7", created_at: new Date(), updated_at: new Date() },
 # 8 { img_url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.w337j1OMkrySnmevWyTOLwAAAA%26pid%3DApi&f=1", restaurant_id: "8", created_at: new Date(), updated_at: new Date() },
