@@ -1,3 +1,11 @@
+# demo = User(
+#         username='Demo', email='demo@aa.io', password='password')
+#     marnie = User(
+#         username='marnie', email='marnie@aa.io', password='password')
+#     bobbie = User(
+#         username='bobbie', email='bobbie@aa.io', password='password')
+
+
 # Monte
 # 1 { address_line_one: "942 Arrow Hwy STE #6", address_line_two: null, city: "Covina", state: "CA", postal_code: 91722, country: "United States" }
 # 2 { address_line_one: "347 N San Gabriel Ave", address_line_two: null, city: "Azusa", state: "CA", postal_code: "91702", country: "United States" }

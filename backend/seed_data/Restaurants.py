@@ -4,6 +4,12 @@
 # 3 : $21-$30 per plate
 # 4 : $31+ per plate
 
+# demo = User(
+#         username='Demo', email='demo@aa.io', password='password')
+#     marnie = User(
+#         username='marnie', email='marnie@aa.io', password='password')
+#     bobbie = User(
+#         username='bobbie', email='bobbie@aa.io', password='password')
 
 # Monte
 # 1 { name: "Crazy Rock'N Sushi", phone_number: "(626) 334-2430", address_id: 1, business_id: 1, description: "It is our great pleasure to serve you with the highest quality food and excellent service at the best prices. On the frontier of Japanese fusion restaurants, we are proud of our unique and wonderful cuisine which is created from the finest ingredients. We promise you the freshest seafood, meat and produce. The fun & friendly atmosphere of the sushi bar and the beautiful presentation of each dish with their remarkable and distinctive flavors have made us and experience that inspires our guests to return again and again.", price_range: 2, cuisine_id: 1},
