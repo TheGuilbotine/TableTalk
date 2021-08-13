@@ -5,6 +5,13 @@
 #     bobbie = User(
 #         username='bobbie', email='bobbie@aa.io', password='password')
 
+class Cuisine(db.Model):
+    __tablename__ = "cuisines"
+
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(30))
+
+
 sushi = Cuisine(type="Sushi")
 bbq = Cuisine(type="BBQ")
 italian = Cuisine(type="Italian")

@@ -15,7 +15,7 @@ class User(db.Model):
     birth_date = db.Column(db.Date, nullable=False)
     img_url = db.Column(db.Text, nullable=True)
     gender = db.Column(db.String, nullable=False)
-    password = db.Column(db.)
+    password = db.Column(db.String(255), nullable=False)
     menu_items = db.relationship("MenuItem", back_populates="menu")
 
 
