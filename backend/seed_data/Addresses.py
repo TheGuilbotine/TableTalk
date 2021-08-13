@@ -1,7 +1,7 @@
 # Monte
 # 1 { address_line_one: "942 Arrow Hwy STE #6", address_line_two: null, city: "Covina", state: "CA", postal_code: 91722, country: "United States" }
-# 2 { address_line_one: "address", address_line_two: null, city: "city", state: "ST", postal_code: "#", country: "United States" }
-# 3 { address_line_one: "address", address_line_two: null, city: "city", state: "ST", postal_code: "#", country: "United States" }
+# 2 { address_line_one: "347 N San Gabriel Ave", address_line_two: null, city: "Azusa", state: "CA", postal_code: "91702", country: "United States" }
+# 3 { address_line_one: "498 S Rosemead Blvd", address_line_two: null, city: "Pasadena", state: "CA", postal_code: "91107", country: "United States" }
 
 # Sunny
 # 4 { address_line_one: "604 E 1300 S", address_line_two: null, city: "Salt Lake City", state: "UT", postal_code: 84105, country: "United States" }
