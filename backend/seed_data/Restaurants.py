@@ -16,11 +16,9 @@
 # 6 { name: "Saffron Valley", phone_number: "(801) 203-3325", address_id: 6, business_id: 2, description: "2-story contemporary outpost features classic Indian fare with a modern spin & a daily lunch buffet.", price_range: 2, cuisine_id: 11, created_at: new Date(), updated_at: new Date() }
 
 # Pierre
-# TODO Add cuisine type ids.
-# 8 { name: "The Meatball Shop", phone_number: "(212) 230-5860", address_id: 7, business_id: 3, description: "Buzzy outfit serving a range house-ground meatballs, sauces & sides plus ice cream sandwiches.", price_range: 2, cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 9 { name: "Sweet Potatoes", phone_number: "(336) 727-4844", address_id: 8, business_id: 3, description: "Chicken & waffles, mac 'n' cheese & banana pudding round out the menu at this soul-food staple.", price_range: 2, cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 10 { name: "The Old Fourth Street Filling Station", phone_number: "(336) 724-7600", address_id: 9, business_id: 3, description: "Trendy upscale New American eatery & bar with a fireplace & covered outdoor terrace.", price_range: 2, cuisine_id: "#", created_at: new Date(), updated_at: new Date() }
-# TODO change id, address-id, cuisine_id
+# 7 { name: "The Meatball Shop", phone_number: "(212) 230-5860", address_id: 7, business_id: 3, description: "Buzzy outfit serving a range house-ground meatballs, sauces & sides plus ice cream sandwiches.", price_range: 2, cuisine_id: 9, created_at: new Date(), updated_at: new Date() },
+# 8 { name: "Sweet Potatoes", phone_number: "(336) 727-4844", address_id: 8, business_id: 3, description: "Chicken & waffles, mac 'n' cheese & banana pudding round out the menu at this soul-food staple.", price_range: 2, cuisine_id: 10, created_at: new Date(), updated_at: new Date() },
+# 9 { name: "The Old Fourth Street Filling Station", phone_number: "(336) 724-7600", address_id: 9, business_id: 3, description: "Trendy upscale New American eatery & bar with a fireplace & covered outdoor terrace.", price_range: 2, cuisine_id: 9, created_at: new Date(), updated_at: new Date() }
 
 
 # Jonathan
