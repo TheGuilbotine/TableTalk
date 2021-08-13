@@ -6,7 +6,7 @@
 
 
 # Monte
-# 1 { name: "Crazy Rock'N Sushi", phone_number: "(626) 334-2430", address_id: 1, business_id: 1, description: "text", price_range: 2, cuisine_id: 1, created_at: new Date(), updated_at: new Date() },
+# 1 { name: "Crazy Rock'N Sushi", phone_number: "(626) 334-2430", address_id: 1, business_id: 1, description: "It is our great pleasure to serve you with the highest quality food and excellent service at the best prices. On the frontier of Japanese fusion restaurants, we are proud of our unique and wonderful cuisine which is created from the finest ingredients. We promise you the freshest seafood, meat and produce. The fun & friendly atmosphere of the sushi bar and the beautiful presentation of each dish with their remarkable and distinctive flavors have made us and experience that inspires our guests to return again and again. ", price_range: 2, cuisine_id: 1, created_at: new Date(), updated_at: new Date() },
 # 2 { name: "name", phone_number: "number", address_id: 2, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
 # 3 { name: "name", phone_number: "number", address_id: 3, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() }
 
