@@ -14,6 +14,6 @@
 # 9 { address_line_one: "871 W 4th Street", address_line_two: null, city: "Winston-Salem", state: "NC", postal_code: 27101, country: "United States" }
 
 # Jonathan
-# 10 { address_line_one: "address", address_line_two: null, city: "city", state: "ST", postal_code: "#", country: "United States" }
-# 11 { address_line_one: "address", address_line_two: null, city: "city", state: "ST", postal_code: "#", country: "United States" }
-# 12 { address_line_one: "address", address_line_two: null, city: "city", state: "ST", postal_code: "#", country: "United States" }
+# 10 { address_line_one: “11593 South 4000 West”, address_line_two: null, city: “South Jordan”, state: “UT”, postal_code: “84009", country: “United States” }
+# 11 { address_line_one: “162 South 400 West”, address_line_two: null, city: “Salt Lake City”, state: “UT”, postal_code: “84101”, country: “United States” }
+# 12 { address_line_one: “20 South 400 West Suite# 2020”, address_line_two: null, city: “Salt Lake City”, state: “UT”, postal_code: “84101", country: “United States” }

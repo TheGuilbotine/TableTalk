@@ -20,8 +20,7 @@
 # 8 { name: "Sweet Potatoes", phone_number: "(336) 727-4844", address_id: 8, business_id: 3, description: "Chicken & waffles, mac 'n' cheese & banana pudding round out the menu at this soul-food staple.", price_range: 2, cuisine_id: 10, created_at: new Date(), updated_at: new Date() },
 # 9 { name: "The Old Fourth Street Filling Station", phone_number: "(336) 724-7600", address_id: 9, business_id: 3, description: "Trendy upscale New American eatery & bar with a fireplace & covered outdoor terrace.", price_range: 2, cuisine_id: 9, created_at: new Date(), updated_at: new Date() }
 
-
 # Jonathan
-# 10 { name: "name", phone_number: "number", address_id: 10, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 11 { name: "name", phone_number: "number", address_id: 11, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() },
-# 12 { name: "name", phone_number: "number", address_id: 12, business_id: "#", description: "text", price_range: "1-5", cuisine_id: "#", created_at: new Date(), updated_at: new Date() }
+# 10 { name: “Texas Roadhouse”, phone_number: ” (801) 253-8600”, address_id: 10, business_id: 4, description: “Lively chain steakhouse serving American fare with a Southwestern spin amid Texas-themed decor.”, price_range: 3, cuisine_id: 9, created_at: new Date(), updated_at: new Date() },
+# 11 { name: “Tucanos”, phone_number: “(801) 456-2550”, address_id: 11, business_id: 4, description: “Brazilian steakhouse chain serving all-you-can-eat churrasco & specialty skewers in a vibrant space.”, price_range: 4, cuisine_id: 12, created_at: new Date(), updated_at: new Date() },
+# 12 { name: “Fleming’s Prime Steakhouse & Wine Bar”, phone_number: “(801) 355-3704”, address_id: 12, business_id: 4, description: “Brazilian steakhouse chain serving all-you-can-eat churrasco & specialty skewers in a vibrant space.”, price_range: 5, cuisine_id: 9, created_at: new Date(), updated_at: new Date() }
