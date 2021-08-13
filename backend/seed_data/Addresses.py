@@ -1,4 +1,4 @@
-# demo = User(
+#     demo = User(
 #         username='Demo', email='demo@aa.io', password='password')
 #     marnie = User(
 #         username='marnie', email='marnie@aa.io', password='password')
