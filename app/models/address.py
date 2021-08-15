@@ -11,3 +11,6 @@ class Address(db.Model):
     state = db.Column(db.String(2), nullable=False)
     postal_code = db.Column(db.Integer, nullable=False)
     country = db.Column(db.String(50), nullable=False)
+
+    restaurant = db.relationship(
+        "Restaurant", back_populates="address")
