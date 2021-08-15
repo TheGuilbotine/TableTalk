@@ -9,3 +9,4 @@ korean = Cuisine(type="Korean")
 american = Cuisine(type="American")
 southern = Cuisine(type="Southern")
 indian = Cuisine(type="Indian")
+
