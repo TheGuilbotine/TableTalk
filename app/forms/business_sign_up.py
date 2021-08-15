@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Business
 
@@ -39,4 +39,5 @@ class BusinessSignUpForm(FlaskForm):
     first_name = StringField("First Name")
     last_name = StringField("Last Name")
     # TODO hashed or password?
-    hashed_password = StringField('password', validators=[DataRequired()])
+    hashed_password = PasswordField('password', validators=[DataRequired()])
+    submit = SubmitField('Sign Up')

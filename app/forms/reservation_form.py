@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, BooleanField, DateField, TimeField
+from wtforms import IntegerField, BooleanField, DateField, TimeField, SubmitField
 from wtforms.validators import DataRequired
 
 
@@ -11,3 +11,4 @@ class ReservationForm(FlaskForm):
     date_start = DateField("Date", validators=[DataRequired()])
     time_start = TimeField("Time", validators=[DataRequired()])
     share_table = BooleanField("Up to sharing?", validators=[DataRequired()])
+    submit = SubmitField('Reserve my Table!')
