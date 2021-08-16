@@ -27,6 +27,8 @@ class User(db.Model):
     restaurant_reviews = db.relationship(
         "RestaurantReview", back_populates="user")
     user_reviews = db.relationship("UserReview", back_populates="user")
+    image = db.relationship('Image', back_populates='user')
+    rewards = db.relationship('Reward', back_populates='user')
 
     @property
     def password(self):

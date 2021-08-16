@@ -10,7 +10,7 @@ class Restaurant(db.Model):
     description = db.Column(db.Text)
     price_range = db.Column(db.Integer, nullable=False)
     address_id = db.Column(db.Integer, db.ForeignKey(
-        "restaurants.id"), nullable=False)
+        "addresses.id"), nullable=False)
     business_id = db.Column(db.Integer, db.ForeignKey(
         "businesses.id"), nullable=False)
     cuisine_id = db.Column(db.Integer, db.ForeignKey(
@@ -25,3 +25,4 @@ class Restaurant(db.Model):
     reservations = db.relationship("Reservation", back_populates="restaurant")
     restaurant_reviews = db.relationship(
         "RestaurantReview", back_populates="restaurant")
+    reward = db.relationship('Reward', back_populates='restaurant')
