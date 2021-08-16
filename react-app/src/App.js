@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import {createBrowserHistory} from "history"
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
-import UserSignUpForm from './components/auth/UserSignUpForm';
+import UserSignUpForm from './components/UserSignUpFormModal/UserSignUpForm';
 import BusinessSignUpForm from './components/auth/BusinessSignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/UserNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -13,6 +14,7 @@ import { authenticate } from './store/session';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  // const history = createBrowserHistory()
 
   useEffect(() => {
     (async() => {
@@ -25,14 +27,12 @@ function App() {
     return null;
   }
 
+
+
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <NavBar />
       <Switch>
-
-        <Route path='/business' exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

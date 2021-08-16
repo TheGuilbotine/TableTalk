@@ -6,31 +6,27 @@ import App from './App';
 import configureStore from './store';
 import { BrowserRouter, Router } from "react-router-dom";
 import { ModalProvider } from "./context/Modal";
-import history from "./history";
-import { restoreCSRF, csrfFetch } from "./store/csrf";
+// import history from "./history";
+// import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
 
 const store = configureStore();
 
-if (process.env.NODE_ENV !== "production") {
-  restoreCSRF();
+// if (process.env.NODE_ENV !== "production") {
+//   restoreCSRF();
 
-  window.csrfFetch = csrfFetch;
-  window.store = store;
-  window.sessionActions = sessionActions;
-}
+//   window.csrfFetch = csrfFetch;
+//   window.store = store;
+//   window.sessionActions = sessionActions;
+// }
 
 function Root() {
   return (
-    <Provider store={store}>
-      <ModalProvider>
-        <BrowserRouter>
-          <Router history={history}>
-            <App />
-          </Router>
-        </BrowserRouter>
-      </ModalProvider>
-    </Provider>
+    <ModalProvider>
+      <Provider store={store}>
+          <App />
+      </Provider>
+    </ModalProvider>
   );
 }
 
