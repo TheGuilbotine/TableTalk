@@ -1,4 +1,5 @@
-from app.models import Restaurant, db
+from app.models import db
+from app.models.restaurant import Restaurant
 
 
 def seed_restaurant():

@@ -2,7 +2,14 @@ from typing import Text
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, TextField, SelectField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
-from app.models import Restaurant
+from app.models.cuisine import Cuisine
+from app.models.restaurant import Restaurant
+
+
+def restaurant_types(form, field):
+    cuisines = Cuisine.query.all()
+    print(cuisines)
+    return cuisines
 
 
 def restaurant_name_exists(form, field):
@@ -28,6 +35,7 @@ class RestaurantForm(FlaskForm):
                        DataRequired(), restaurant_name_exists])
     phone_number = StringField("Phone Number", validators=[
                                DataRequired(), phone_number_exists])
+    # TODO make dynamic
     cuisine_type = SelectField('Cuisine Type', choices=[
                                'Sushi', 'BBQ', 'Italian', 'Thai', 'Vegan', 'French', 'Vietnamese', 'Korean', 'American', 'Southern', 'Indian'], validate_choice=True)
     description = TextField("Description", validators=[DataRequired()])
