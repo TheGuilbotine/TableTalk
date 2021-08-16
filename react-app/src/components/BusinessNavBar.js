@@ -2,10 +2,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import UserSignUpFormModal from './UserSignUpFormModal';
-import BusinessSignUpFormModal from './BusinessSignUpFormModal';
+import BusinessSignUpForm from './BusinessSignUpFormModal';
 
-const NavBar = () => {
+const BusinessNavBar = () => {
   return (
     <nav>
       <ul>
@@ -23,10 +22,7 @@ const NavBar = () => {
           {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink> */}
-          <UserSignUpFormModal />
-        </li>
-        <li>
-          <BusinessSignUpFormModal />
+          <BusinessSignUpForm />
         </li>
         <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
@@ -41,4 +37,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default BusinessNavBar;
