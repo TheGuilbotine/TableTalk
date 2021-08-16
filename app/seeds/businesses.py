@@ -1,4 +1,4 @@
-from app.models import business, db
+from app.models import Business, db
 
 
 def seed_businesses():
@@ -20,5 +20,5 @@ def seed_businesses():
 
 
 def undo_businesses():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE businesses RESTART IDENTITY CASCADE;')
     db.session.commit()

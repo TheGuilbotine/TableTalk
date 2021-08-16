@@ -1,4 +1,4 @@
-from app.models import images, db
+from app.models import Image, db
 
 
 def seed_images():
@@ -143,5 +143,5 @@ def seed_images():
 
 
 def undo_images():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE images RESTART IDENTITY CASCADE;')
     db.session.commit()
