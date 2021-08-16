@@ -41,4 +41,5 @@ class RestaurantForm(FlaskForm):
     postal_code = IntegerField('Zip Code', validators=[DataRequired()])
     country = StringField('Country', validators=[DataRequired()])
     image_url = TextField('Image URL', validators=[DataRequired()])
+    # todo additional form for points equating a specific item on the restaurants menu???
     submit = SubmitField('Continue?')
