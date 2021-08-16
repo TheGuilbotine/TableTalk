@@ -2,7 +2,7 @@ from app.models import db
 from app.models.restaurant import Restaurant
 
 
-def seed_restaurant():
+def seed_restaurants():
     restaurant1 = Restaurant(
         name="Crazy Rock'N Sushi", phone_number="(626) 334-2430", address_id=1, business_id=1, description="It is our great pleasure to serve you with the highest quality food and excellent service at the best prices. On the frontier of Japanese fusion restaurants, we are proud of our unique and wonderful cuisine which is created from the finest ingredients. We promise you the freshest seafood, meat and produce. The fun & friendly atmosphere of the sushi bar and the beautiful presentation of each dish with their remarkable and distinctive flavors have made us and experience that inspires our guests to return again and again.", price_range=2, cuisine_id=1)
     restaurant2 = Restaurant(
