@@ -5,11 +5,11 @@ from app.models import db, User
 def seed_users():
     demo = User(
         email="demo@user.com",
-        first_name="first_name",
-        last_name="last_name",
-        birth_date="date",
-        img_url="url",
-        gender="gender",
+        first_name="Demo",
+        last_name="Licious",
+        birth_date="2021/08/16",
+        img_url="https: // cdn0.iconfinder.com/data/icons/people-57/24/user-square-512.png",
+        gender="Prefer not to answer",
         password="password"
     )
     monte = User(

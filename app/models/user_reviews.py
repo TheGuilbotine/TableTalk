@@ -11,3 +11,4 @@ class UserReview(db.Model):
     photo = db.Column(db.Text, nullable=True)
 
     image = db.relationship("Image", back_populates="user_review")
+    user = db.relationship("User", back_populates="user_reviews")

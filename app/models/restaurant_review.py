@@ -14,3 +14,5 @@ class RestaurantReview(db.Model):
 
     image = db.relationship("Image", back_populates="user_review")
     user = db.relationship("User", back_populates="restaurant_reviews")
+    restaurant = db.relationship(
+        "Restaurant", back_populates="restaurant_reviews")
