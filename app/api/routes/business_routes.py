@@ -9,6 +9,11 @@ from app.models import db
 business_routes = Blueprint('business', __name__)
 
 
+@business_routes.route('/')
+def business_home():
+    return '<h1> Table Talk Business </h1>'
+
+
 @business_routes.route('/signup', methods=['POST'])
 def business_signup():
     form = BusinessSignUpForm()
