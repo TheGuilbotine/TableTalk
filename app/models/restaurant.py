@@ -21,3 +21,4 @@ class Restaurant(db.Model):
         "Address", back_populates="restaurant", uselist=False)
     business = db.relationship("Business", back_populates="restaurants")
     cuisine = db.relationship("Cuisine", back_populates="restaurants")
+    images = db.relationship("Images", back_populates="restaurant")
