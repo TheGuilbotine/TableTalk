@@ -24,6 +24,8 @@ class User(db.Model):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     reservations = db.relationship("Reservation", back_populates="user")
+    restaurant_reviews = db.relationship(
+        "RestaurantReview", back_populates="user")
 
     @property
     def password(self):
