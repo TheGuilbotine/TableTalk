@@ -1,6 +1,6 @@
 from app.models import Address, db
 
-# address_mine_two not needed because can be false?
+# address_line_two not needed because can be false?
 
 
 def seed_addresses():
@@ -23,11 +23,11 @@ def seed_addresses():
     addresses9 = Address(
         address_line_one="871 W 4th Street", city="Winston-Salem", state="NC", postal_code=27101, country="United States")
     addresses10 = Address(
-        address_line_one="11593 South 4000 West", city="South Jordan", state="NC", postal_code=84009, country="United States")
+        address_line_one="11593 South 4000 West", city="South Jordan", state="UT", postal_code=84009, country="United States")
     addresses11 = Address(
-        address_line_one="62 South 400 West", city="Salt Lake City", state="NC", postal_code=84101, country="United States")
+        address_line_one="62 South 400 West", city="Salt Lake City", state="UT", postal_code=84101, country="United States")
     addresses12 = Address(
-        address_line_one="20 South 400 West Suite# 2020", city="Salt Lake City", state="NC", postal_code=84101, country="United States")
+        address_line_one="20 South 400 West Suite# 2020", city="Salt Lake City", state="UT", postal_code=84101, country="United States")
 
     db.session.add(addresses1)
     db.session.add(addresses2)

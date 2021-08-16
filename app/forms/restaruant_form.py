@@ -32,7 +32,7 @@ class RestaurantForm(FlaskForm):
                                'Sushi', 'BBQ', 'Italian', 'Thai', 'Vegan', 'French', 'Vietnamese', 'Korean', 'American', 'Southern', 'Indian'], validate_choice=True)
     description = TextField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
-                              "$", "$$", "$$$", "$$$$"], validators=[DataRequired()])
+                              "$ - under $10 per plate", "$$ - $11-$20 per plate", "$$$ - $21 -$30 per plate", "$$$$ - $31 + per plate"], validators=[DataRequired()])
     address_line_one = StringField(
         'Address Line 1', validators=[DataRequired()])
     address_line_two = StringField('Address Line 2')
@@ -41,5 +41,4 @@ class RestaurantForm(FlaskForm):
     postal_code = IntegerField('Zip Code', validators=[DataRequired()])
     country = StringField('Country', validators=[DataRequired()])
     image_url = TextField('Image URL', validators=[DataRequired()])
-    # todo additional form for points equating a specific item on the restaurants menu???
-    submit = SubmitField('Continue?')
+    submit = SubmitField('Add Restaurant')
