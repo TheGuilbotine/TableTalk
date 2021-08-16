@@ -14,6 +14,7 @@ def seed_cuisines():
     american = Cuisine(type="American")
     southern = Cuisine(type="Southern")
     indian = Cuisine(type="Indian")
+    brazilian = Cuisine(type="Brazilian")
 
     db.session.add(sushi)
     db.session.add(bbq)
@@ -26,6 +27,7 @@ def seed_cuisines():
     db.session.add(american)
     db.session.add(southern)
     db.session.add(indian)
+    db.session.add(brazilian)
 
     db.session.commit()
 

@@ -11,7 +11,7 @@ def seed_users():
         birth_date="2021/08/16",
         img_url="https: // cdn0.iconfinder.com/data/icons/people-57/24/user-square-512.png",
         gender="Prefer not to answer",
-        password="password"
+        hashed_password="hashed_password"
     )
     monte = User(
         email="monte@user.com",
@@ -20,7 +20,7 @@ def seed_users():
         birth_date="1985/12/04",
         img_url="https=//i.imgur.com/VMYPjVw.jpg",
         gender="Male",
-        password="password"
+        hashed_password="hashed_password"
     )
     sunny = User(
         email="sunny@user.com",
@@ -29,7 +29,7 @@ def seed_users():
         birth_date="1996/06/24",
         img_url="url",
         gender="Male",
-        password="password"
+        hashed_password="hashed_password"
     )
     pierre = User(
         email="pierre@user.com",
@@ -38,7 +38,7 @@ def seed_users():
         birth_date="1989/09/11",
         img_url="url",
         gender="Male",
-        password="password"
+        hashed_password="hashed_password"
     )
     jonathan = User(
         email="jonathan@user.com",
@@ -47,7 +47,7 @@ def seed_users():
         birth_date="1984/09/06",
         img_url="url",
         gender="gender",
-        password="password"
+        hashed_password="hashed_password"
     )
 
     db.session.add(demo)
