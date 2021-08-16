@@ -1,4 +1,5 @@
-from app.models import db, User
+from app.models import db
+from app.models.user import User
 
 
 # Adds a demo user, you can add other users here if you want

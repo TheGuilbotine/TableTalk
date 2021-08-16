@@ -1,4 +1,5 @@
-from app.models import Cuisine, db
+from app.models import db
+from app.models.cuisine import Cuisine
 
 
 def seed_cuisines():

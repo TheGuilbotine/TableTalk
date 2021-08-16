@@ -11,4 +11,4 @@ class Business(db.Model):
     last_name = db.Column(db.String(50), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    restaurants = db.relationship("Restaurant", back_populate="business")
+    restaurants = db.relationship("Restaurant", back_populates="business")

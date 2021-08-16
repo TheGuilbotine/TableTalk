@@ -1,4 +1,5 @@
-from app.models import Address, db
+from app.models import db
+from app.models.address import Address
 
 # address_line_two not needed because can be false?
 

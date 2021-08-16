@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
-from app.models import Business
+from app.models.business import Business
 
 
 def business_user_exists(form, field):
@@ -10,14 +10,6 @@ def business_user_exists(form, field):
     user = Business.query.filter(Business.email == email).first()
     if user:
         raise ValidationError('Email address is already in use.')
-
-
-# def username_exists(form, field):
-#     # Checking if username is already in use
-#     username = field.data
-#     user = User.query.filter(User.username == username).first()
-#     if user:
-#         raise ValidationError('Username is already in use.')
 
 
 def business_name_exists(form, field):
@@ -33,7 +25,7 @@ class BusinessSignUpForm(FlaskForm):
     # username = StringField(
     #     'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[
-                        DataRequired(), business_user_exists])
+                        DataRequired(), business_user_exists, Email()])
     business_name = StringField(
         "Business Name", validators=[business_name_exists])
     first_name = StringField("First Name")

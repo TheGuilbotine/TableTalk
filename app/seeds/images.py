@@ -1,4 +1,5 @@
-from app.models import Image, db
+from app.models import db
+from app.models.images import Image
 
 
 def seed_images():

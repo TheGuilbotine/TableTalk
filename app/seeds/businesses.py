@@ -1,4 +1,5 @@
-from app.models import Business, db
+from app.models import db
+from app.models.business import Business
 
 
 def seed_businesses():

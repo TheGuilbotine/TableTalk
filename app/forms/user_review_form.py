@@ -2,7 +2,7 @@ from typing import Text
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
-from app.models import UserReview
+# from app.models.user_reviews import UserReview
 
 
 class UserReviewForm(FlaskForm):
