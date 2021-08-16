@@ -9,7 +9,6 @@ from .models import db, User
 # , Address, BusinessReview, Business, Cuisine, Image, Reservation, RestaurantReview, Restaurant, Reward, UserReview
 from .api.routes.user_routes import user_routes
 from .api.routes.auth_routes import auth_routes
-from .api.routes.home_routes import home_routes
 from .api.routes.business_routes import business_routes
 
 from .seeds import seed_commands
@@ -32,7 +31,6 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
-app.register_blueprint(home_routes, url_prefix='/api/')
 app.register_blueprint(business_routes, url_prefix='/api/business')
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')

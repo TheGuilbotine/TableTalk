@@ -3,10 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const UserSignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
+  const [imgUrl, setImgUrl] = useState('')
+  const [gender, setGender] = useState('')
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -22,12 +26,28 @@ const SignUpForm = () => {
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateBirthDate = (e) => {
+    setBirthDate(e.target.value);
+  };
+
+  const updateImgUrl = (e) => {
+    setImgUrl(e.target.value);
+  };
+
+  const updateGender = (e) => {
+    setGender(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -50,22 +70,56 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
         <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
+          placeHolder = 'Email Address'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'First Name'
+          type='text'
+          name='firstName'
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Last Name'
+          type='text'
+          name='lastName'
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Birth Date'
+          type='text'
+          name='birthDate'
+          onChange={updateBirthDate}
+          value={birthDate}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Image URL'
+          type='text'
+          name='imgUrl'
+          onChange={updateImgUrl}
+          value={imgUrl}
+        ></input>
+      </div>
+      <div>
+        <select value={gender} onChange={updateGender}>
+          <option value='Male'>Male</option>
+          <option value='Female'>Female</option>
+          <option value='Prefer not to answer'>Prefer not to answer</option>
+        </select>
       </div>
       <div>
         <label>Password</label>
@@ -91,4 +145,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default UserSignUpForm;
