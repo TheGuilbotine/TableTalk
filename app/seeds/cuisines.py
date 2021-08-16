@@ -1,4 +1,4 @@
-from app.models import cuisine, db
+from app.models import Cuisine, db
 
 
 def seed_cuisines():
@@ -30,5 +30,5 @@ def seed_cuisines():
 
 
 def undo_cuisines():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE cuisines RESTART IDENTITY CASCADE;')
     db.session.commit()

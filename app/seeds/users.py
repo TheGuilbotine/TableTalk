@@ -16,7 +16,7 @@ def seed_users():
         email="monte@user.com",
         first_name="Monte",
         last_name="Flagg",
-        birth_date="12/04/1985",
+        birth_date="1985/12/04",
         img_url="https=//i.imgur.com/VMYPjVw.jpg",
         gender="Male",
         password="password"
@@ -25,7 +25,7 @@ def seed_users():
         email="sunny@user.com",
         first_name="Sunny",
         last_name="Mallick",
-        birth_date="06/24/1996",
+        birth_date="1996/06/24",
         img_url="url",
         gender="Male",
         password="password"
@@ -34,7 +34,7 @@ def seed_users():
         email="pierre@user.com",
         first_name="Pierre",
         last_name="Guilbault",
-        birth_date="09/11/1989",
+        birth_date="1989/09/11",
         img_url="url",
         gender="Male",
         password="password"
@@ -43,7 +43,7 @@ def seed_users():
         email="jonathan@user.com",
         first_name="Jonathan",
         last_name="Borja",
-        birth_date="09/06/1984",
+        birth_date="1984/09/06",
         img_url="url",
         gender="gender",
         password="password"
