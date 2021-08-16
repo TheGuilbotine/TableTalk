@@ -7,5 +7,5 @@ class Cuisine(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(30))
 
-    # TODO add options for Asian Fusion or make Many to Many
+    # TODO add options for Asian Fusion or make Many to Many FUTURE
     restaurants = db.relationship("Restaurant", back_populates="cuisine")
