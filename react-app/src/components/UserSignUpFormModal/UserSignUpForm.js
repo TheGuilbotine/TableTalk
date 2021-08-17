@@ -76,6 +76,7 @@ const UserSignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -85,6 +86,7 @@ const UserSignUpForm = () => {
           name='firstName'
           onChange={updateFirstName}
           value={firstName}
+          required={true}
         ></input>
       </div>
       <div>
@@ -94,6 +96,7 @@ const UserSignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={lastName}
+          required={true}
         ></input>
       </div>
       <div>
@@ -103,6 +106,7 @@ const UserSignUpForm = () => {
           name='birthDate'
           onChange={updateBirthDate}
           value={birthDate}
+          required={true}
         ></input>
       </div>
       <div>
@@ -115,7 +119,7 @@ const UserSignUpForm = () => {
         ></input>
       </div>
       <div>
-        <select value={gender} onChange={updateGender}>
+        <select value={gender} onChange={updateGender} required={true}>
           <option value='Male'>Male</option>
           <option value='Female'>Female</option>
           <option value='Prefer not to answer'>Prefer not to answer</option>
@@ -128,6 +132,7 @@ const UserSignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>

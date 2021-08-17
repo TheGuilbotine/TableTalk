@@ -11,6 +11,19 @@ const BusinessSignUpForm = () => {
   const [businessName, setBusinessName] = useState('')
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [restaurantName, setRestaurantName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [cuisineType, setCuisineType] = useState('');
+  const [description, setDescription] = useState('');
+  const [priceRange, setPriceRange] = useState(1);
+  const [addressLineOne, setAddressLineOne] = useState('');
+  const [addressLineTwo, setAddressLineTwo] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [country, setCountry] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
+  // TODO ask what this does?
   const business = useSelector(state => state.session.business);
   const dispatch = useDispatch();
 
@@ -47,6 +60,42 @@ const BusinessSignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+  const updateRestaurantName = (e) => {
+    setRestaurantName(e.target.value);
+  };
+  const updatePhoneNumber = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+  const updateCuisineType = (e) => {
+    setCuisineType(e.target.value);
+  };
+  const updateDescription = (e) => {
+    setDescription(e.target.value);
+  };
+  const updatePriceRange = (e) => {
+    setPriceRange(e.target.value);
+  };
+  const updateAddressLineOne = (e) => {
+    setAddressLineOne(e.target.value);
+  };
+  const updateAddressLineTwo = (e) => {
+    setAddressLineTwo(e.target.value);
+  };
+  const updateCity = (e) => {
+    setCity(e.target.value);
+  };
+  const updateCountry = (e) => {
+    setCountry(e.target.value);
+  };
+  const updateState = (e) => {
+    setState(e.target.value);
+  };
+  const updatePostalCode = (e) => {
+    setPostalCode(e.target.value);
+  };
+  const updateImgUrl = (e) => {
+    setImgUrl(e.target.value);
+  };
 
   if (business) {
     return <Redirect to='/business' />;
@@ -66,6 +115,7 @@ const BusinessSignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -102,6 +152,7 @@ const BusinessSignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
@@ -113,7 +164,134 @@ const BusinessSignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
+      <div>
       </div>
+        <input
+          placeHolder = 'Restaurant Name'
+          type='text'
+          name='restaurantName'
+          onChange={updateRestaurantName}
+          value={restaurantName}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Phone Number'
+          type='text'
+          name='phoneNumber'
+          onChange={updatePhoneNumber}
+          value={phoneNumber}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <select value={cuisineType} onChange={updateCuisineType} required={true}>
+          {/*  TODO check that values are capitalized */}
+          <option value='American'>Sushi</option>
+          <option value='BBQ'>BBQ</option>
+          <option value='Brazilian'>Italian</option>
+          <option value='French'>Vegan</option>
+          <option value='Indian'>French</option>
+          <option value='Italian'>Vietnamese</option>
+          <option value='Korean'>Korean</option>
+          <option value='Southern'>American</option>
+          <option value='Sushi'>Southern</option>
+          <option value='Thai'>Indian</option>
+          <option value='Vegan'>Sushi</option>
+          <option value='Vietnamese'>Sushi</option>
+        </select>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Description'
+          type='text'
+          name='description'
+          onChange={updateDescription}
+          value={description}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Price'
+          type='number'
+          name='priceRange'
+          onChange={updatePriceRange}
+          value={priceRange}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Address Line One'
+          type='text'
+          name='addressLineOne'
+          onChange={updateAddressLineOne}
+          value={addressLineOne}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Address Line Two'
+          type='text'
+          name='addressLineTwo'
+          onChange={updateAddressLineTwo}
+          value={addressLineTwo}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'City'
+          type='text'
+          name='city'
+          onChange={updateCity}
+          value={city}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'State'
+          type='text'
+          name='state'
+          onChange={updateState}
+          value={state}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Zip Code'
+          type='text'
+          name='postalCode'
+          onChange={updatePostalCode}
+          value={postalCode}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Country'
+          type='text'
+          name='country'
+          onChange={updateCountry}
+          value={country}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeHolder = 'Image URL'
+          type='text'
+          name='imgUrl'
+          onChange={updateImgUrl}
+          value={imgUrl}
+          required={true}
+        ></input>
+      </div>
+      {/* TODO add a button to render another image input field */}
       <button type='submit'>Sign Up</button>
     </form>
   );

@@ -16,7 +16,7 @@ def restaurant_name_exists(form, field):
     # Checking if restaurantname is already in use
     restaurant_name = field.data
     restaurant = Restaurant.query.filter(
-        Restaurant.name == restaurant_name).first()
+        Restaurant.restaurant_name == restaurant_name).first()
     if restaurant:
         raise ValidationError('Restaurant name is already in use.')
 
@@ -31,13 +31,16 @@ def phone_number_exists(form, field):
 
 
 class RestaurantForm(FlaskForm):
-    name = StringField("Restaurant Name", validators=[
-                       DataRequired(), restaurant_name_exists])
+    restaurant_name = StringField("Restaurant Name", validators=[
+        DataRequired(), restaurant_name_exists])
     phone_number = StringField("Phone Number", validators=[
                                DataRequired(), phone_number_exists])
     # TODO make dynamic
     cuisine_type = SelectField('Cuisine Type', choices=[
-                               'Sushi', 'BBQ', 'Italian', 'Thai', 'Vegan', 'French', 'Vietnamese', 'Korean', 'American', 'Southern', 'Indian'], validate_choice=True)
+                               'Sushi', 'BBQ', 'Italian',
+                               'Thai', 'Vegan', 'French',
+                               'Vietnamese', 'Korean', 'American',
+                               'Southern', 'Indian', 'Brazilian'], validate_choice=True)
     description = TextField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
                               "$ - under $10 per plate", "$$ - $11-$20 per plate", "$$$ - $21 -$30 per plate", "$$$$ - $31 + per plate"], validators=[DataRequired()])
