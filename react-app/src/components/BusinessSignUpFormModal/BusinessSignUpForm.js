@@ -110,7 +110,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = "Email Address"
+          placeholder = "Email Address"
           type='text'
           name='email'
           onChange={updateEmail}
@@ -120,7 +120,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'First Name'
+          placeholder = 'First Name'
           type='text'
           name='firstName'
           onChange={updateFirstName}
@@ -129,7 +129,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Last Name'
+          placeholder = 'Last Name'
           type='text'
           name='lastName'
           onChange={updateLastName}
@@ -138,7 +138,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Business Name'
+          placeholder = 'Business Name'
           type='text'
           name='businessName'
           onChange={updateBusinessName}
@@ -147,7 +147,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Password'
+          placeholder = 'Password'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -157,7 +157,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Confirm Password'
+          placeholder = 'Confirm Password'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -167,7 +167,7 @@ const BusinessSignUpForm = () => {
       <div>
       </div>
         <input
-          placeHolder = 'Restaurant Name'
+          placeholder = 'Restaurant Name'
           type='text'
           name='restaurantName'
           onChange={updateRestaurantName}
@@ -177,7 +177,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Phone Number'
+          placeholder = 'Phone Number'
           type='text'
           name='phoneNumber'
           onChange={updatePhoneNumber}
@@ -204,7 +204,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Description'
+          placeholder = 'Description'
           type='text'
           name='description'
           onChange={updateDescription}
@@ -214,7 +214,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Price'
+          placeholder = 'Price'
           type='number'
           name='priceRange'
           onChange={updatePriceRange}
@@ -224,7 +224,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Address Line One'
+          placeholder = 'Address Line One'
           type='text'
           name='addressLineOne'
           onChange={updateAddressLineOne}
@@ -234,7 +234,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Address Line Two'
+          placeholder = 'Address Line Two'
           type='text'
           name='addressLineTwo'
           onChange={updateAddressLineTwo}
@@ -243,7 +243,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'City'
+          placeholder = 'City'
           type='text'
           name='city'
           onChange={updateCity}
@@ -253,7 +253,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'State'
+          placeholder = 'State'
           type='text'
           name='state'
           onChange={updateState}
@@ -263,7 +263,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Zip Code'
+          placeholder = 'Zip Code'
           type='text'
           name='postalCode'
           onChange={updatePostalCode}
@@ -273,7 +273,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Country'
+          placeholder = 'Country'
           type='text'
           name='country'
           onChange={updateCountry}
@@ -283,7 +283,7 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Image URL'
+          placeholder = 'Image URL'
           type='text'
           name='imgUrl'
           onChange={updateImgUrl}

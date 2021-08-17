@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, TextField, PasswordField, SubmitField
+from wtforms import StringField, IntegerField, TextField, PasswordField, SubmitField, SelectField, DateField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models.user import User
 
@@ -26,9 +26,8 @@ class UserSignUpForm(FlaskForm):
     email = StringField('email', validators=[DataRequired(), user_exists])
     first_name = StringField("First Name", validators=[DataRequired()])
     last_name = StringField("Last Name", validators=[DataRequired()])
-    birth_date = IntegerField("Birth Date", validators=[DataRequired()])
-    img_url = TextField("Profile Photo")
-    gender = StringField("Gender", choices=[
-                         "Male", "Female", "Prefer not to answer"])
+    birth_date = DateField("Birth Date", validators=[DataRequired()])
     hashed_password = PasswordField('password', validators=[DataRequired()])
-    submit = SubmitField('Sign Up')
+    img_url = TextField("Img URL")
+    gender = SelectField("Gender", choices=[
+                         "Male", "Female", "Prefer not to answer"], validators=[DataRequired()])
