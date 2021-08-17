@@ -1,0 +1,59 @@
+.nav-container {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  background-color: #312C80;
+  box-shadow: 2px 0 15px 2px rgba(31, 31, 31, 0.25);
+}
+
+.left-nav {
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.logo {
+  width: 9em;
+  height: auto;
+  padding: 3px;
+  margin-left: 0px;
+  margin-top: 7px;
+}
+
+.search-input {
+  border-radius: 20px;
+  padding: 7px;
+  width: 300px;
+  margin-top: 17px;
+  border: .5px solid gray;
+}
+
+.right-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  margin-right: 30px;
+  margin-top: 15px;
+}
+
+.are-you-a-business {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-button {
+  height: 20px;
+  color: white;
+  border: 1px solid white;
+  padding-bottom: 0px;
+  cursor: pointer;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
