@@ -93,6 +93,8 @@ def business_sign_up():
             last_name=form.data['last_name'],
             hashed_password=form.data['hashed_password']
         )
+        db.session.add(business)
+        db.session.commit()
         address = Address(
             address_line_one=form.data['address_line_one'],
             address_line_two=form.data['address_line_two'],
@@ -101,19 +103,23 @@ def business_sign_up():
             postal_code=form.data['postal_code'],
             country=form.data['country'],
         )
+        db.session.add(address)
+        db.session.commit()
         restaurant = Restaurant(
+            business_id=business.id,
             restaurant_name=form.data['restaurant_name'],
+            address_id=address.id,
             phone_number=form.data['phone_number'],
-            cuisine_type=form.data['cuisine_type'],
+            cuisine_id=form.data['cuisine_id'],
             description=form.data['description'],
             price_range=form.data['price_range'],
         )
-        image = Image(
-            img_url=form.data['img_url']
-        )
-        db.session.add(business)
-        db.session.add(address)
         db.session.add(restaurant)
+        db.session.commit()
+        image = Image(
+            img_url=form.data['img_url'],
+            restaurant_id=restaurant.id
+        ) 
         db.session.add(image)
         db.session.commit()
         login_user(business)

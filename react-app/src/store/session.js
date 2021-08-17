@@ -121,7 +121,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         country,
         restaurant_name: restaurantName,
         phone_number: phoneNumber,
-        cuisine_type: cuisineType,
+        cuisine_id: cuisineType,
         description,
         price_range: priceRange,
         img_url: imgUrl

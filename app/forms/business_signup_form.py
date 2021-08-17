@@ -43,14 +43,10 @@ class BusinessSignUpForm(FlaskForm):
         DataRequired()])
     phone_number = StringField("Phone Number", validators=[
                                DataRequired(), phone_number_exists])
-    cuisine_type = SelectField('Cuisine Type', choices=[
-                               'Sushi', 'BBQ', 'Italian',
-                               'Thai', 'Vegan', 'French',
-                               'Vietnamese', 'Korean', 'American',
-                               'Southern', 'Indian', 'Brazilian'], validate_choice=True)
+    cuisine_id = SelectField('Cuisine Type', choices=[1], validate_choice=True)
     description = TextAreaField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
-                              "$ - under $10 per plate", "$$ - $11-$20 per plate", "$$$ - $21 -$30 per plate", "$$$$ - $31 + per plate"], validators=[DataRequired()])
+                              "1", "2", "3", "4"], validators=[DataRequired()])
     address_line_one = StringField(
         'Address Line 1', validators=[DataRequired()])
     address_line_two = StringField('Address Line 2')
@@ -58,6 +54,6 @@ class BusinessSignUpForm(FlaskForm):
     state = StringField('State', validators=[DataRequired()])
     postal_code = IntegerField('Zip Code', validators=[DataRequired()])
     country = StringField('Country', validators=[DataRequired()])
-    image_url = TextField('Image URL', validators=[DataRequired()])
+    img_url = TextField('Image URL', validators=[DataRequired()])
     hashed_password = PasswordField('password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
