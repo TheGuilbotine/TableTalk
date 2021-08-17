@@ -1,7 +1,6 @@
 from flask import Blueprint, redirect, jsonify
 
 from app.forms.business_signup_form import BusinessSignUpForm
-from app.forms.login_form import LoginForm
 from app.forms.restaurant_form import RestaurantForm
 from app.models.business import Business
 from app.models import db

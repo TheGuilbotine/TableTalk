@@ -11,7 +11,7 @@ from flask_login import UserMixin
 #     email = db.Column(db.String(255), nullable=False, unique=True)
 #     hashed_password = db.Column(db.String(255), nullable=False)
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -45,12 +45,12 @@ class User(db.Model):
         return {
             'id': self.id,
             'email': self.email,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'birth_date': self.birth_date,
-            'img_url': self.img_url,
-            'gender': self.gender,
-            'hashed_password': self.hashed_password,
+            # 'first_name': self.first_name,
+            # 'last_name': self.last_name,
+            # 'birth_date': self.birth_date,
+            # 'img_url': self.img_url,
+            # 'gender': self.gender,
+            # 'hashed_password': self.hashed_password,
             # 'reservations': self.reservations,
             # 'restaurant_reviews': self.restaurant_reviews,
             # 'user_reviews': self.user_reviews,
