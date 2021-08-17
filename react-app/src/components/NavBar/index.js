@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session'
 import LogoutButton from '../auth/LogoutButton';
 import UserSignUpFormModal from '../UserSignUpFormModal';
+import UserLoginModal from '../UserLoginModal';
 import BusinessSignUpFormModal from '../BusinessSignUpFormModal';
 import './NavBar.css';
 
@@ -20,7 +20,7 @@ function NavBar() {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to='/users' className="add-accommodation-link">My Profile</NavLink>
+        <NavLink to='/users' className="my-profile">My Profile</NavLink>
         <LogoutButton />
       </>
       );
@@ -31,9 +31,10 @@ function NavBar() {
         <NavLink to='/business' className='are-you-a-business' exact={true} activeClassName='active'>
           Are you a business?
         </NavLink>
-        <NavLink to='/login' className='login-button' exact={true} activeClassName='active'>
+        {/* <NavLink to='/login' className='login-button' exact={true} activeClassName='active'>
           Login
-        </NavLink>
+        </NavLink> */}
+        <UserLoginModal />
         <UserSignUpFormModal />
       </>
     );
