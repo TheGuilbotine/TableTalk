@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import {createBrowserHistory} from "history"
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
 import UserSignUpForm from './components/UserSignUpFormModal/UserSignUpForm';
 import BusinessSignUpForm from './components/BusinessSignUpFormModal/BusinessSignUpForm';
 import NavBar from './components/NavBar/index';
