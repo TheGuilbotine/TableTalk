@@ -13,7 +13,7 @@ function NavBar() {
   const dispatch = useDispatch()
 
   const demoLogin = () => {
-    return dispatch(sessionActions.login({ credential: 'Demo', password: 'password' }))
+    return dispatch(sessionActions.login({ credential: 'demo@user.com', password: 'password' }))
   }
 
   let sessionLinks;
