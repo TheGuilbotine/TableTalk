@@ -50,5 +50,10 @@ class User(db.Model):
             'birth_date': self.birth_date,
             'img_url': self.img_url,
             'gender': self.gender,
-            'hashed_password': self.hashed_password
+            'hashed_password': self.hashed_password,
+            # 'reservations': self.reservations,
+            # 'restaurant_reviews': self.restaurant_reviews,
+            # 'user_reviews': self.user_reviews,
+            # 'image': self.image,
+            # 'rewards': self.rewards
         }
