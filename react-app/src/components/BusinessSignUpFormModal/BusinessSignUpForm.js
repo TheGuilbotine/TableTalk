@@ -190,16 +190,16 @@ const BusinessSignUpForm = () => {
           {/*  TODO check that values are capitalized */}
           <option value='American'>Sushi</option>
           <option value='BBQ'>BBQ</option>
-          <option value='Brazilian'>Italian</option>
-          <option value='French'>Vegan</option>
-          <option value='Indian'>French</option>
-          <option value='Italian'>Vietnamese</option>
+          <option value='Brazilian'>Brazilian</option>
+          <option value='French'>French</option>
+          <option value='Indian'>Indian</option>
+          <option value='Italian'>Italian</option>
           <option value='Korean'>Korean</option>
-          <option value='Southern'>American</option>
-          <option value='Sushi'>Southern</option>
-          <option value='Thai'>Indian</option>
-          <option value='Vegan'>Sushi</option>
-          <option value='Vietnamese'>Sushi</option>
+          <option value='Southern'>Southern</option>
+          <option value='Sushi'>Sushi</option>
+          <option value='Thai'>Thai</option>
+          <option value='Vegan'>Vegan</option>
+          <option value='Vietnamese'>Vietnamese</option>
         </select>
       </div>
       <div>

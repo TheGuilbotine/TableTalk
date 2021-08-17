@@ -9,3 +9,10 @@ class Cuisine(db.Model):
 
     # TODO add options for Asian Fusion or make Many to Many FUTURE
     restaurants = db.relationship("Restaurant", back_populates="cuisine")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'type': self.type,
+            # 'restaurants': self.restaurants
+        }

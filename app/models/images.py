@@ -18,3 +18,15 @@ class Image(db.Model):
         "UserReview", back_populates="image")
     restaurant_review = db.relationship(
         "RestaurantReview", back_populates="image")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'img_url': self.img_url,
+            'restaurant_id': self.restaurant_id,
+            'user_id': self.user_id,
+            # 'restaurant': self.restaurant,
+            # 'user': self.user,
+            # 'user_review': self.user_review,
+            # 'restaurant_review': self.restaurant_review
+        }

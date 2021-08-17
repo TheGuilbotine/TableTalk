@@ -17,3 +17,13 @@ class Reward(db.Model):
 
     user = db.relationship("User", back_populates="rewards")
     restaurant = db.relationship("Restaurant", back_populates="reward")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'restaurant_id': self.restaurant_id,
+            'rewards_amount': self.rewards_amount,
+            # 'user': self.user,
+            # 'restaurant': self.restaurant
+        }
