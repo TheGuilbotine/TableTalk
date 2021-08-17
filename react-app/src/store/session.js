@@ -30,7 +30,7 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const login = (email, password) => async (dispatch) => {
-  const response = await fetch('/api/auth/login', {
+  const response = await fetch('/api/auth/user/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -57,8 +57,8 @@ export const login = (email, password) => async (dispatch) => {
 
 }
 
-export const logout = () => async (dispatch) => {
-  const response = await fetch('/api/auth/logout', {
+export const userLogout = () => async (dispatch) => {
+  const response = await fetch('/api/auth/user/logout', {
     headers: {
       'Content-Type': 'application/json',
     }
@@ -70,7 +70,7 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (email, firstName, lastName, birthDate, imgUrl, gender, password) => async (dispatch) => {
+export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender, password) => async (dispatch) => {
   const response = await fetch('/api/auth/user/signup', {
     method: 'POST',
     headers: {
@@ -100,6 +100,48 @@ export const signUp = (email, firstName, lastName, birthDate, imgUrl, gender, pa
     return ['An error occurred. Please try again.']
   }
 }
+
+export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
+  const response = await fetch('/api/auth/business/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        email,
+        business_name: businessName,
+        first_name: firstName,
+        last_name: lastName,
+        hashed_password: password,
+        address_line_one: addressLineOne,
+        address_line_two: addressLineTwo,
+        city,
+        state,
+        postal_code: postalCode,
+        country,
+        restaurant_name: restaurantName,
+        phone_number: phoneNumber,
+        cuisine_id: cuisineType,
+        description,
+        price_range: priceRange,
+        img_url: imgUrl
+    }),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {

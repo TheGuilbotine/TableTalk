@@ -1,8 +1,13 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import db
 from app.models.user import User
+from app.models.business import Business
+from app.models.address import Address
+from app.models.restaurant import Restaurant
+from app.models.images import Image
 from app.forms.user_login_form import UserLoginForm
 from app.forms.user_signup_form import UserSignUpForm
+from app.forms.business_signup_form import BusinessSignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -29,7 +34,7 @@ def authenticate():
     return {'errors': ['Unauthorized']}
 
 
-@auth_routes.route('/login', methods=['POST'])
+@auth_routes.route('/user/login', methods=['POST'])
 def login():
     """
     Logs a user in
@@ -46,13 +51,7 @@ def login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@auth_routes.route('/logout')
-def logout():
-    """
-    Logs a user out
-    """
-    logout_user()
-    return {'message': 'User logged out'}
+
 
 
 @auth_routes.route('/user/signup', methods=['POST'])
@@ -77,6 +76,74 @@ def sign_up():
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@auth_routes.route('/business/signup', methods=['POST'])
+def business_sign_up():
+    """
+    Creates a new business and logs them in
+    """
+    form = BusinessSignUpForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        business = Business(
+            email=form.data['email'],
+            business_name=form.data['business_name'],
+            first_name=form.data['first_name'],
+            last_name=form.data['last_name'],
+            hashed_password=form.data['hashed_password']
+        )
+        db.session.add(business)
+        db.session.commit()
+        address = Address(
+            address_line_one=form.data['address_line_one'],
+            address_line_two=form.data['address_line_two'],
+            city=form.data['city'],
+            state=form.data['state'],
+            postal_code=form.data['postal_code'],
+            country=form.data['country'],
+        )
+        db.session.add(address)
+        db.session.commit()
+        restaurant = Restaurant(
+            business_id=business.id,
+            restaurant_name=form.data['restaurant_name'],
+            address_id=address.id,
+            phone_number=form.data['phone_number'],
+            cuisine_id=form.data['cuisine_id'],
+            description=form.data['description'],
+            price_range=form.data['price_range'],
+        )
+        db.session.add(restaurant)
+        db.session.commit()
+        image = Image(
+            img_url=form.data['img_url'],
+            restaurant_id=restaurant.id
+        ) 
+        db.session.add(image)
+        db.session.commit()
+        login_user(business)
+        return {**business.to_dict(), **address.to_dict(), **restaurant.to_dict(), **image.to_dict()}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@auth_routes.route('/user/logout')
+def user_logout():
+    """
+    Logs a user out
+    """
+    logout_user()
+    return {'message': 'User logged out'}
+
+@auth_routes.route('/business/logout')
+def business_logout():
+    """
+    Logs a business out
+    """
+    logout_user()
+    return {'message': 'Business logged out'}
+
+
 
 
 @auth_routes.route('/unauthorized')

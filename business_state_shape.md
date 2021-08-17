@@ -19,7 +19,7 @@
          address_id: 1,
          business_id: 1,
          description: "description",
-         price_range: 2,
+         price_range: "2",
          cuisine_id: 1
       },
    restaurant_reviews: {
