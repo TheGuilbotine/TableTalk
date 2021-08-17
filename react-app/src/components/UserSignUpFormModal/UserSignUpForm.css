@@ -1,9 +1,10 @@
 #menu-signup-button {
-  height: 20px;
+  height: auto;
   color: white;
   border: 1px solid white;
   padding-bottom: 0px;
   cursor: pointer;
   padding: 5px;
   margin-left: 10px;
+  margin-bottom: 21px;
 }

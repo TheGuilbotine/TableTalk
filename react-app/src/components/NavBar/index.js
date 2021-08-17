@@ -50,7 +50,7 @@ function NavBar() {
       <div className="mid-nav">
         <div className="search-bar-container">
           <form>
-            <input placeHolder="         Search for restaurants or cuisines" className="search-input"></input>
+            <input placeHolder="Search for restaurants or cuisines" className="search-input"></input>
           </form>
         </div>
       </div>

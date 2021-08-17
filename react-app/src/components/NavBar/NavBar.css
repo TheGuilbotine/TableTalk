@@ -24,6 +24,7 @@
 }
 
 .search-input {
+  text-align: center;
   border-radius: 20px;
   padding: 7px;
   width: 300px;
@@ -45,6 +46,7 @@
   text-decoration: none;
   cursor: pointer;
   margin-top: 10px;
+  text-align: center;
 }
 
 .login-button {
