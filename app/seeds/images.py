@@ -3,142 +3,142 @@ from app.models.images import Image
 
 
 def seed_images():
-    image1 = Image(
+    image1a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Crazy+Rockn+Sushi/Crazy-Rockn-Sushi.jpg", restaurant_id=1)
-    image2 = Image(
+    image1b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Crazy+Rockn+Sushi/crazyinside.jpeg", restaurant_id=1)
-    image3 = Image(
+    image1c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Crazy+Rockn+Sushi/images+(1).jpeg", restaurant_id=1)
-    image4 = Image(
+    image1d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Crazy+Rockn+Sushi/images.jpeg", restaurant_id=1)
-    image5 = Image(
+    image2a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Canyon+City+BBQ/unnamed.jpeg", restaurant_id=2)
-    image6 = Image(
+    image2b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Canyon+City+BBQ/inside.jpeg", restaurant_id=2)
-    image7 = Image(
+    image2c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Canyon+City+BBQ/gif3.jpeg", restaurant_id=2)
-    image8 = Image(
+    image2d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Canyon+City+BBQ/gif2.jpeg", restaurant_id=2)
-    image9 = Image(
+    image3a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/President+Thai/restaurant-exterior.jpeg", restaurant_id=3)
-    image10 = Image(
+    image3b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/President+Thai/inside.jpeg", restaurant_id=3)
-    image11 = Image(
+    image3c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/President+Thai/Pad-Thai-Seafood-retitled.jpeg", restaurant_id=3)
-    image12 = Image(
+    image3d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/President+Thai/Pad-See-Ew-Lunch-website.jpeg", restaurant_id=3)
-    image13 = Image(
+    image4a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Park+Cafe/outside-pic.png", restaurant_id=4)
-    image14 = Image(
+    image4b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Park+Cafe/inside-pic.png", restaurant_id=4)
-    image15 = Image(
+    image4c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Park+Cafe/food-pic.png", restaurant_id=4)
-    image16 = Image(
+    image5a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/My+Thai/outside.png", restaurant_id=5)
-    image17 = Image(
+    image5b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/My+Thai/inside.png", restaurant_id=5)
-    image18 = Image(
+    image5c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/My+Thai/food-pic.jpeg", restaurant_id=5)
-    image19 = Image(
+    image6a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Saffron+Valley/outside-pic.png", restaurant_id=6)
-    image20 = Image(
+    image6b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Saffron+Valley/inside-pic.png", restaurant_id=6)
-    image21 = Image(
+    image6c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Saffron+Valley/food-pic.jpeg", restaurant_id=6)
-    image22 = Image(
+    image7a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Meatball+Shop/outside.jpeg", restaurant_id=7)
-    image23 = Image(
+    image7b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Meatball+Shop/inside.jpeg", restaurant_id=7)
-    image24 = Image(
+    image7c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Meatball+Shop/meal1.jpeg", restaurant_id=7)
-    image25 = Image(
+    image7d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Meatball+Shop/meal2.jpeg", restaurant_id=7)
-    image26 = Image(
+    image8a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Sweet+Potatoes/outside.jpeg", restaurant_id=8)
-    image27 = Image(
+    image8b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Sweet+Potatoes/inside.jpg", restaurant_id=8)
-    image28 = Image(
+    image8c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Sweet+Potatoes/food1.jpeg", restaurant_id=8)
-    image29 = Image(
+    image8d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Sweet+Potatoes/food2.jpeg", restaurant_id=8)
-    image30 = Image(
+    image9a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Old+Fourth+Street+Filling+Station/outside1.jpeg", restaurant_id=9)
-    image31 = Image(
+    image9b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Old+Fourth+Street+Filling+Station/outside.jpeg", restaurant_id=9)
-    image32 = Image(
+    image9c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Old+Fourth+Street+Filling+Station/outside2.jpeg", restaurant_id=9)
-    image33 = Image(
+    image9d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/The+Old+Fourth+Street+Filling+Station/food1.jpeg", restaurant_id=9)
-    image34 = Image(
+    image10a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Texas/outside.jpeg", restaurant_id=10)
-    image35 = Image(
+    image10b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Texas/inside.jpeg", restaurant_id=10)
-    image36 = Image(
+    image10c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Texas/food2.jpeg", restaurant_id=10)
-    image37 = Image(
+    image10d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/Texas/food1.jpeg", restaurant_id=10)
-    image38 = Image(
+    image11a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/tucanos/outside.jpeg", restaurant_id=11)
-    image39 = Image(
+    image11b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/tucanos/inside.jpeg", restaurant_id=11)
-    image40 = Image(
+    image11c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/tucanos/food1.jpeg", restaurant_id=11)
-    image41 = Image(
+    image11d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/tucanos/food2.jpeg", restaurant_id=11)
-    image42 = Image(
+    image12a = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/flemings/outside.jpeg", restaurant_id=12)
-    image43 = Image(
+    image12b = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/flemings/inside_view.jpeg", restaurant_id=12)
-    image44 = Image(
+    image12c = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/flemings/food1.png", restaurant_id=12)
-    image45 = Image(
+    image12d = Image(
         img_url="https://tabletalkproject.s3.us-west-1.amazonaws.com/flemings/food2.jpeg", restaurant_id=12)
 
-    db.session.add(image1)
-    db.session.add(image2)
-    db.session.add(image3)
-    db.session.add(image4)
-    db.session.add(image5)
-    db.session.add(image6)
-    db.session.add(image7)
-    db.session.add(image8)
-    db.session.add(image9)
-    db.session.add(image10)
-    db.session.add(image11)
-    db.session.add(image12)
-    db.session.add(image13)
-    db.session.add(image14)
-    db.session.add(image15)
-    db.session.add(image16)
-    db.session.add(image17)
-    db.session.add(image18)
-    db.session.add(image19)
-    db.session.add(image20)
-    db.session.add(image21)
-    db.session.add(image22)
-    db.session.add(image23)
-    db.session.add(image24)
-    db.session.add(image25)
-    db.session.add(image26)
-    db.session.add(image27)
-    db.session.add(image28)
-    db.session.add(image29)
-    db.session.add(image30)
-    db.session.add(image31)
-    db.session.add(image32)
-    db.session.add(image33)
-    db.session.add(image34)
-    db.session.add(image35)
-    db.session.add(image36)
-    db.session.add(image37)
-    db.session.add(image38)
-    db.session.add(image39)
-    db.session.add(image40)
-    db.session.add(image41)
-    db.session.add(image42)
-    db.session.add(image43)
-    db.session.add(image44)
-    db.session.add(image45)
+    db.session.add(image1a)
+    db.session.add(image1b)
+    db.session.add(image1c)
+    db.session.add(image1d)
+    db.session.add(image2a)
+    db.session.add(image2b)
+    db.session.add(image2c)
+    db.session.add(image2d)
+    db.session.add(image3a)
+    db.session.add(image3b)
+    db.session.add(image3c)
+    db.session.add(image3d)
+    db.session.add(image4a)
+    db.session.add(image4b)
+    db.session.add(image4c)
+    db.session.add(image5a)
+    db.session.add(image5b)
+    db.session.add(image5c)
+    db.session.add(image6a)
+    db.session.add(image6b)
+    db.session.add(image6c)
+    db.session.add(image7a)
+    db.session.add(image7b)
+    db.session.add(image7c)
+    db.session.add(image7d)
+    db.session.add(image8a)
+    db.session.add(image8b)
+    db.session.add(image8c)
+    db.session.add(image8d)
+    db.session.add(image9a)
+    db.session.add(image9b)
+    db.session.add(image9c)
+    db.session.add(image9d)
+    db.session.add(image10a)
+    db.session.add(image10b)
+    db.session.add(image10c)
+    db.session.add(image10d)
+    db.session.add(image11a)
+    db.session.add(image11b)
+    db.session.add(image11c)
+    db.session.add(image11d)
+    db.session.add(image12a)
+    db.session.add(image12b)
+    db.session.add(image12c)
+    db.session.add(image12d)
 
     db.session.commit()
 

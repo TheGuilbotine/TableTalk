@@ -5,7 +5,7 @@ class Restaurant(db.Model):
     __tablename__ = "restaurants"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
+    restaurant_name = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.String(14), nullable=False, unique=True)
     description = db.Column(db.Text)
     price_range = db.Column(db.Integer, nullable=False)
