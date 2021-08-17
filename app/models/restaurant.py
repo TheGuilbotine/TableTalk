@@ -26,3 +26,22 @@ class Restaurant(db.Model):
     restaurant_reviews = db.relationship(
         "RestaurantReview", back_populates="restaurant")
     reward = db.relationship('Reward', back_populates='restaurant')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'restaurant_name': self.restaurant_name,
+            'phone_number': self.phone_number,
+            'description': self.description,
+            'price_range': self.price_range,
+            'address_id': self.address_id,
+            'business_id': self.business_id,
+            'cuisine_id': self.cuisine_id,
+            # 'address': self.address,
+            # 'business': self.business,
+            # 'cuisine': self.cuisine,
+            # 'image': self.images,
+            # 'reservations': self.reservations,
+            # 'restaurant_reviews': self.restaurant_reviews,
+            # 'reward': self.reward
+        }

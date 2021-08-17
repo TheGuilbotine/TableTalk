@@ -8,3 +8,10 @@ class BusinessReview(db.Model):
     business_id = db.Column(db.Integer, db.ForeignKey(
         "businesses.id"), nullable=False)
     comment = db.Column(db.String, nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'business_id': self.business_id,
+            'comment': self.comment
+        }

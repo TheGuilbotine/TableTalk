@@ -14,3 +14,15 @@ class Address(db.Model):
 
     restaurant = db.relationship(
         "Restaurant", back_populates="address")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'address_line_one': self.address_line_one,
+            'address_line_two': self.address_line_two,
+            'city': self.city,
+            'state': self.state,
+            'postal_code': self.postal_code,
+            'country': self.country,
+            # 'restaurant': self.restaurant
+        }
