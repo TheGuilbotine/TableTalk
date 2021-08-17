@@ -19,7 +19,7 @@ const UserSignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(email, password));
+      const data = await dispatch(signUp(email, firstName, lastName, birthDate, imgUrl, gender, password));
       if (data) {
         setErrors(data)
       }
@@ -71,7 +71,7 @@ const UserSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Email Address'
+          placeholder = 'Email Address'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -81,27 +81,27 @@ const UserSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'First Name'
+          placeholder = 'First Name'
           type='text'
           name='firstName'
           onChange={updateFirstName}
           value={firstName}
-          required={true}
+          required
         ></input>
       </div>
       <div>
         <input
-          placeHolder = 'Last Name'
+          placeholder = 'Last Name'
           type='text'
           name='lastName'
           onChange={updateLastName}
           value={lastName}
-          required={true}
+          required
         ></input>
       </div>
       <div>
         <input
-          placeHolder = 'Birth Date'
+          placeholder = 'Birth Date'
           type='text'
           name='birthDate'
           onChange={updateBirthDate}
@@ -111,15 +111,17 @@ const UserSignUpForm = () => {
       </div>
       <div>
         <input
-          placeHolder = 'Image URL'
+          placeholder = 'Image URL'
           type='text'
           name='imgUrl'
           onChange={updateImgUrl}
           value={imgUrl}
+          required={false}
         ></input>
       </div>
       <div>
         <select value={gender} onChange={updateGender} required={true}>
+          <option value="">Select gender</option>
           <option value='Male'>Male</option>
           <option value='Female'>Female</option>
           <option value='Prefer not to answer'>Prefer not to answer</option>
