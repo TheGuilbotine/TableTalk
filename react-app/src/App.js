@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import {createBrowserHistory} from "history"
 import { useDispatch } from 'react-redux';
-import UserSignUpForm from './components/UserSignUpFormModal/UserSignUpForm';
-import BusinessSignUpForm from './components/BusinessSignUpFormModal/BusinessSignUpForm';
+import BusinessHomePage from './components/BusinessHomePage'
 import NavBar from './components/NavBar/index';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -41,6 +40,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path='/business' exact={true}>
+          <BusinessHomePage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

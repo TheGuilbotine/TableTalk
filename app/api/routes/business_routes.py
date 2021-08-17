@@ -12,18 +12,3 @@ business_routes = Blueprint('business', __name__)
 def business_home():
     return '<h1> Table Talk Business </h1>'
 
-# Business SignUp
-
-@business_routes.route('/signup', methods=['POST'])
-def business_signup():
-    form = BusinessSignUpForm()
-    if form.validate_on_submit():
-        data = Business()
-        form.populate_obj(data)
-        db.session.add(data)
-        db.session.commit()
-        return redirect('/:id')
-    errors = form.errors
-    return errors
-
-# Business LogIn

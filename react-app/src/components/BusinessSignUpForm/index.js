@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { businessSignUp } from '../../store/session';
+import './BusinessSignUpForm.css' 
 
 const BusinessSignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -26,11 +27,11 @@ const BusinessSignUpForm = () => {
   // TODO ask what this does?
   const business = useSelector(state => state.session.business);
   const dispatch = useDispatch();
-
+  
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(email, password, firstName, lastName, businessName));
+      const data = await dispatch(businessSignUp(email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
       if (data) {
         setErrors(data)
       }
@@ -102,7 +103,7 @@ const BusinessSignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form onSubmit={onSignUp} className='business-signup-form'>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -187,8 +188,8 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <select value={cuisineType} onChange={updateCuisineType} required={true}>
-          {/*  TODO check that values are capitalized */}
-          <option value='American'>Sushi</option>
+          <option value=''>Choose Cuisine Type</option>
+          <option value='American'>American</option>
           <option value='BBQ'>BBQ</option>
           <option value='Brazilian'>Brazilian</option>
           <option value='French'>French</option>
@@ -203,14 +204,14 @@ const BusinessSignUpForm = () => {
         </select>
       </div>
       <div>
-        <input
+        <textarea
           placeholder = 'Description'
           type='text'
           name='description'
           onChange={updateDescription}
           value={description}
           required={true}
-        ></input>
+        ></textarea>
       </div>
       <div>
         <input
