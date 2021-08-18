@@ -165,9 +165,35 @@ const BusinessSignUpForm = () => {
               onChange={updateLastName}
               value={lastName}
             ></input>
+            <p>Restaurant Info:</p>
+            <select value={cuisineType} onChange={updateCuisineType} required={true}>
+              <option value="" disabled selected>Select Cuisine Type</option>
+              {CUISINES.map((cuisine) => (
+                <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
+              ))}
+              {/* <option value='American'>American</option>
+              <option value='BBQ'>BBQ</option>
+              <option value='Brazilian'>Brazilian</option>
+              <option value='French'>French</option>
+              <option value='Indian'>Indian</option>
+              <option value='Italian'>Italian</option>
+              <option value='Korean'>Korean</option>
+              <option value='Southern'>Southern</option>
+              <option value='Sushi'>Sushi</option>
+              <option value='Thai'>Thai</option>
+              <option value='Vegan'>Vegan</option>
+              <option value='Vietnamese'>Vietnamese</option>  */}
+            </select>
+            <select value={priceRange} onChange={updatePriceRange} required={true}>
+              <option value="" disabled selected>Select Price Range</option>
+              <option value='1'>$ - under $10 per plate</option>
+              <option value='2'>$$ - $11-$20 per plate</option>
+              <option value='3'>$$$ - $21 -$30 per plate</option>
+              <option value='4'>$$$$ - $31 + per plate</option>
+            </select>
           </div>
           <div className='restaurant-form-container'>
-            <p>Restaurant Info:</p>
+            <p>Restaurant Address:</p>
             <input
               placeholder = 'Restaurant Name'
               type='text'
@@ -240,6 +266,9 @@ const BusinessSignUpForm = () => {
               value={country}
               required={true}
             ></input>
+          </div>
+          <div className='bottom-form'>
+            <p>Restaurant description:</p>
             <textarea
               placeholder = 'Description'
               type='text'
@@ -248,33 +277,8 @@ const BusinessSignUpForm = () => {
               value={description}
               required={true}
             ></textarea>
-            <select value={cuisineType} onChange={updateCuisineType} required={true}>
-              <option value="" disabled selected>Select Cuisine Type</option>
-              {CUISINES.map((cuisine) => (
-                <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
-              ))}
-              {/* <option value='American'>American</option>
-              <option value='BBQ'>BBQ</option>
-              <option value='Brazilian'>Brazilian</option>
-              <option value='French'>French</option>
-              <option value='Indian'>Indian</option>
-              <option value='Italian'>Italian</option>
-              <option value='Korean'>Korean</option>
-              <option value='Southern'>Southern</option>
-              <option value='Sushi'>Sushi</option>
-              <option value='Thai'>Thai</option>
-              <option value='Vegan'>Vegan</option>
-              <option value='Vietnamese'>Vietnamese</option>  */}
-            </select>
-            <select value={priceRange} onChange={updatePriceRange} required={true}>
-              <option value="" disabled selected>Select Price Range</option>
-              <option value='1'>$ - under $10 per plate</option>
-              <option value='2'>$$ - $11-$20 per plate</option>
-              <option value='3'>$$$ - $21 -$30 per plate</option>
-              <option value='4'>$$$$ - $31 + per plate</option>
-            </select>
+            <button id="business-form-submit-button" type='submit'>Sign Up</button>
           </div>
-            <button className="business-form-submit-button" type='submit'>Sign Up</button>
         </form>
       </div>
     </div>

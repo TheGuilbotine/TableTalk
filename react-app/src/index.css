@@ -125,7 +125,7 @@ table {
   border-spacing: 0;
 }
 
-button {
+/* button {
   font-family: "Baloo 2", serif;
   background-color: #ee4036;
   color: white;
@@ -133,8 +133,8 @@ button {
   border: none;
   cursor: pointer;
   font-weight: 500;
-}
+} */
 
-button:hover {
+/* button:hover {
   background-color: #cd362e;
-}
+} */
