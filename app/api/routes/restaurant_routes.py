@@ -38,7 +38,7 @@ def restaurant(id):
 
 @restaurant_routes.route('/', methods=['POST'])
 @login_required
-def create_restaurant(id):
+def create_restaurant():
     """
     Creates a new restaurant
     """
@@ -48,10 +48,6 @@ def create_restaurant(id):
     print(form.data)
     print("========flags============")
     if form.validate_on_submit():
-        businessId = id
-        print("========flags============")
-        print(businessId)
-        print("========flags============")
         address = Address(
             address_line_one=form.data['address_line_one'],
             address_line_two=form.data['address_line_two'],
@@ -63,7 +59,7 @@ def create_restaurant(id):
         db.session.add(address)
         db.session.commit()
         restaurant = Restaurant(
-            business_id=businessId,
+            business_id=form.data['business_id'],
             restaurant_name=form.data['restaurant_name'],
             address_id=address.id,
             phone_number=form.data['phone_number'],
