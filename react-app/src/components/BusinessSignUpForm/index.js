@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { businessSignUp } from '../../store/session';
-import './BusinessSignUpForm.css' 
+import './BusinessSignUpForm.css'
 
 const BusinessSignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -24,16 +24,15 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  // TODO ask what this does?
   const business = useSelector(state => state.session.business);
   const dispatch = useDispatch();
   const CUISINES = [
     {
       id: 1,
-      type: 'Sushi'  
+      type: 'Sushi'
     }
   ]
-  
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
@@ -184,9 +183,11 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeholder = 'Phone Number'
-          type='text'
+          // id={"phone"}
+          placeholder = '(XXX) XXX-XXXX'
+          type='tel'
           name='phoneNumber'
+          // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           onChange={updatePhoneNumber}
           value={phoneNumber}
           required={true}
