@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required
 from app.models.reservations import Reservation
+from app.models.reservation_form import ReservationForm
+from app.models.db import db
 
 reservation_routes = Blueprint('reservations', __name__)
 
@@ -17,3 +19,33 @@ def reservations():
 def reservation(id):
     reservation = Reservation.query.get(id)
     return reservation.to_dict()
+
+@reservation_routes.route('/', methods=['POST'])
+@login_required
+def create_reservation():
+    form = Reservation()
+    if form.validate_on_submit():
+        data = ReservationForm()
+        form.populate_obj(data)
+        db.session.add(data)
+        db.session.commit()
+        return redirect("/'")
+    errors = form.errors
+    print(errors)
+
+@reservation_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_reservation(id):
+    user = request.args.get('user')
+    print(user)
+    Reservation.query.get(id).delete()
+    db.session.commit()
+    # TODO which business f'{business.id}
+    return redirect("/")
+
+@reservation_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_reservation(id):
+    Reservation.query.get(id).update()
+    db.session.commit()
+    return redirect("/<int:id>")
