@@ -24,7 +24,6 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  // TODO ask what this does?
   const business = useSelector(state => state.session.business);
   const dispatch = useDispatch();
   const CUISINES = [
@@ -184,9 +183,11 @@ const BusinessSignUpForm = () => {
       </div>
       <div>
         <input
-          placeholder = 'Phone Number'
-          type='text'
+          // id={"phone"}
+          placeholder = '(XXX) XXX-XXXX'
+          type='tel'
           name='phoneNumber'
+          // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           onChange={updatePhoneNumber}
           value={phoneNumber}
           required={true}
