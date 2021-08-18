@@ -17,7 +17,7 @@ export const getCuisines = () => async (dispatch) => {
     }
 }
 
-const initialState = []
+const initialState = [];
 
 const cuisineReducer = (state = initialState, action) => {
     switch(action.type) {

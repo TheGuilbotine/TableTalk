@@ -100,7 +100,7 @@ export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender
   }
 }
 
-export const businessLogin = (email, password) => async (dispatch) => {
+export const businessLogin = (email, hashed_password) => async (dispatch) => {
   const response = await fetch('/api/auth/business/login', {
     method: 'POST',
     headers: {
@@ -108,7 +108,7 @@ export const businessLogin = (email, password) => async (dispatch) => {
     },
     body: JSON.stringify({
       email,
-      password
+      hashed_password
     })
   });
 

@@ -1,33 +1,99 @@
 export const LOAD_RESTAURANTS = 'restaurants/LOAD_RESTAURANTS';
+export const CREATE_RESTAURANT = 'restaurants/CREATE_RESTAURANT';
+export const DESTROY_RESTAURANT = 'restaurants/DESTROY_RESTAURANT'
 
-const load = list => ({
+const load = restaurants => ({
     type: LOAD_RESTAURANTS,
-    list,
+    restaurants,
 });
+
+const addOneRestaurant = restaurant => ({
+    type: CREATE_RESTAURANT,
+    restaurant
+})
+
+const removeRestaurant = restaurantId => ({
+    type: DESTROY_RESTAURANT,
+    restaurantId
+})
 
 
 export const getRestaurants = () => async dispatch => {
     const res = await fetch('/api/restaurants');
 
     if (res.ok) {
-        const list = await res.json();
-        dispatch(load(list));
+        const restaurants = await res.json();
+        dispatch(load(restaurants.restaurants));
         return res
     }
 };
 
 
-const initialState = {
-    list: []
+export const getOneRestaurant = id => async dispatch => {
+    const res = await fetch('/api/restaurants/${id}');
+
+    const restaurant = await res.json();
+    if (res.ok) {
+        dispatch(addOneRestaurant(restaurant));
+    }
 };
+
+
+export const createRestaurant = restaurant => async dispatch => {
+    const res = await fetch('/api/restaurants', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(restaurant)
+    });
+    const restaurant = await res.json();
+    if (res.ok){
+        dispatch(addOneRestaurant(restaurant));
+        return res;
+    }
+};
+
+
+export const destroyRestaurant = id => async dispatch => {
+    const res = await fetch('/api/restaurants/${id}', {
+        method: 'DELETE'
+    });
+    if (res.ok) {
+        await  res.json();
+        dispatch(removeRestaurant(id));
+    }
+    return res;
+};
+
+
+export const editRestaurant = (restaurant) => async dispatch => {
+    const res = await fetch('/api/restaurants/${restaurant.id}', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(restaurant)
+    });
+    if (res.ok) {
+        const restaurant = await res.json();
+        dispatch(addOneRestaurant(restaurant));
+    }
+    return res;
+};
+
+
+
+
+const initialState = [];
 
 const sortList = (restaurants) => {
 
     restaurants.sort((a, b) => {
-      if (a.name > b.name) {
+      if (a.restaurant_name > b.restaurant_name) {
         return 1;
       }
-      if (a.name < b.name) {
+      if (a.restaurant_nam < b.restaurant_nam) {
         return -1;
       }
       return 0;
@@ -37,19 +103,36 @@ const sortList = (restaurants) => {
   };
 
 
-const restaurantsReducer = (state = initialState, action) => {
+const restaurantsReducer = (state = {}, action) => {
+    if (!action) return state;
     switch (action.type) {
         case LOAD_RESTAURANTS: {
-            const allRestaurants = {};
-            action.list.forEach(restaurant => {
-                allRestaurants[restaurant.id] = restaurant;
-            });
-            return {...allRestaurants, ...state, list: sortList(action.list),
+            const newState = {};
+            action.restaurants.forEach(restaurant => {
+                newState[restaurant.id] = restaurant
+            })
+            return newState;
+        }
+        case CREATE_RESTAURANT: {
+            const newState = {
+                ...state,
+                [action.restaurant.id]: action.restaurant
             };
+            return newState;
+        }
+        case DESTROY_RESTAURANT: {
+            const newState = {...state};
+            const restaurants = newState.restaurants.filter(restaurantId => restaurantId !== action.restaurantId);
+            newState.restaurants = restaurants;
+            delete newState[action.restaurantId];
+
+            return newState;
         }
         default:
             return state;
     }
 }
+
+
 
 export default restaurantsReducer;

@@ -101,9 +101,6 @@ def business_sign_up():
     """
     form = BusinessSignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("==========================")
-    print(form.data['cuisine_id'])
-    print("==========================")
     if form.validate_on_submit():
         business = Business(
             email=form.data['email'],
