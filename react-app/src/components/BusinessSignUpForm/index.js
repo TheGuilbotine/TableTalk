@@ -192,9 +192,9 @@ const BusinessSignUpForm = () => {
                 required={true}
               ></input>
             {/* TODO add a button to render another image input field */}
-              <select value={cuisineType} onChange={updateCuisineType} required={true}>
+              <select value={cuisineId} onChange={updateCuisineId} required={true}>
               <option value="" disabled selected>Select Cuisine Type</option>
-                {CUISINES.map((cuisine) => (
+                {cuisines.map((cuisine) => (
                   <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
                 ))}
                 {/* <option value='American'>American</option>
