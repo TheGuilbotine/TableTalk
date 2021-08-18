@@ -26,7 +26,7 @@ const BusinessSignUpForm = () => {
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
   const business = useSelector(state => state.session.business);
-  const cuisines = useSelector((state) => Object.values(state.cuisines))
+  const cuisines = useSelector((state) => state.cuisines)
   const dispatch = useDispatch();
   console.log(cuisines)
   useEffect(() => {

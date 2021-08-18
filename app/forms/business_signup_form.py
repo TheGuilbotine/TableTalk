@@ -21,6 +21,7 @@ def business_name_exists(form, field):
     if business:
         raise ValidationError('Business name is already in use.')
 
+
 def phone_number_exists(form, field):
     # Checking if restaurant phone number is already in use
     phone_number = field.data
@@ -43,7 +44,8 @@ class BusinessSignUpForm(FlaskForm):
         DataRequired()])
     phone_number = StringField("Phone Number", validators=[
                                DataRequired(), phone_number_exists])
-    cuisine_id = SelectField('Cuisine Type', choices=[1], validate_choice=True)
+    cuisine_id = SelectField('Cuisine Type', choices=[
+                             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], validate_choice=True)
     description = TextAreaField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
                               "1", "2", "3", "4"], validators=[DataRequired()])
@@ -55,5 +57,5 @@ class BusinessSignUpForm(FlaskForm):
     postal_code = IntegerField('Zip Code', validators=[DataRequired()])
     country = StringField('Country', validators=[DataRequired()])
     img_url = TextField('Image URL', validators=[DataRequired()])
-    hashed_password = PasswordField('password', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')

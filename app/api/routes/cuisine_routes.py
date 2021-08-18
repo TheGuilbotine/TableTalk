@@ -4,6 +4,7 @@ from app.models.cuisine import Cuisine
 
 cuisine_routes = Blueprint('cuisine', __name__)
 
+
 @cuisine_routes.route('/')
 def cuisines():
     cuisines = Cuisine.query.all()

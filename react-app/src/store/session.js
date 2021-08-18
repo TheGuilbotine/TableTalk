@@ -82,7 +82,7 @@ export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender
       birth_date: birthDate,
       img_url: imgUrl,
       gender,
-      hashed_password: password
+      password: password
     }),
   });
 
@@ -140,7 +140,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         business_name: businessName,
         first_name: firstName,
         last_name: lastName,
-        hashed_password: password,
+        password: password,
         address_line_one: addressLineOne,
         address_line_two: addressLineTwo,
         city,
@@ -149,7 +149,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         country,
         restaurant_name: restaurantName,
         phone_number: phoneNumber,
-        cuisine_id: cuisineId,
+        cuisine_id: +cuisineId,
         description,
         price_range: priceRange,
         img_url: imgUrl
