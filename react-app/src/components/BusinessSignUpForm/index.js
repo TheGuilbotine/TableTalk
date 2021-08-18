@@ -26,15 +26,9 @@ const BusinessSignUpForm = () => {
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
   const business = useSelector(state => state.session.business);
-  // const cuisines = useSelector((state) => (Object.values(state.cuisines)))
+  const cuisines = useSelector((state) => Object.values(state.cuisines))
   const dispatch = useDispatch();
-  const CUISINES = [
-    {
-      id: 1,
-      type: 'Sushi'
-    }
-  ]
-
+  console.log(cuisines)
   useEffect(() => {
     dispatch(getCuisines())
   }, [dispatch])
@@ -173,7 +167,7 @@ const BusinessSignUpForm = () => {
             <p>Restaurant Info:</p>
             <select value={cuisineId} onChange={updateCuisineId} required={true}>
               <option value="" disabled selected>Select Cuisine Type</option>
-              {CUISINES.map((cuisine) => (
+              {cuisines.map((cuisine) => (
                 <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
               ))}
               {/* <option value='American'>American</option>
