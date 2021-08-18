@@ -2,10 +2,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session'
-import LogoutButton from '../auth/UserLogoutButton';
+import UserLogoutButton from '../auth/UserLogoutButton';
 import UserSignUpFormModal from '../UserSignUpFormModal';
 import UserLoginModal from '../UserLoginModal';
-import BusinessSignUpFormModal from '../BusinessLoginFormModal';
 import './NavBar.css';
 
 function NavBar() {
@@ -13,7 +12,7 @@ function NavBar() {
   const dispatch = useDispatch()
 
   const demoLogin = () => {
-    return dispatch(sessionActions.login({ credential: 'demo@user.com', password: 'password' }))
+    return dispatch(sessionActions.userLogin({ credential: 'demo@user.com', password: 'password' }))
   }
 
   let sessionLinks;
@@ -21,7 +20,7 @@ function NavBar() {
     sessionLinks = (
       <>
         <NavLink to='/users' className="my-profile">My Profile</NavLink>
-        <LogoutButton />
+        <UserLogoutButton />
       </>
       );
   } else {
