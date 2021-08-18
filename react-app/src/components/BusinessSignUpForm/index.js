@@ -274,7 +274,7 @@ const BusinessSignUpForm = () => {
               <option value='4'>$$$$ - $31 + per plate</option>
             </select>
           </div>
-            <button type='submit'>Sign Up</button>
+            <button className="business-form-submit-button" type='submit'>Sign Up</button>
         </form>
       </div>
     </div>
