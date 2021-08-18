@@ -36,7 +36,8 @@ class RestaurantForm(FlaskForm):
     phone_number = StringField("Phone Number", validators=[
                                DataRequired(), phone_number_exists])
     # TODO make dynamic
-    cuisine_id = SelectField('Cuisine Type', choices=[1], validate_choice=True)
+    cuisine_id = SelectField('Cuisine Type', choices=[
+                             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], validate_choice=True)
     description = TextField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
                               "1", "2", "3", "4"], validators=[DataRequired()])

@@ -39,13 +39,27 @@ export const getOneRestaurant = id => async dispatch => {
 };
 
 
-export const createRestaurant = payload => async dispatch => {
+export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async dispatch => {
     const res = await fetch('/api/restaurants/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+            business_id: +businessId,
+            address_line_one: addressLineOne,
+            address_line_two: addressLineTwo,
+            city,
+            state,
+            postal_code: postalCode,
+            country,
+            restaurant_name: restaurantName,
+            phone_number: phoneNumber,
+            cuisine_id: +cuisineId,
+            description,
+            price_range: priceRange,
+            img_url: imgUrl
+        })
     });
     const restaurant = await res.json();
     if (res.ok){

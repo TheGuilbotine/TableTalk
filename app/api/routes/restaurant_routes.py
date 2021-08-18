@@ -6,11 +6,22 @@ from flask_login import login_required
 from app.models.db import db
 # from app.models.business import Business
 from app.models.address import Address
-from app.models.restaurant import Restaurant
+from app.forms.restaurant_form import RestaurantForm
 from app.models.images import Image
 
 
 restaurant_routes = Blueprint('restaurants', __name__)
+
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 
 @restaurant_routes.route('/')
@@ -28,10 +39,11 @@ def restaurant(id):
 @restaurant_routes.route('/', methods=['POST'])
 @login_required
 def create_restaurant():
+    form = RestaurantForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     print("========flags============")
-    print("are we here?")
+    print(form.data)
     print("========flags============")
-    form = Restaurant()
     if form.validate_on_submit():
         business = request.args.get('business')
         print("========flags============")
@@ -67,6 +79,7 @@ def create_restaurant():
         return {**address.to_dict(), **restaurant.to_dict(), **image.to_dict()}
     errors = form.errors
     print(errors)
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @restaurant_routes.route('/<int:id>', methods=['DELETE'])
