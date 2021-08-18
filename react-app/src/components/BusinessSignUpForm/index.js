@@ -6,24 +6,24 @@ import './BusinessSignUpForm.css'
 
 const BusinessSignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState('test4@user.com');
-  const [firstName, setFirstName] = useState('test');
-  const [lastName, setLastName] = useState('testing');
-  const [businessName, setBusinessName] = useState('sjpmtesting2')
-  const [password, setPassword] = useState('password');
-  const [repeatPassword, setRepeatPassword] = useState('password');
-  const [restaurantName, setRestaurantName] = useState('sjpm');
-  const [phoneNumber, setPhoneNumber] = useState('(555) 558-5555');
-  const [cuisineType, setCuisineType] = useState(1);
-  const [description, setDescription] = useState('sushiiiii');
-  const [priceRange, setPriceRange] = useState('2');
-  const [addressLineOne, setAddressLineOne] = useState('555 Avenue Lane');
+  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [businessName, setBusinessName] = useState('')
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [restaurantName, setRestaurantName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [cuisineType, setCuisineType] = useState(null);
+  const [description, setDescription] = useState('');
+  const [priceRange, setPriceRange] = useState('');
+  const [addressLineOne, setAddressLineOne] = useState('');
   const [addressLineTwo, setAddressLineTwo] = useState('');
-  const [city, setCity] = useState('New York City');
-  const [state, setState] = useState('NY');
-  const [postalCode, setPostalCode] = useState('55555');
-  const [country, setCountry] = useState('USA');
-  const [imgUrl, setImgUrl] = useState('url');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [country, setCountry] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
   // TODO ask what this does?
   const business = useSelector(state => state.session.business);
   const dispatch = useDispatch();

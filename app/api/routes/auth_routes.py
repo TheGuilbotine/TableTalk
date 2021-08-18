@@ -7,6 +7,7 @@ from app.models.restaurant import Restaurant
 from app.models.images import Image
 from app.forms.user_login_form import UserLoginForm
 from app.forms.user_signup_form import UserSignUpForm
+from app.forms.business_login_form import BusinessLoginForm
 from app.forms.business_signup_form import BusinessSignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -77,6 +78,21 @@ def sign_up():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@auth_routes.route('/business/login', methods=['POST'])
+def business_login():
+    """
+    Logs a business in
+    """
+    form = BusinessLoginForm()
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        # Add the user to the session, we are logged in!
+        business = Business.query.filter(User.email == form.data['email']).first()
+        login_user(business)
+        return business.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @auth_routes.route('/business/signup', methods=['POST'])
 def business_sign_up():
