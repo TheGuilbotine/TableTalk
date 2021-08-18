@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+
 .nav-container {
   top: 0px;
   width: 100%;
@@ -42,6 +45,8 @@
 
 .are-you-a-business {
   color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
   text-decoration: none;
   cursor: pointer;
   margin-top: 10px;
