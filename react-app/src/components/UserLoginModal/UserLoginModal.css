@@ -1,14 +1,14 @@
 #modal-content {
-	/* height: auto; */
+	width: 700px;
 	border: 1 solid black;
 	border-radius: 45px;
 	box-shadow: 4px 3px 2px lightgray;
 }
 
 .form_container__login {
-	display: flex;
+	/* display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center; */
 	width: 400px;
 	height: 200px;
 }
@@ -34,14 +34,18 @@
 }
 
 .form-input {
-	border-radius: 25px;
+	/* border-radius: 25px; */
+	width: 400px;
+	padding: 10px;
+	margin: 5px;
+	font-family: 'Montserrat', serif;
 }
 
-.form-input:focus {
+/* .form-input:focus {
 	margin: 10px;
 	width: 158px;
 	height: 15px;
-}
+} */
 
 .form-button__container {
 	display: flex;
