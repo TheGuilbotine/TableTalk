@@ -46,7 +46,7 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            business_id: +businessId,
+            business_id: businessId,
             address_line_one: addressLineOne,
             address_line_two: addressLineTwo,
             city,

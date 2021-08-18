@@ -31,6 +31,8 @@ def phone_number_exists(form, field):
 
 
 class RestaurantForm(FlaskForm):
+    business_id = IntegerField('Business ID', validators=[
+        DataRequired()])
     restaurant_name = StringField("Restaurant Name", validators=[
         DataRequired(), restaurant_name_exists])
     phone_number = StringField("Phone Number", validators=[

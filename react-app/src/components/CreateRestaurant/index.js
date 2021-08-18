@@ -22,6 +22,7 @@ const RestaurantForm = () => {
   const [imgUrl, setImgUrl] = useState('');
   const cuisines = useSelector((state) => state.cuisines)
   const businessId = useSelector((state) => state.session.user.id)
+  console.log(businessId)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCuisines())
