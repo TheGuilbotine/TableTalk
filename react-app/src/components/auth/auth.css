@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
 
-
-.login-button {
-  border: 1px white solid;
-  border-radius: 5px;
-  color: white;
+.logout-button {
+  border: none;
+  font-size: 16px;
   font-family: "Baloo 2", serif;
-  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  color: #312C80;
   margin-bottom: 24px;
+  margin-top: 5px;
   margin-left: 10px;
-  padding: 5px 10px 5px 10px
-  }
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}

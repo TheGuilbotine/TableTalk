@@ -11,7 +11,7 @@ function BusinessHomePage() {
              <h3>2: Earn more money! lajsdlkfjasdlfkjasldkjfasldkjfasdljkfaslkjfasdfj</h3>
              <h3>3: Curate new social experiences! lajsdlkfjasdlfkjasldkjfasldkjfasdljkfaslkjfasdfj</h3>
             </div>
-            <div classNme='business-page-right'>
+            <div className='business-page-right'>
                 <BusinessSignUpForm />
             </div>
         </div>
