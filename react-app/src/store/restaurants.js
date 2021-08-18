@@ -30,7 +30,7 @@ export const getRestaurants = () => async dispatch => {
 
 
 export const getOneRestaurant = id => async dispatch => {
-    const res = await fetch('/api/restaurants/${id}');
+    const res = await fetch(`/api/restaurants/${id}`);
 
     const restaurant = await res.json();
     if (res.ok) {
@@ -39,18 +39,32 @@ export const getOneRestaurant = id => async dispatch => {
 };
 
 
-export const createRestaurant = restaurant => async dispatch => {
-    const res = await fetch('/api/restaurants', {
+export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async dispatch => {
+    const res = await fetch('/api/restaurants/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(restaurant)
+        body: JSON.stringify({
+            business_id: businessId,
+            address_line_one: addressLineOne,
+            address_line_two: addressLineTwo,
+            city,
+            state,
+            postal_code: postalCode,
+            country,
+            restaurant_name: restaurantName,
+            phone_number: phoneNumber,
+            cuisine_id: +cuisineId,
+            description,
+            price_range: priceRange,
+            img_url: imgUrl
+        })
     });
     const restaurant = await res.json();
     if (res.ok){
         dispatch(addOneRestaurant(restaurant));
-        return res;
+        return restaurant;
     }
 };
 
@@ -67,13 +81,13 @@ export const destroyRestaurant = id => async dispatch => {
 };
 
 
-export const editRestaurant = (restaurant) => async dispatch => {
+export const editRestaurant = (payload) => async dispatch => {
     const res = await fetch('/api/restaurants/${restaurant.id}', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(restaurant)
+        body: JSON.stringify(payload)
     });
     if (res.ok) {
         const restaurant = await res.json();

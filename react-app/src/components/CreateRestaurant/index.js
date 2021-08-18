@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { getCuisines } from '../../store/cuisine';
-import { addOneRestaurant } from '../../store/restaurants'
+import { createRestaurant } from '../../store/restaurants'
 import './CreateRestaurant.css'
 
 const RestaurantForm = () => {
@@ -22,6 +22,7 @@ const RestaurantForm = () => {
   const [imgUrl, setImgUrl] = useState('');
   const cuisines = useSelector((state) => state.cuisines)
   const businessId = useSelector((state) => state.session.user.id)
+  console.log(businessId)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCuisines())
@@ -29,7 +30,7 @@ const RestaurantForm = () => {
 
   const onCreate = async (e) => {
     e.preventDefault();
-    const data = await dispatch(addOneRestaurant(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
+    const data = await dispatch(createRestaurant(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
     if (data) {
     setErrors(data)
     }
@@ -187,4 +188,4 @@ const RestaurantForm = () => {
   );
 };
 
-export default BusinessSignUpForm;
+export default RestaurantForm;
