@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+.business-home-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  background-color: ivory;
+}
+
+.business-page-left h1 {
+  font-family: "Baloo 2", serif;
+  font-size: 36px;
+  font-weight: 500;
+  padding: 20px;
+}
+
+.business-page-left h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 30px;
+}
