@@ -1,10 +1,69 @@
-.login-button {
-    height: 20px;
-    color: white;
-    border: 1px solid white;
-    padding-bottom: 0px;
-    cursor: pointer;
-    padding: 5px;
-    text-decoration: none;
-    margin-left: 10px;
-  }
+#modal-content {
+	/* height: auto; */
+	border: 1 solid black;
+	border-radius: 45px;
+	box-shadow: 4px 3px 2px lightgray;
+}
+
+.form_container__login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 200px;
+}
+
+.login-title {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	color: #312c80;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.form-label__container {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 40px;
+}
+
+.form-label {
+	margin-right: 25px;
+	font-weight: bold;
+}
+
+.form-input {
+	border-radius: 25px;
+}
+
+.form-input:focus {
+	margin: 10px;
+	width: 158px;
+	height: 15px;
+}
+
+.form-button__container {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+}
+
+.form-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70px;
+	height: 22px;
+	background-color: #ee4036;
+	color: white;
+	font-size: 15px;
+	font-family: 'Baloo 2', serif;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+.form-button:hover {
+	background-color: #cd362e;
+}
