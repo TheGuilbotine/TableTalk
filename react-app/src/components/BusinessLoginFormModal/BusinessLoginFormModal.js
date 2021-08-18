@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { userLogin } from '../../store/session';
+import { businessLogin } from '../../store/session';
 
-const UserLoginForm = () => {
+const BusinessLoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +12,7 @@ const UserLoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(userLogin(email, password));
+    const data = await dispatch(businessLogin(email, password));
     if (data) {
       setErrors(data);
     }
@@ -62,4 +62,4 @@ const UserLoginForm = () => {
   );
 };
 
-export default UserLoginForm;
+export default BusinessLoginForm;

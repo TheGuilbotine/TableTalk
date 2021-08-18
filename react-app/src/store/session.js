@@ -14,7 +14,7 @@ const removeUser = () => ({
 const initialState = { user: null };
 
 export const authenticate = () => async (dispatch) => {
-  const response = await fetch('/api/auth/login', {
+  const response = await fetch('/api/auth/', {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -29,7 +29,7 @@ export const authenticate = () => async (dispatch) => {
   }
 }
 
-export const login = (email, password) => async (dispatch) => {
+export const userLogin = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/user/login', {
     method: 'POST',
     headers: {
@@ -40,7 +40,6 @@ export const login = (email, password) => async (dispatch) => {
       password
     })
   });
-
 
   if (response.ok) {
     const data = await response.json();
@@ -101,6 +100,35 @@ export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender
   }
 }
 
+export const businessLogin = (email, password) => async (dispatch) => {
+  const response = await fetch('/api/auth/business/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password
+    })
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+
+}
+
+
+
 export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
   const response = await fetch('/api/auth/business/signup', {
     method: 'POST',
@@ -141,6 +169,18 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
     return ['An error occurred. Please try again.']
   }
 }
+
+export const businessLogout = () => async (dispatch) => {
+  const response = await fetch('/api/auth/business/logout', {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+
+  if (response.ok) {
+    dispatch(removeUser());
+  }
+};
 
 
 export default function reducer(state = initialState, action) {

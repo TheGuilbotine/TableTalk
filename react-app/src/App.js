@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import BusinessHomePage from './components/BusinessHomePage'
 import NavBar from './components/NavBar/index';
+import BusinessNavBar from './components/BusinessNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -29,18 +30,21 @@ function App() {
 
   return (
     <BrowserRouter >
-      <NavBar />
       <Switch>
-        <Route path='/' exact={true} >
+        <Route path='/' exact={true}>
+          <NavBar />
           <h1>Home</h1>
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <ProtectedRoute path='/users' exact={true}>
+          <NavBar />
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true}>
+          <NavBar />
           <User />
         </ProtectedRoute>
         <Route path='/business' exact={true}>
+          <BusinessNavBar />
           <BusinessHomePage />
         </Route>
       </Switch>
