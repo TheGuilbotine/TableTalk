@@ -11,23 +11,24 @@ export const getCuisines = () => async (dispatch) => {
 
     if (res.ok) {
         const cuisines = await res.json();
-        dispatch(loadCuisines(cuisines))
+        console.log(cuisines)
+        dispatch(loadCuisines(cuisines.cuisines))
         return res;
     }
 }
 
-const initialState = {}
+const initialState = []
 
 const cuisineReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOAD: {
-            const allCuisines = {}
+            const allCuisines = [...state, ...action.cuisines]
             // action.cuisines.forEach((cuisine) => {
             //     allCuisines[cuisine.id] = cuisine;
             // });
-            return {...state, ...allCuisines}
+            return allCuisines
         }
-        default: 
+        default:
             return state;
     }
 }

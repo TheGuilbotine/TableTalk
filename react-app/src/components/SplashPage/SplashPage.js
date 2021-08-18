@@ -7,22 +7,22 @@ import './SplashPage.css'
 
 export default function SplashPage() {
     const dispatch = useDispatch();
-    const restaurants = useSelector((state) => {
-        return state.restaurants.list.map(restaurantId => state.restaurants[restaurantId]);
-    });
+    // const restaurants = useSelector((state) => {
+    //     return state.restaurants.list.map(restaurantId => state.restaurants[restaurantId]);
+    // });
 
-    useEffect(() => {
-        dispatch(getRestaurants())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getRestaurants())
+    // }, [])
 
     return (
     <div>
         <h1>SPLASH PAGE</h1>
-        {restaurants && restaurants.map(resto => (
+        {/* {restaurants && restaurants.map(resto => (
             <NavLink to={`/restaurants/${resto.id}/reservations`} key={resto.id} >
                 {resto.name}
             </NavLink>
-        ))}
+        ))} */}
     </div>
     )
 }
