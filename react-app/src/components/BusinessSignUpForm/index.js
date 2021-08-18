@@ -109,68 +109,95 @@ const BusinessSignUpForm = () => {
 
   return (
     <div className='business-signup-form-container'>
-      <div className="forms-container">
         <form onSubmit={onSignUp} className='business-signup-form'>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
-          <div className="information-form-container">
-            <p>Log In Credentials:</p>
-            <input
-              placeholder = "Email Address"
-              type='text'
-              name='email'
-              onChange={updateEmail}
-              value={email}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Password'
-              type='password'
-              name='password'
-              onChange={updatePassword}
-              value={password}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Confirm Password'
-              type='password'
-              name='repeat_password'
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-            <p>Business and Personal Info:</p>
-            <input
-              placeholder = 'Business Name'
-              type='text'
-              name='businessName'
-              onChange={updateBusinessName}
-              value={businessName}
-            ></input>
-            <input
-              placeholder = 'First Name'
-              type='text'
-              name='firstName'
-              onChange={updateFirstName}
-              value={firstName}
-            ></input>
-            <input
-              placeholder = 'Last Name'
-              type='text'
-              name='lastName'
-              onChange={updateLastName}
-              value={lastName}
-            ></input>
-            <p>Restaurant Info:</p>
-            <select value={cuisineId} onChange={updateCuisineId} required={true}>
-              <option value="" disabled selected>Select Cuisine Type</option>
-              {cuisines.map((cuisine) => (
-                <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
               ))}
-              {/* <option value='American'>American</option>
+            </div>
+          <div className="forms-container">
+            <div className="information-form-container">
+              <p>Log In Credentials:</p>
+              <input
+                placeholder = "Email Address"
+                type='text'
+                name='email'
+                onChange={updateEmail}
+                value={email}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Password'
+                type='password'
+                name='password'
+                onChange={updatePassword}
+                value={password}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Confirm Password'
+                type='password'
+                name='repeat_password'
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+              <p>Business and Personal Info:</p>
+              <input
+                placeholder = 'Business Name'
+                type='text'
+                name='businessName'
+                onChange={updateBusinessName}
+                value={businessName}
+              ></input>
+              <input
+                placeholder = 'First Name'
+                type='text'
+                name='firstName'
+                onChange={updateFirstName}
+                value={firstName}
+              ></input>
+              <input
+                placeholder = 'Last Name'
+                type='text'
+                name='lastName'
+                onChange={updateLastName}
+                value={lastName}
+              ></input>
+            </div>
+            <div className="restaurant-info-container">
+              <p>Restaurant Info:</p>
+              <input
+                placeholder = 'Restaurant Name'
+                type='text'
+                name='restaurantName'
+                onChange={updateRestaurantName}
+                value={restaurantName}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Image URL'
+                type='text'
+                name='imgUrl'
+                onChange={updateImgUrl}
+                value={imgUrl}
+                // required={true}
+              ></input>
+              <input
+                placeholder = 'Phone Number'
+                type='text'
+                name='phoneNumber'
+                onChange={updatePhoneNumber}
+                value={phoneNumber}
+                required={true}
+              ></input>
+            {/* TODO add a button to render another image input field */}
+              <select value={cuisineType} onChange={updateCuisineType} required={true}>
+              <option value="" disabled selected>Select Cuisine Type</option>
+                {CUISINES.map((cuisine) => (
+                  <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
+                ))}
+                {/* <option value='American'>American</option>
               <option value='BBQ'>BBQ</option>
               <option value='Brazilian'>Brazilian</option>
               <option value='French'>French</option>
@@ -182,104 +209,76 @@ const BusinessSignUpForm = () => {
               <option value='Thai'>Thai</option>
               <option value='Vegan'>Vegan</option>
               <option value='Vietnamese'>Vietnamese</option>  */}
-            </select>
-            <select value={priceRange} onChange={updatePriceRange} required={true}>
-              <option value="" disabled selected>Select Price Range</option>
-              <option value='1'>$ - under $10 per plate</option>
-              <option value='2'>$$ - $11-$20 per plate</option>
-              <option value='3'>$$$ - $21 -$30 per plate</option>
-              <option value='4'>$$$$ - $31 + per plate</option>
-            </select>
+              </select>
+              <select value={priceRange} onChange={updatePriceRange} required={true}>
+                <option value="" disabled selected>Select Price Range</option>
+                <option value='1'>$ - under $10 per plate</option>
+                <option value='2'>$$ - $11-$20 per plate</option>
+                <option value='3'>$$$ - $21 -$30 per plate</option>
+                <option value='4'>$$$$ - $31 + per plate</option>
+              </select>
+              <textarea
+                placeholder = 'Description'
+                type='text'
+                name='description'
+                onChange={updateDescription}
+                value={description}
+                required={true}
+              ></textarea>
+            </div>
+            <div className='restaurant-address-container'>
+              <p>Restaurant Address:</p>
+              <input
+                placeholder = 'Address Line One'
+                type='text'
+                name='addressLineOne'
+                onChange={updateAddressLineOne}
+                value={addressLineOne}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Address Line Two'
+                type='text'
+                name='addressLineTwo'
+                onChange={updateAddressLineTwo}
+                value={addressLineTwo}
+              ></input>
+              <input
+                placeholder = 'City'
+                type='text'
+                name='city'
+                onChange={updateCity}
+                value={city}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'State'
+                type='text'
+                name='state'
+                onChange={updateState}
+                value={state}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Zip Code'
+                type='text'
+                name='postalCode'
+                onChange={updatePostalCode}
+                value={postalCode}
+                required={true}
+              ></input>
+              <input
+                placeholder = 'Country'
+                type='text'
+                name='country'
+                onChange={updateCountry}
+                value={country}
+                required={true}
+              ></input>
+            </div>
           </div>
-          <div className='restaurant-form-container'>
-            <p>Restaurant Address:</p>
-            <input
-              placeholder = 'Restaurant Name'
-              type='text'
-              name='restaurantName'
-              onChange={updateRestaurantName}
-              value={restaurantName}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Image URL'
-              type='text'
-              name='imgUrl'
-              onChange={updateImgUrl}
-              value={imgUrl}
-              // required={true}
-            ></input>
-            {/* TODO add a button to render another image input field */}
-            <input
-              placeholder = 'Phone Number'
-              type='text'
-              name='phoneNumber'
-              onChange={updatePhoneNumber}
-              value={phoneNumber}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Address Line One'
-              type='text'
-              name='addressLineOne'
-              onChange={updateAddressLineOne}
-              value={addressLineOne}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Address Line Two'
-              type='text'
-              name='addressLineTwo'
-              onChange={updateAddressLineTwo}
-              value={addressLineTwo}
-            ></input>
-            <input
-              placeholder = 'City'
-              type='text'
-              name='city'
-              onChange={updateCity}
-              value={city}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'State'
-              type='text'
-              name='state'
-              onChange={updateState}
-              value={state}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Zip Code'
-              type='text'
-              name='postalCode'
-              onChange={updatePostalCode}
-              value={postalCode}
-              required={true}
-            ></input>
-            <input
-              placeholder = 'Country'
-              type='text'
-              name='country'
-              onChange={updateCountry}
-              value={country}
-              required={true}
-            ></input>
-          </div>
-          <div className='bottom-form'>
-            <p>Restaurant description:</p>
-            <textarea
-              placeholder = 'Description'
-              type='text'
-              name='description'
-              onChange={updateDescription}
-              value={description}
-              required={true}
-            ></textarea>
             <button id="business-form-submit-button" type='submit'>Sign Up</button>
-          </div>
         </form>
-      </div>
     </div>
   );
 };

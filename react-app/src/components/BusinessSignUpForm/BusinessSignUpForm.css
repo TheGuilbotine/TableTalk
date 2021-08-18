@@ -1,25 +1,31 @@
 .business-signup-form-container {
+
+    /* flex-direction: row; */
     margin-top: 5px;
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .forms-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .information-form-container {
     display: flex;
     flex-direction: column;
-    float: left;
     padding: 20px;
 }
 
-.restaurant-form-container {
+.restaurant-info-container {
     display: flex;
     flex-direction: column;
-    float: right;
+    padding: 20px;
+}
+
+.restaurant-address-container {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
 
@@ -39,10 +45,12 @@
 }
 
 .bottom-form {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #business-form-submit-button {
+    margin-left: 120px;
     width: 75%;
     height: 40px;
     background-color: #ee4036;

@@ -9,12 +9,12 @@
     background-color: #312C80;
     box-shadow: 2px 0 15px 2px rgba(31, 31, 31, 0.25);
   }
-  
+
   .left-nav {
     margin-left: 30px;
     padding: 5px;
   }
-  
+
   .logo {
     width: 9em;
     height: auto;
@@ -22,7 +22,7 @@
     margin-left: 0px;
     margin-top: 7px;
   }
-  
+
   .search-input {
     text-align: center;
     border-radius: 20px;
@@ -31,7 +31,7 @@
     margin-top: 17px;
     border: .5px solid gray;
   }
-  
+
   .right-nav {
     display: flex;
     flex-direction: row;
@@ -40,15 +40,7 @@
     margin-right: 30px;
     margin-top: 15px;
   }
-  
-  .are-you-a-business {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
+
   .login-button {
     height: 20px;
     color: white;
@@ -59,4 +51,11 @@
     text-decoration: none;
     margin-left: 10px;
   }
-  
+
+  /* .are-you-a-diner {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+  } */
