@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { businessSignUp } from '../../store/session';
+import { getCuisines } from '../../store/cuisine';
 import './BusinessSignUpForm.css'
 
 const BusinessSignUpForm = () => {
@@ -14,7 +15,7 @@ const BusinessSignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [restaurantName, setRestaurantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [cuisineType, setCuisineType] = useState(null);
+  const [cuisineId, setCuisineId] = useState(null);
   const [description, setDescription] = useState('');
   const [priceRange, setPriceRange] = useState('');
   const [addressLineOne, setAddressLineOne] = useState('');
@@ -25,6 +26,7 @@ const BusinessSignUpForm = () => {
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
   const business = useSelector(state => state.session.business);
+  // const cuisines = useSelector((state) => (Object.values(state.cuisines)))
   const dispatch = useDispatch();
   const CUISINES = [
     {
@@ -33,10 +35,14 @@ const BusinessSignUpForm = () => {
     }
   ]
 
+  useEffect(() => {
+    dispatch(getCuisines())
+  }, [dispatch])
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(businessSignUp(email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
+      const data = await dispatch(businessSignUp(email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
       if (data) {
         setErrors(data)
       }
@@ -72,8 +78,8 @@ const BusinessSignUpForm = () => {
   const updatePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
   };
-  const updateCuisineType = (e) => {
-    setCuisineType(e.target.value);
+  const updateCuisineId = (e) => {
+    setCuisineId(e.target.value);
   };
   const updateDescription = (e) => {
     setDescription(e.target.value);
@@ -165,7 +171,7 @@ const BusinessSignUpForm = () => {
               value={lastName}
             ></input>
             <p>Restaurant Info:</p>
-            <select value={cuisineType} onChange={updateCuisineType} required={true}>
+            <select value={cuisineId} onChange={updateCuisineId} required={true}>
               <option value="" disabled selected>Select Cuisine Type</option>
               {CUISINES.map((cuisine) => (
                 <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>

@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models.cuisine import Restaurant
+from app.models.restaurant import Restaurant
 
 restaurant_routes = Blueprint('restaurant', __name__)
 

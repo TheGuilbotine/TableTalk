@@ -16,15 +16,12 @@ export const getCuisines = () => async (dispatch) => {
     }
 }
 
-const cuisineReducer = (state = initialState, action) => {
+const cuisineReducer = (state = {}, action) => {
     switch(action.type) {
         case LOAD: {
             const allCuisines = {
                 ...state,
             };
-            action.cuisines.forEach((cuisine) => {
-                allCuisines[cuisine.id] = cuisine;
-            });
             return allCuisines 
         }
         default: 

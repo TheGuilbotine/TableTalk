@@ -129,7 +129,7 @@ export const businessLogin = (email, password) => async (dispatch) => {
 
 
 
-export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
+export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
   const response = await fetch('/api/auth/business/signup', {
     method: 'POST',
     headers: {
@@ -149,7 +149,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         country,
         restaurant_name: restaurantName,
         phone_number: phoneNumber,
-        cuisine_id: cuisineType,
+        cuisine_id: cuisineId,
         description,
         price_range: priceRange,
         img_url: imgUrl
