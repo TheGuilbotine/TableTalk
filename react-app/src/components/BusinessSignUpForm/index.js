@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { businessSignUp } from '../../store/session';
-import './BusinessSignUpForm.css' 
+import './BusinessSignUpForm.css'
 
 const BusinessSignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -30,10 +30,10 @@ const BusinessSignUpForm = () => {
   const CUISINES = [
     {
       id: 1,
-      type: 'Sushi'  
+      type: 'Sushi'
     }
   ]
-  
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
