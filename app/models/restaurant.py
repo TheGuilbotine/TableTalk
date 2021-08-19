@@ -21,10 +21,12 @@ class Restaurant(db.Model):
         "Address", back_populates="restaurant", uselist=False)
     business = db.relationship("Business", back_populates="restaurants")
     cuisine = db.relationship("Cuisine", back_populates="restaurants")
-    images = db.relationship("Image", back_populates="restaurant")
-    reservations = db.relationship("Reservation", back_populates="restaurant")
+    images = db.relationship(
+        "Image", back_populates="restaurant", cascade="all, delete-orphan")
+    reservations = db.relationship(
+        "Reservation", back_populates="restaurant", cascade="all, delete-orphan")
     restaurant_reviews = db.relationship(
-        "RestaurantReview", back_populates="restaurant")
+        "RestaurantReview", back_populates="restaurant", cascade="all, delete-orphan")
     reward = db.relationship('Reward', back_populates='restaurant')
 
     def to_dict(self):

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import RestaurantFormModal from '../CreateRestaurant'
 import { getAllBusinessRestaurants } from '../../store/restaurants.js'
 import DeleteRestaurantModal from '../DeleteRestaurantModal'
+import EditRestaurantModal from '../EditRestaurantModal'
 import './BusinessProfilePage.css'
 
 
@@ -29,7 +30,7 @@ function BusinessProfile() {
               {restaurants?.map(restaurant => (
                 <div key={restaurant.id}>
                   <p>{restaurant?.restaurant_name}, {restaurant?.cuisine}</p>
-                  <button>EDIT</button>
+                  <EditRestaurantModal restaurantId={restaurant?.id} />
                   <DeleteRestaurantModal restaurantId={restaurant?.id} />
                 </div>
               ))}

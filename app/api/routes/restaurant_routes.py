@@ -95,23 +95,30 @@ def create_restaurant():
 @login_required
 def delete_restaurant(id):
     # business = request.args.get('business')
-    image = Image.query.get(Image.restaurant_id == id).delete()
+    # TODO delete all images if there are more.
+    # image = Image.query.filter(Image.restaurant_id == id).first()
+    # print('IMAGE ==========>', image)
+    # db.session.delete(image)
+    # db.session.commit()
+    restaurant = Restaurant.query.get(id)
+    print('Restaurant ==========>', restaurant)
+    db.session.delete(restaurant)
     db.session.commit()
-    print('HOLLLALLALALALLALALA', image)
-    Restaurant.query.get(id).delete()
-    db.session.commit()
-    address = Address.query.get(Address.restaurant_id == id).delete()
-    print('HOLLLALLALALALLALALA', address)
-    db.session.commit()
+    # address = Address.query.filter_by(Address.restaurant_id == id).first()
+    # print('Address ==========>', address)
+    # db.session.delete(address)
+    # db.session.commit()
     # TODO which business f'{business.id}
-    # return redirect("/business'")
+    return {"message": "SUCCESS"}, 204
 
-# Edit/Update one restaurant
+    # Edit/Update one restaurant
 
 
 @restaurant_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_restaurant(id):
+    Image.query.get(Image.restaurant_id == id).update()
+    db.session.commit()
     Restaurant.query.get(id).update()
     db.session.commit()
     return redirect("/<int:id>")

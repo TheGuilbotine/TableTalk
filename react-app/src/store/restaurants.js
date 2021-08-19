@@ -83,11 +83,12 @@ export const destroyRestaurant = restaurantId => async dispatch => {
     const res = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'DELETE'
     });
+    debugger
     if (res.ok) {
-        await  res.json();
+        let result = await  res.json();
         dispatch(removeRestaurant(restaurantId));
+        return result;
     }
-    return res;
 };
 
 

@@ -11,15 +11,18 @@ import './DeleteRestaurant.css'
 function DeleteRestaurant({restaurantId, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
-    const id = useParams()
-    const handleDelete = ((e) => {
+    const {id} = useParams()
+    const handleDelete = async (e) => {
         e.preventDefault();
-        setShowModal(false)
-        dispatch(destroyRestaurant(restaurantId));
-        setShowModal(true)
-        console.log("%cYAYA DESTROYED", "color:green")
-        history.push(`/business/${id}`)
-    });
+        const success = await dispatch(destroyRestaurant(restaurantId));
+        if (success) {
+            debugger
+            setShowModal(false)
+            history.push(`/business/${id}`)
+        } else {
+            alert('Please try again')
+        }
+    };
     const handleCancel = ((e) => {
         e.preventDefault();
         setShowModal(false)
