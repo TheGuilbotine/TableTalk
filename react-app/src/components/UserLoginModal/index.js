@@ -8,7 +8,7 @@ function UserLoginModal() {
 
 	return (
 		<>
-			<div className='menu-button' onClick={() => setShowModal(true)}>
+			<div className='login-button' onClick={() => setShowModal(true)}>
 				Login
 			</div>
 			{showModal && (
