@@ -9,6 +9,7 @@ function IndividualRestaurant() {
     const { id } = useParams()
 
     const restaurant = useSelector((state) => state.restaurants[id])
+    // const cuisine = useSelector((state) => state.cuisine[id])
 
     useEffect(() => {
         dispatch(getOneRestaurant(id))
@@ -20,7 +21,7 @@ function IndividualRestaurant() {
                 <h1>{restaurant?.restaurant_name}</h1>
                 <p>{restaurant?.description}</p>
                 <p>{restaurant?.phone_number}</p>
-                <p>{restaurant?.cuisine.type}</p>
+                {/* <p>{restaurant?.cuisine.type}</p> */}
             </div>
         </>
     )
