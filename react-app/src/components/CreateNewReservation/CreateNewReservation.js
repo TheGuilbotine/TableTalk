@@ -46,8 +46,13 @@ const CreateNewReservation = () => {
    }
    return (
        <>
-            <div className='reservation-form'>
-                <form onSubmit={handleSubmit}>
+            <div className='reservation-form-container'>
+                <form onSubmit={handleSubmit} className='reservation-form'>
+                <div>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                     <h4>Make a reservation</h4>
                     <label>Party size</label>
                     <input 
@@ -73,7 +78,7 @@ const CreateNewReservation = () => {
                         onChange={updateTime}
                         required={true}
                     ></input>
-                    <label>Would you like to share your table?</label>
+                    <label>Would you like to share your table? Earn 50 TTPoints for sharing your table!</label>
                     <input 
                         type='checkbox'
                         name='time'

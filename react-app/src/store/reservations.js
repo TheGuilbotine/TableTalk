@@ -39,7 +39,7 @@ export const getOneReservation = id => async dispatch => {
 };
 
 export const createReservation = (userId, restaurantId, partySize, date, time, shareTable) => async dispatch => {
-const res = await fetch(`/api/reservations`, {
+const res = await fetch(`/api/reservations/`, {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json'
@@ -116,6 +116,13 @@ const reservationsReducer = (state = initialState, action) => {
             });
             return {...allReservations, ...state, list: sortList(action.list),
             };
+        }
+        case ADD_ONE: {
+          const newState = {
+              ...state,
+              [action.reservation.id]: action.reservation
+          }
+            return newState
         }
         default:
             return state;

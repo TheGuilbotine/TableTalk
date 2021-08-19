@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required
 from app.models.reservations import Reservation
-from app.models.reservation_form import ReservationForm
+from app.forms.reservation_form import ReservationForm
 from app.models.db import db
 
 reservation_routes = Blueprint('reservations', __name__)
@@ -46,7 +46,7 @@ def reservation(id):
 @reservation_routes.route('/', methods=['POST'])
 @login_required
 def create_reservation():
-    form = Reservation()
+    form = ReservationForm()
     if form.validate_on_submit():
         data = ReservationForm()
         form.populate_obj(data)
