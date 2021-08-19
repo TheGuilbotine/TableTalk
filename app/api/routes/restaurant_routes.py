@@ -6,6 +6,7 @@ from flask_login import login_required
 from app.models.db import db
 # from app.models.business import Business
 from app.models.address import Address
+from app.models.cuisine import Cuisine
 from app.forms.restaurant_form import RestaurantForm
 from app.models.images import Image
 
@@ -44,9 +45,6 @@ def create_restaurant():
     """
     form = RestaurantForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("========flags============")
-    print(form.data)
-    print("========flags============")
     if form.validate_on_submit():
         address = Address(
             address_line_one=form.data['address_line_one'],

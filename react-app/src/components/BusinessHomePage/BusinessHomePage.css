@@ -21,3 +21,25 @@
   font-weight: 300;
   padding: 30px;
 }
+
+.restaurant-img {
+  height: auto;
+  width: 100%
+}
+
+.reasons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.reasons img{
+  height: 60px;
+  width: 60px;
+}
+
+.reasons h3{
+  line-height: 25px;
+}
