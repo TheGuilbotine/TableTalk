@@ -12,3 +12,63 @@
   padding: 5px 10px 5px 10px;
   cursor: pointer;
   }
+
+#modal-content {
+	width: 55%;
+	border-radius: 45px;
+	box-shadow: 4px 3px 2px lightgray;
+}
+
+.signup-title,
+.login-title {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	color: #312c80;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.form-label__container {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 40px;
+}
+
+.form-label {
+	margin-left: 25px;
+	font-weight: bold;
+}
+
+.form-input {
+	/* border-radius: 25px; */
+	width: 400px;
+	padding: 10px;
+	margin: 5px;
+	font-family: 'Montserrat', serif;
+}
+
+.form-button__container {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+}
+
+.form-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25%;
+	height: 30px;
+	background-color: #ee4036;
+	color: white;
+	font-size: 19px;
+	font-family: 'Baloo 2', serif;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+.form-button:hover {
+	background-color: #cd362e;
+}

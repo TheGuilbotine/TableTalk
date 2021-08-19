@@ -10,6 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import SplashPage from './components/SplashPage';
 import BusinessProfile from './components/BusinessProfilePage';
+import IndividualRestaurant from './components/IndividualRestaurantPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -53,6 +54,10 @@ function App() {
         <Route path='/business' exact={true}>
           <BusinessNavBar />
           <BusinessHomePage />
+        </Route>
+        <Route path='/restaurants/:id'>
+          <NavBar />
+          <IndividualRestaurant />
         </Route>
       </Switch>
     </BrowserRouter>

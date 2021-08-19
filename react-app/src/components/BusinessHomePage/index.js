@@ -1,6 +1,6 @@
-import React from 'react'
-import BusinessSignUpForm from '../BusinessSignUpForm'
-import './BusinessHomePage.css'
+import React from 'react';
+import BusinessSignUpForm from '../BusinessSignUpForm';
+import './BusinessHomePage.css';
 
 function BusinessHomePage() {
     return (
@@ -30,4 +30,4 @@ function BusinessHomePage() {
     )
 }
 
-export default BusinessHomePage
+export default BusinessHomePage;

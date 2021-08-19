@@ -4,9 +4,9 @@
 }
 
 .forms-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
 .information-form-container {
@@ -31,43 +31,52 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+	display: flex;
+	flex-direction: column;
+	float: left;
+	padding: 20px;
+}
+
+.restaurant-form-container {
+	display: flex;
+	flex-direction: column;
+	float: right;
+	padding: 20px;
 }
 
 .business-signup-form-container p {
-    font-family: "Baloo 2", serif;
-    font-size: 18px;
-    padding: 15px;
+	font-family: 'Baloo 2', serif;
+	font-size: 18px;
+	padding: 15px;
 }
 
 .business-signup-form-container input,
 .business-signup-form-container select,
 .business-signup-form-container textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    font-family: "Montserrat", serif;
+	width: 100%;
+	padding: 10px;
+	margin: 5px;
+	font-family: 'Montserrat', serif;
 }
 
 .bottom-form {
-    display: flex;
-    flex-direction: column;
+	margin-top: 10px;
 }
 
 #business-form-submit-button {
-    margin-left: 120px;
-    width: 75%;
-    height: 40px;
-    background-color: #ee4036;
-    color: white;
-    font-size: 20px;
-    font-family: "Baloo 2", serif;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+	width: 75%;
+	height: 40px;
+	background-color: #ee4036;
+	color: white;
+	font-size: 20px;
+	font-family: 'Baloo 2', serif;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
 }
 
 #business-form-submit-button:hover {
-    background-color: #cd362e;
+	background-color: #cd362e;
 }
 
 .restaurant-address-container p {
