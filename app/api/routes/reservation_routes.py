@@ -52,7 +52,7 @@ def create_reservation():
         form.populate_obj(data)
         db.session.add(data)
         db.session.commit()
-        return redirect("/'")
+        return redirect("/")
     errors = form.errors
     print(errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

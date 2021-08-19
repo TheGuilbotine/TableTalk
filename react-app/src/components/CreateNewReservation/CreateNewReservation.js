@@ -12,14 +12,21 @@ const CreateNewReservation = () => {
     const { id } = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
-    const restaurant = useSelector((state) => state.restaurants[id])
+    const restaurantId = id //total roundabout way to get restaurantId as we are doing useParams()
+    const [errors, setErrors] = useState([]);
     const [partySize, setPartySize] = useState(1)
-    const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState(new Date());
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
     const [shareTable, setShareTable] = useState(false)
    
+
     const handleSubmit = async (e) => {
        e.preventDefault()
+       const data = await dispatch(createReservation(userId, restaurantId, partySize, date, time, shareTable))
+
+       if (data.errors) {
+            setErrors(data.errors)
+       }
    }
 
    const updatePartySize = (e) => {
@@ -44,35 +51,36 @@ const CreateNewReservation = () => {
                     <h4>Make a reservation</h4>
                     <label>Party size</label>
                     <input 
-                     type='number'
-                     name='partySize'
-                     value={partySize}
-                     onChange={updatePartySize}
-                     required={true}
+                        type='number'
+                        name='partySize'
+                        value={partySize}
+                        onChange={updatePartySize}
+                        required={true}
                      ></input>
                     <label>Date</label>
                     <input 
-                    type='date'
-                    name='date'
-                    value={date}
-                    onChange={updateDate}
-                    required={true}
+                        type='date'
+                        name='date'
+                        value={date}
+                        onChange={updateDate}
+                        required={true}
                     ></input>
                     <label>Time</label>
                     <input 
-                    type='time'
-                    name='time'
-                    value={time}
-                    onChange={updateTime}
-                    required={true}
+                        type='time'
+                        name='time'
+                        value={time}
+                        onChange={updateTime}
+                        required={true}
                     ></input>
                     <label>Would you like to share your table?</label>
                     <input 
-                    type='checkbox'
-                    name='time'
-                    value={shareTable}
-                    onChange={updateShareTable}
-                    required={true}></input>
+                        type='checkbox'
+                        name='time'
+                        value={shareTable}
+                        onChange={updateShareTable}
+                        required={true}
+                    ></input>
                     <button type='submit'>Find a table</button>
                 </form>
             </div>

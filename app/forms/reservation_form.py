@@ -7,6 +7,8 @@ from wtforms.validators import DataRequired
 # TODO potentail validators on how many seats are available.
 
 class ReservationForm(FlaskForm):
+    user_id = IntegerField('User ID', validators=[DataRequired()])
+    restaurant_id = IntegerField('Restaurant ID', validators=[DataRequired()])
     number_of_guests = IntegerField("Guests", validators=[DataRequired()])
     date_start = DateField("Date", validators=[DataRequired()])
     time_start = TimeField("Time", validators=[DataRequired()])
