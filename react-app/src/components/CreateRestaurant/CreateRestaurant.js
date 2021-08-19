@@ -94,7 +94,7 @@ const RestaurantForm = () => {
 		<div className='restaurant-form-container'>
 			<form onSubmit={onCreate} className='restaurant-form'>
 				<div>
-					{errors.map((error, ind) => (
+					{errors?.map((error, ind) => (
 						<div key={ind}>{error}</div>
 					))}
 				</div>
