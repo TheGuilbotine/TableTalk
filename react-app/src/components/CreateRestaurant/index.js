@@ -8,7 +8,9 @@ function RestaurantFormModal() {
 
   return (
     <>
-      <div className="add-restaurant-button" onClick={() => setShowModal(true)}>Add a Restaurant</div>
+        <div className="add-restaurant-button" onClick={() => setShowModal(true)}>
+          <img src="https://i.imgur.com/DEL32n3.png"/>
+        </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="restaurant-title-container">

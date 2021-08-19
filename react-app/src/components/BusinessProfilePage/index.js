@@ -27,6 +27,7 @@ function BusinessProfile() {
             <div>
               {restaurants?.map(restaurant => (
                 <p>{restaurant.restaurant_name}</p>
+
               ))}
             </div>
         </div>
