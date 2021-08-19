@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import RestaurantFormModal from '../CreateRestaurant'
 import { getAllBusinessRestaurants } from '../../store/restaurants.js'
+import DeleteRestaurantModal from '../DeleteRestaurantModal'
 import './BusinessProfilePage.css'
 
 
@@ -26,7 +27,11 @@ function BusinessProfile() {
             </button>
             <div>
               {restaurants?.map(restaurant => (
-                <p>{restaurant.restaurant_name}</p>
+                <div key={restaurant.id}>
+                  <p>{restaurant?.restaurant_name}, {restaurant?.cuisine}</p>
+                  <button>EDIT</button>
+                  <DeleteRestaurantModal restaurantId={restaurant?.id} />
+                </div>
               ))}
             </div>
         </div>
