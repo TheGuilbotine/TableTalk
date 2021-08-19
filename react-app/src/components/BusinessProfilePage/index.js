@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import RestaurantForm from '../CreateRestaurant'
+import React from 'react'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import RestaurantFormModal from '../CreateRestaurant'
+import { getAllBusinessRestaurants } from '../../store/restaurants.js'
 import './BusinessProfilePage.css'
 
-function RestaurantFormModal() {
-  const [showModal, setShowModal] = useState(false);
 
-  return (
-    <>
-      <div className="add-restaurant-button" onClick={() => setShowModal(true)}>Add a Restaurant</div>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <div className="restaurant-title-container">
-            <h3 className="restaurant-title">Add another Restaurant</h3>
-          </div>
-          <RestaurantForm />
-        </Modal>
-      )}
-    </>
-  )
+function BusinessProfile() {
+    const dispatch = useDispatch();
+    const { id } = useParams()
+    const restaurants = Object.values(useSelector((state) => state.restaurants))
+    console.log("=================", restaurants)
+
+    useEffect(() => {
+        dispatch(getAllBusinessRestaurants(id))
+    }, [dispatch])
+
+
+    return (
+        <div>
+            <h1>Welcome Business User</h1>
+            <button>
+                <RestaurantFormModal />
+            </button>
+            <div>
+              {restaurants?.map(restaurant => (
+                <p>{restaurant.restaurant_name}</p>
+              ))}
+            </div>
+        </div>
+    )
 }
 
-export default RestaurantFormModal;
+
+export default BusinessProfile;

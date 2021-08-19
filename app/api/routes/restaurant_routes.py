@@ -27,19 +27,14 @@ def validation_errors_to_error_messages(validation_errors):
 
 # Get all restaurants
 
+
 @restaurant_routes.route('/')
 def restaurants():
     restaurants = Restaurant.query.all()
     return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
 
-# Get restaurants by business
-
-@restaurant_routes.route('/business/<int:businessId>')
-def business_restaurants(businessId):
-    restaurants = Restaurant.query.filter_by(Restaurant.business_id == businessId).all()
-    return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
-
 # Get one restaurant by restaurant_id
+
 
 @restaurant_routes.route('/<int:id>')
 def restaurant(id):
@@ -50,6 +45,7 @@ def restaurant(id):
     return {**restaurant.to_dict(), **cuisine.to_dict(), **address.to_dict(), 'images': [image.to_dict() for image in images]}
 
 # Create new restaurant
+
 
 @restaurant_routes.route('/', methods=['POST'])
 @login_required
@@ -104,7 +100,8 @@ def delete_restaurant(id):
     # TODO which business f'{business.id}
     return redirect("/business'")
 
-#Edit/Update one restaurant
+# Edit/Update one restaurant
+
 
 @restaurant_routes.route('/<int:id>', methods=['PUT'])
 @login_required
