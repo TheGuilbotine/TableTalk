@@ -37,6 +37,7 @@ def restaurant(id):
     restaurant = Restaurant.query.get(id)
     cuisine = Cuisine.query.get(restaurant.cuisine_id)
     address = Address.query.get(restaurant.address_id)
+    # images = Image.query.filter(Image.restaurant_id == id).all()
     return {**restaurant.to_dict(), **cuisine.to_dict(), **address.to_dict()}
 
 
