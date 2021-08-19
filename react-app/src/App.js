@@ -47,7 +47,7 @@ function App() {
           <NavBar />
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/business/:businessId' exact={true}>
+        <ProtectedRoute path='/business/:id' exact={true}>
           <BusinessNavBar />
           <BusinessProfile />
         </ProtectedRoute>

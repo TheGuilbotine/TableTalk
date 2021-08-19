@@ -28,6 +28,16 @@ export const getRestaurants = () => async dispatch => {
     }
 };
 
+export const getAllBusinessRestaurants = (id) => async dispatch => {
+    const res = await fetch(`/api/business/${id}`);
+
+    if (res.ok) {
+        const restaurants = await res.json();
+        dispatch(load(restaurants.restaurants));
+        return res
+    }
+};
+
 
 export const getOneRestaurant = id => async dispatch => {
     const res = await fetch(`/api/restaurants/${id}`);

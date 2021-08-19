@@ -24,7 +24,6 @@ function IndividualRestaurant() {
                     <img className="restaurant-image"src={image.img_url}/>
                     ))}
                 </div>
-
                 {/* <img src={restaurant.images[0].img_url}></img> */}
                 <h1>{restaurant?.restaurant_name}</h1>
                 <p>{restaurant?.description}</p>
