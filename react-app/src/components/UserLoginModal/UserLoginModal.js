@@ -31,7 +31,7 @@ const UserLoginForm = () => {
 	}
 
 	return (
-		<div className='form_container__login'>
+		<div className='form_container'>
 			<form onSubmit={onLogin}>
 				<div>
 					{errors.map((error, ind) => (
@@ -51,7 +51,7 @@ const UserLoginForm = () => {
 						onChange={updateEmail}
 					/>
 				</div>
-				<div className='from-label__container'>
+				<div className='form-label__container'>
 					<label className='form-label' htmlFor='password'>
 						Password
 					</label>

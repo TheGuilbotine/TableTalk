@@ -1,18 +1,10 @@
 #modal-content {
-	width: 700px;
-	border: 1 solid black;
+	width: 55%;
 	border-radius: 45px;
 	box-shadow: 4px 3px 2px lightgray;
 }
 
-.form_container__login {
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
-	width: 400px;
-	height: 200px;
-}
-
+.signup-title,
 .login-title {
 	display: flex;
 	justify-content: center;
@@ -29,7 +21,7 @@
 }
 
 .form-label {
-	margin-right: 25px;
+	margin-left: 25px;
 	font-weight: bold;
 }
 
@@ -41,12 +33,6 @@
 	font-family: 'Montserrat', serif;
 }
 
-/* .form-input:focus {
-	margin: 10px;
-	width: 158px;
-	height: 15px;
-} */
-
 .form-button__container {
 	display: flex;
 	justify-content: center;
@@ -57,11 +43,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 70px;
-	height: 22px;
+	width: 25%;
+	height: 30px;
 	background-color: #ee4036;
 	color: white;
-	font-size: 15px;
+	font-size: 19px;
 	font-family: 'Baloo 2', serif;
 	border: none;
 	border-radius: 30px;

@@ -31,15 +31,17 @@ const BusinessLoginForm = () => {
 	}
 
 	return (
-		<div className='form_container__business_login'>
+		<div className='form_container'>
 			<form onSubmit={onLogin}>
 				<div>
 					{errors.map((error, ind) => (
 						<div key={ind}>{error}</div>
 					))}
 				</div>
-				<div className='form-label'>
-					<label htmlFor='email'>Email</label>
+				<div className='form-label__container'>
+					<label className='form-label' htmlFor='email'>
+						Email
+					</label>
 					<input
 						className='form-input'
 						name='email'
@@ -49,8 +51,10 @@ const BusinessLoginForm = () => {
 						onChange={updateEmail}
 					/>
 				</div>
-				<div className='form-label'>
-					<label htmlFor='password'>Password</label>
+				<div className='form-label__container'>
+					<label className='form-label' htmlFor='password'>
+						Password
+					</label>
 					<input
 						className='form-input'
 						name='password'
@@ -59,7 +63,11 @@ const BusinessLoginForm = () => {
 						value={password}
 						onChange={updatePassword}
 					/>
-					<button type='submit'>Login</button>
+				</div>
+				<div className='form-button__container'>
+					<button className='form-button' type='submit'>
+						Login
+					</button>
 				</div>
 			</form>
 		</div>

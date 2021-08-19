@@ -73,7 +73,7 @@ const UserSignUpForm = () => {
 	}
 
 	return (
-		<div className='form_container__signup'>
+		<div className='form_container'>
 			<form onSubmit={onSignUp}>
 				<div>
 					{errors.map((error, ind) => (
