@@ -116,7 +116,7 @@ const BusinessSignUpForm = () => {
             </div>
           <div className="forms-container">
             <div className="information-form-container">
-              <p>Log In Credentials:</p>
+              <p className='account-info'>Account Info:</p>
               <input
                 placeholder = "Email Address"
                 type='text'
@@ -141,7 +141,7 @@ const BusinessSignUpForm = () => {
                 value={repeatPassword}
                 required={true}
               ></input>
-              <p>Business and Personal Info:</p>
+              <p className="your-info">Your Info:</p>
               <input
                 placeholder = 'Business Name'
                 type='text'

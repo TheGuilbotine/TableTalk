@@ -19,7 +19,7 @@ function NavBar() {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to='/users' className="profile-page-button">My Profile</NavLink>
+        <NavLink to={`/users/${sessionUser.id}`} className="profile-page-button">My Profile</NavLink>
         <UserLogoutButton />
       </>
       );

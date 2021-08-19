@@ -18,7 +18,8 @@ export default function SplashPage() {
         <h1>SPLASH PAGE</h1>
         {restaurants && restaurants?.map(restaurant => (
             <NavLink to={`/restaurants/${restaurant.id}`} key={restaurant.id} >
-                <div>
+                <div className='restaurant-container'>
+                    {restaurant?.images !== undefined && (<img className="restaurant-img" src={restaurant?.images[0].img_url}/>)}
                     {restaurant?.restaurant_name}
                 </div>
             </NavLink>

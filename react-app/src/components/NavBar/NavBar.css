@@ -26,29 +26,32 @@
 }
 
 .search-input {
-	text-align: center;
-	border-radius: 20px;
-	padding: 7px;
-	width: 300px;
-	margin-top: 17px;
-	border: 0.5px solid gray;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  padding: 7px;
+  width: 300px;
+  margin-top: 17px;
+  border: .5px solid gray;
 }
 
 .right-nav {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-content: space-around;
-	margin-right: 30px;
-	margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  margin-right: 30px;
+  margin-top: 8px;
 }
 
 .are-you-a-business {
-	color: white;
-	text-decoration: none;
-	cursor: pointer;
-	margin-top: 10px;
-	text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .menu-button {
@@ -69,9 +72,9 @@
   background-color: white;
   border-radius: 5px;
   color: #312C80;
-  margin-bottom: 24px;
-  margin-top: 5px;
-  padding: 5px 10px 5px 10px;
+  margin-bottom: 18px;
+  margin-top: 8px;
+  padding: 10px 10px 10px 10px;
   text-decoration: none;
   align-items: center;
   cursor: pointer;

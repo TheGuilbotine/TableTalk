@@ -1,4 +1,16 @@
 
+.business-login-button {
+  border: 1px white solid;
+  border-radius: 5px;
+  color: white;
+  font-family: "Baloo 2", serif;
+  margin-bottom: 18px;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
 .login-title-container {
 	display: flex;
 	justify-content: center;
@@ -7,4 +19,3 @@
 	font-size: 20px;
 	font-weight: bold;
 }
-
