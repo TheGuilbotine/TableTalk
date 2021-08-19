@@ -19,7 +19,7 @@ function IndividualRestaurant() {
         <>
             <div className='restaurant-details'>
                 <div className="restaurant-image-container">
-                    {restaurant?.images.map(image => (
+                    {restaurant?.images?.map(image => (
                     <img className="restaurant-image"src={image.img_url}/>
                     ))}
                 </div>
