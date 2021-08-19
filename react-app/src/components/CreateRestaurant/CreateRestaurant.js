@@ -20,7 +20,8 @@ const RestaurantForm = () => {
 	const [postalCode, setPostalCode] = useState('');
 	const [country, setCountry] = useState('');
 	const [imgUrl, setImgUrl] = useState('');
-	const cuisines = useSelector((state) => state.cuisines);
+	const cuisines = useSelector((state) => Object.values(state.cuisines));
+	console.log('>>>>>>>>>>>>>>>>>>>', cuisines);
 	const businessId = useSelector((state) => state.session.user.id);
 	console.log(businessId);
 	const dispatch = useDispatch();
@@ -131,7 +132,7 @@ const RestaurantForm = () => {
 							</option>
 							{cuisines?.map((cuisine) => (
 								<option key={cuisine.id} value={cuisine.id}>
-									{cuisine.type}
+									{cuisine?.type}
 								</option>
 							))}
 						</select>
