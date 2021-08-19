@@ -18,10 +18,14 @@ function IndividualRestaurant() {
     return (
         <>
             <div className='restaurant-details'>
+                {/* <img src={restaurant.img_url}></img> */}
                 <h1>{restaurant?.restaurant_name}</h1>
                 <p>{restaurant?.description}</p>
                 <p>{restaurant?.phone_number}</p>
-                {/* <p>{restaurant?.cuisine.type}</p> */}
+                <p>{restaurant?.type}</p>
+                <p>{restaurant?.address_line_one}</p>
+                <p>{restaurant?.address_line_two}</p>
+                <p>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
             </div>
         </>
     )
