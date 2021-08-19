@@ -8,6 +8,7 @@ from app.models.db import db
 from app.models.address import Address
 from app.forms.restaurant_form import RestaurantForm
 from app.models.images import Image
+from app.models.cuisine import Cuisine
 
 
 restaurant_routes = Blueprint('restaurants', __name__)
@@ -33,7 +34,9 @@ def restaurants():
 @restaurant_routes.route('/<int:id>')
 def restaurant(id):
     restaurant = Restaurant.query.get(id)
-    return restaurant.to_dict()
+    cuisine = Cuisine.query.get(restaurant.cuisine_id)
+    address = Address.query.get(restaurant.address_id)
+    return {**restaurant.to_dict(), **cuisine.to_dict(), **address.to_dict()}
 
 
 @restaurant_routes.route('/', methods=['POST'])
