@@ -38,13 +38,20 @@ export const getOneReservation = id => async dispatch => {
     }
 };
 
-export const createIpa = payload => async dispatch => {
-const res = await fetch(`/api/reservations`, {
+export const createReservation = (userId, restaurantId, partySize, date, time, shareTable) => async dispatch => {
+const res = await fetch(`/api/reservations/`, {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json'
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify({
+      user_id: userId,
+      restaurant_id: restaurantId,
+      number_of_guests: partySize,
+      date_start: date,
+      time_start: time,
+      share_table: shareTable
+    })
 });
 const reservation = await res.json();
 if (res.ok) {
@@ -109,6 +116,13 @@ const reservationsReducer = (state = initialState, action) => {
             });
             return {...allReservations, ...state, list: sortList(action.list),
             };
+        }
+        case ADD_ONE: {
+          const newState = {
+              ...state,
+              [action.reservation.id]: action.reservation
+          }
+            return newState
         }
         default:
             return state;

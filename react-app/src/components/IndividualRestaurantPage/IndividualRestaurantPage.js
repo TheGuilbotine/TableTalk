@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getOneRestaurant } from '../../store/restaurants';
+import CreateNewReservation from '../CreateNewReservation/CreateNewReservation';
 import './IndividualRestaurantPage.css'
 
 function IndividualRestaurant() {
@@ -31,6 +32,9 @@ function IndividualRestaurant() {
                 <p>{restaurant?.address_line_one}</p>
                 <p>{restaurant?.address_line_two}</p>
                 <p>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
+            </div>
+            <div>
+                <CreateNewReservation />
             </div>
         </>
     )
