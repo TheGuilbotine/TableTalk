@@ -38,7 +38,7 @@ export const getOneReservation = id => async dispatch => {
     }
 };
 
-export const createIpa = payload => async dispatch => {
+export const createReservation = payload => async dispatch => {
 const res = await fetch(`/api/reservations`, {
     method: 'POST',
     headers: {
