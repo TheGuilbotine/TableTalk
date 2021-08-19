@@ -8,6 +8,7 @@ function RestaurantFormModal() {
 
   return (
     <>
+      <div className='add-restaurant-card'></div>
       <div className="add-restaurant-button" onClick={() => setShowModal(true)}>Add a Restaurant</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
