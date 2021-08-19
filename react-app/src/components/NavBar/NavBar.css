@@ -27,6 +27,7 @@
 
 .search-input {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   padding: 7px;
   width: 300px;
@@ -40,7 +41,7 @@
   justify-content: space-between;
   align-content: space-around;
   margin-right: 30px;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .are-you-a-business {
@@ -71,9 +72,9 @@
   background-color: white;
   border-radius: 5px;
   color: #312C80;
-  margin-bottom: 24px;
-  margin-top: 5px;
-  padding: 5px 10px 5px 10px;
+  margin-bottom: 18px;
+  margin-top: 8px;
+  padding: 10px 10px 10px 10px;
   text-decoration: none;
   align-items: center;
   cursor: pointer;
