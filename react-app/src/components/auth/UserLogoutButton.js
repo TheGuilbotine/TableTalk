@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { userLogout } from '../../store/session';
 import '../UserLoginModal/UserLoginModal.css';
 
+
 const UserLogoutButton = () => {
 	const dispatch = useDispatch();
 	const onLogout = async (e) => {

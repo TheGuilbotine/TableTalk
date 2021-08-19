@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { businessSignUp } from '../../store/session';
 import { getCuisines } from '../../store/cuisine';
-import './BusinessSignUpForm.css'
+import { createRestaurant } from '../../store/restaurants'
+import './CreateRestaurant.css'
 
-const BusinessSignUpForm = () => {
+const RestaurantForm = () => {
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [businessName, setBusinessName] = useState('')
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+//   const [businessId, setBusinessId] = useState(null);
   const [restaurantName, setRestaurantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [cuisineId, setCuisineId] = useState(null);
@@ -25,46 +20,22 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const business = useSelector(state => state.session.business);
   const cuisines = useSelector((state) => state.cuisines)
+  const businessId = useSelector((state) => state.session.user.id)
+  console.log(businessId)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCuisines())
   }, [dispatch])
 
-  const onSignUp = async (e) => {
+  const onCreate = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(businessSignUp(email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
-      if (data) {
-        setErrors(data)
-      }
+    const data = await dispatch(createRestaurant(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
+    if (data) {
+    setErrors(data)
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updateFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const updateLastName = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const updateBusinessName = (e) => {
-    setBusinessName(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
-  };
   const updateRestaurantName = (e) => {
     setRestaurantName(e.target.value);
   };
@@ -102,68 +73,16 @@ const BusinessSignUpForm = () => {
     setImgUrl(e.target.value);
   };
 
-  if (business) {
-    return <Redirect to='/business' />;
-  }
 
   return (
-    <div className='business-signup-form-container'>
-        <form onSubmit={onSignUp} className='business-signup-form'>
+    <div className='restaurant-form-container'>
+        <form onSubmit={onCreate} className='restaurant-form'>
             <div>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
             </div>
           <div className="forms-container">
-            <div className="information-form-container">
-              <p>Log In Credentials:</p>
-              <input
-                placeholder = "Email Address"
-                type='text'
-                name='email'
-                onChange={updateEmail}
-                value={email}
-                required={true}
-              ></input>
-              <input
-                placeholder = 'Password'
-                type='password'
-                name='password'
-                onChange={updatePassword}
-                value={password}
-                required={true}
-              ></input>
-              <input
-                placeholder = 'Confirm Password'
-                type='password'
-                name='repeat_password'
-                onChange={updateRepeatPassword}
-                value={repeatPassword}
-                required={true}
-              ></input>
-              <p>Business and Personal Info:</p>
-              <input
-                placeholder = 'Business Name'
-                type='text'
-                name='businessName'
-                onChange={updateBusinessName}
-                value={businessName}
-              ></input>
-              <input
-                placeholder = 'First Name'
-                type='text'
-                name='firstName'
-                onChange={updateFirstName}
-                value={firstName}
-              ></input>
-              <input
-                placeholder = 'Last Name'
-                type='text'
-                name='lastName'
-                onChange={updateLastName}
-                value={lastName}
-              ></input>
-            </div>
             <div className="restaurant-info-container">
               <p>Restaurant Info:</p>
               <input
@@ -190,24 +109,11 @@ const BusinessSignUpForm = () => {
                 value={phoneNumber}
                 required={true}
               ></input>
-            {/* TODO add a button to render another image input field */}
               <select value={cuisineId} onChange={updateCuisineId} required={true}>
               <option value="" disabled selected>Select Cuisine Type</option>
                 {cuisines.map((cuisine) => (
                   <option key={cuisine.id} value={cuisine.id}>{cuisine.type}</option>
                 ))}
-                {/* <option value='American'>American</option>
-              <option value='BBQ'>BBQ</option>
-              <option value='Brazilian'>Brazilian</option>
-              <option value='French'>French</option>
-              <option value='Indian'>Indian</option>
-              <option value='Italian'>Italian</option>
-              <option value='Korean'>Korean</option>
-              <option value='Southern'>Southern</option>
-              <option value='Sushi'>Sushi</option>
-              <option value='Thai'>Thai</option>
-              <option value='Vegan'>Vegan</option>
-              <option value='Vietnamese'>Vietnamese</option>  */}
               </select>
               <select value={priceRange} onChange={updatePriceRange} required={true}>
                 <option value="" disabled selected>Select Price Range</option>
@@ -276,10 +182,10 @@ const BusinessSignUpForm = () => {
               ></input>
             </div>
           </div>
-            <button id="business-form-submit-button" type='submit'>Sign Up</button>
+            <button id="restaurant-submit-button" type='submit'>Add your Restaurant</button>
         </form>
     </div>
   );
 };
 
-export default BusinessSignUpForm;
+export default RestaurantForm;

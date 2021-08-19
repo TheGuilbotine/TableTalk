@@ -27,7 +27,7 @@ class UserSignUpForm(FlaskForm):
     first_name = StringField("First Name", validators=[DataRequired()])
     last_name = StringField("Last Name", validators=[DataRequired()])
     birth_date = DateField("Birth Date", validators=[DataRequired()])
-    hashed_password = PasswordField('password', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
     img_url = TextField("Img URL")
     gender = SelectField("Gender", choices=[
                          "Male", "Female", "Prefer not to answer"], validators=[DataRequired()])

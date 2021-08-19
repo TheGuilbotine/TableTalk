@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BusinessLoginForm from './BusinessLoginFormModal';
+import './BusinessLoginFormModal.css'
 
 function BusinessLoginFormModal() {
 	const [showModal, setShowModal] = useState(false);

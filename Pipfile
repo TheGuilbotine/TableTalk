@@ -27,6 +27,7 @@ greenlet = "==1.1.0"
 Mako = "==1.1.4"
 email-validator = "*"
 psycopg2-binary = "*"
+flask-request-params = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

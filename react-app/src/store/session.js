@@ -82,7 +82,7 @@ export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender
       birth_date: birthDate,
       img_url: imgUrl,
       gender,
-      hashed_password: password
+      password: password
     }),
   });
 
@@ -129,7 +129,7 @@ export const businessLogin = (email, password) => async (dispatch) => {
 
 
 
-export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineType, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
+export const businessSignUp = (email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl) => async (dispatch) => {
   const response = await fetch('/api/auth/business/signup', {
     method: 'POST',
     headers: {
@@ -140,7 +140,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         business_name: businessName,
         first_name: firstName,
         last_name: lastName,
-        hashed_password: password,
+        password: password,
         address_line_one: addressLineOne,
         address_line_two: addressLineTwo,
         city,
@@ -149,7 +149,7 @@ export const businessSignUp = (email, password, firstName, lastName, businessNam
         country,
         restaurant_name: restaurantName,
         phone_number: phoneNumber,
-        cuisine_id: cuisineType,
+        cuisine_id: +cuisineId,
         description,
         price_range: priceRange,
         img_url: imgUrl
@@ -183,7 +183,7 @@ export const businessLogout = () => async (dispatch) => {
 };
 
 
-export default function reducer(state = initialState, action) {
+export default function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }

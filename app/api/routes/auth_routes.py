@@ -52,9 +52,6 @@ def login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-
-
-
 @auth_routes.route('/user/signup', methods=['POST'])
 def sign_up():
     """
@@ -70,7 +67,7 @@ def sign_up():
             birth_date=form.data['birth_date'],
             img_url=form.data['img_url'],
             gender=form.data['gender'],
-            password=form.data['hashed_password']
+            password=form.data['password']
         )
         db.session.add(user)
         db.session.commit()
@@ -78,21 +75,25 @@ def sign_up():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+
 @auth_routes.route('/business/login', methods=['POST'])
 def business_login():
     """
     Logs a business in
     """
     form = BusinessLoginForm()
+    print(form['password'].data)
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
-        business = Business.query.filter(User.email == form.data['email']).first()
+        business = Business.query.filter(
+            Business.email == form.data['email']).first()
         login_user(business)
         return business.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 @auth_routes.route('/business/signup', methods=['POST'])
 def business_sign_up():
@@ -107,7 +108,7 @@ def business_sign_up():
             business_name=form.data['business_name'],
             first_name=form.data['first_name'],
             last_name=form.data['last_name'],
-            hashed_password=form.data['hashed_password']
+            password=form.data['password']
         )
         db.session.add(business)
         db.session.commit()
@@ -135,7 +136,7 @@ def business_sign_up():
         image = Image(
             img_url=form.data['img_url'],
             restaurant_id=restaurant.id
-        ) 
+        )
         db.session.add(image)
         db.session.commit()
         login_user(business)
@@ -151,6 +152,7 @@ def user_logout():
     logout_user()
     return {'message': 'User logged out'}
 
+
 @auth_routes.route('/business/logout')
 def business_logout():
     """
@@ -158,8 +160,6 @@ def business_logout():
     """
     logout_user()
     return {'message': 'Business logged out'}
-
-
 
 
 @auth_routes.route('/unauthorized')

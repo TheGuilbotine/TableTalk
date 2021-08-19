@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+
 .nav-container {
 	top: 0px;
 	width: 100%;
@@ -57,4 +60,19 @@
 	padding: 5px;
 	text-decoration: none;
 	margin-left: 10px;
+}
+
+.profile-page-button {
+  border: none;
+  font-size: 16px;
+  font-family: "Baloo 2", serif;
+  background-color: white;
+  border-radius: 5px;
+  color: #312C80;
+  margin-bottom: 24px;
+  margin-top: 5px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
 }
