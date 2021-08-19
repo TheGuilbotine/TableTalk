@@ -71,8 +71,9 @@
 	font-size: 20px;
 	font-family: 'Baloo 2', serif;
 	border: none;
-	border-radius: 20px;
+	border-radius: 5px;
 	cursor: pointer;
+    margin-left: 100px;
 }
 
 #business-form-submit-button:hover {

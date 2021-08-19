@@ -14,7 +14,7 @@ const BusinessNavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to={`/business/${sessionUser.id}`} className="my-profile">Business Profile</NavLink>
+        <NavLink to={`/business/${sessionUser.id}`} className="business-profile-button">Business Profile</NavLink>
         <BusinessLogoutButton />
       </>
       );
