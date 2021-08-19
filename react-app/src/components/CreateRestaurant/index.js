@@ -16,7 +16,7 @@ function RestaurantFormModal() {
           <div className="restaurant-title-container">
             <h3 className="restaurant-title">Add another Restaurant</h3>
           </div>
-          <RestaurantForm />
+          <RestaurantForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

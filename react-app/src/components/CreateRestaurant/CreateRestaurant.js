@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import { getCuisines } from '../../store/cuisine';
 import { createRestaurant } from '../../store/restaurants';
 import './CreateRestaurant.css';
 
-const RestaurantForm = () => {
+const RestaurantForm = ({setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	//   const [businessId, setBusinessId] = useState(null);
 	const [restaurantName, setRestaurantName] = useState('');
@@ -21,10 +22,9 @@ const RestaurantForm = () => {
 	const [country, setCountry] = useState('');
 	const [imgUrl, setImgUrl] = useState('');
 	const cuisines = useSelector((state) => Object.values(state.cuisines));
-	console.log('>>>>>>>>>>>>>>>>>>>', cuisines);
-	const businessId = useSelector((state) => state.session.user.id);
-	console.log(businessId);
+	const businessId = useSelector((state) => state.session.user.id);;
 	const dispatch = useDispatch();
+  const history = useHistory();
 	useEffect(() => {
 		dispatch(getCuisines());
 	}, [dispatch]);
@@ -46,10 +46,11 @@ const RestaurantForm = () => {
 				postalCode,
 				country,
 				imgUrl
-			)
-		);
-		if (data) {
-			setErrors(data);
+			),
+    );
+    setShowModal(false)
+    if (data.errors) {
+			setErrors(data.errors);
 		}
 	};
 
@@ -94,7 +95,7 @@ const RestaurantForm = () => {
 		<div className='restaurant-form-container'>
 			<form onSubmit={onCreate} className='restaurant-form'>
 				<div>
-					{errors.map((error, ind) => (
+					{errors?.map((error, ind) => (
 						<div key={ind}>{error}</div>
 					))}
 				</div>

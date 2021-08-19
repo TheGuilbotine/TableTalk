@@ -12,6 +12,6 @@ def seed_reservations():
     db.session.commit()
 
 
-def unndo_reservations():
+def undo_reservations():
     db.session.execute('TRUNCATE reservations RESTART IDENTITY CASCADE;')
     db.session.commit()

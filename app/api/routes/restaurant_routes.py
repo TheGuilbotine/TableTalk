@@ -86,7 +86,7 @@ def create_restaurant():
         return {**address.to_dict(), **restaurant.to_dict(), **image.to_dict()}
     errors = form.errors
     print(errors)
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(errors)}, 401
 
 
 # Delete one restaurant
@@ -94,11 +94,17 @@ def create_restaurant():
 @restaurant_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_restaurant(id):
-    business = request.args.get('business')
+    # business = request.args.get('business')
+    image = Image.query.get(Image.restaurant_id == id).delete()
+    db.session.commit()
+    print('HOLLLALLALALALLALALA', image)
     Restaurant.query.get(id).delete()
     db.session.commit()
+    address = Address.query.get(Address.restaurant_id == id).delete()
+    print('HOLLLALLALALALLALALA', address)
+    db.session.commit()
     # TODO which business f'{business.id}
-    return redirect("/business'")
+    # return redirect("/business'")
 
 # Edit/Update one restaurant
 
