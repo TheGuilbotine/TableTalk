@@ -34,7 +34,7 @@ def restaurants():
 
 # Get restaurants by business
 
-@restaurant_routes.route('/business/<int:businessId')
+@restaurant_routes.route('/business/<int:businessId>')
 def business_restaurants(businessId):
     restaurants = Restaurant.query.filter_by(Restaurant.business_id == businessId).all()
     return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
