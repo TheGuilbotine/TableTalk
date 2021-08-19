@@ -3,7 +3,9 @@ from flask import Blueprint, redirect, jsonify
 from app.forms.business_signup_form import BusinessSignUpForm
 from app.forms.restaurant_form import RestaurantForm
 from app.models import restaurant
+from app.models import cuisine
 from app.models.business import Business
+from app.models.cuisine import Cuisine
 from app.models.restaurant import Restaurant
 from app.models import db
 
@@ -21,5 +23,7 @@ def business_home():
 def business_restaurants(businessId):
     restaurants = Restaurant.query.filter(
         Restaurant.business_id == businessId).all()
-    print(restaurants)
+    cuisines = Cuisine.query.all()
+    # print('================', {cuisine.type for cuisine in cuisines})
+    # print(restaurants)
     return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}

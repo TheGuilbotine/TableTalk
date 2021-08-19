@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import EditRestaurantForm from './EditRestaurantForm'
+import EditRestaurantForm from './EditRestaurantModal'
 import { Modal } from '../../context/Modal'
-import './EditRestaurantForm.css'
+import './EditRestaurantModal.css'
 
 function EditRestaurantModal({ restaurantId }) {
     const [showModal, setShowModal] = useState(false)

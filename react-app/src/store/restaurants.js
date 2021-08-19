@@ -79,20 +79,21 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
 };
 
 
-export const destroyRestaurant = id => async dispatch => {
-    const res = await fetch('/api/restaurants/${id}', {
+export const destroyRestaurant = restaurantId => async dispatch => {
+    const res = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'DELETE'
     });
+    debugger
     if (res.ok) {
-        await  res.json();
-        dispatch(removeRestaurant(id));
+        let result = await  res.json();
+        dispatch(removeRestaurant(restaurantId));
+        return result;
     }
-    return res;
 };
 
 
 export const editRestaurant = (payload) => async dispatch => {
-    const res = await fetch('/api/restaurants/${restaurant.id}', {
+    const res = await fetch(`/api/restaurants/${payload.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

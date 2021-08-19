@@ -22,7 +22,7 @@ const initialState = [];
 const cuisineReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOAD: {
-            const allCuisines = [...state, ...action.cuisines]
+            const allCuisines = [...action.cuisines]
             // action.cuisines.forEach((cuisine) => {
             //     allCuisines[cuisine.id] = cuisine;
             // });

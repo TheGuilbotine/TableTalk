@@ -42,7 +42,7 @@ class RestaurantForm(FlaskForm):
                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], validate_choice=True)
     description = TextField("Description", validators=[DataRequired()])
     price_range = SelectField("Price Range", choices=[
-                              "1", "2", "3", "4"], validators=[DataRequired()])
+                              1, 2, 3, 4], validators=[DataRequired()])
     address_line_one = StringField(
         'Address Line 1', validators=[DataRequired()])
     address_line_two = StringField('Address Line 2')

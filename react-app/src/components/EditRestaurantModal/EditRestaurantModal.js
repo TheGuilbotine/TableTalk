@@ -5,7 +5,7 @@ import { getCuisines } from '../../store/cuisine';
 import { editRestaurant } from '../../store/restaurants';
 import './EditRestaurantModal.css';
 
-const EditRestaurantForm = () => {
+const EditRestaurantForm = ({restaurantId, showModal}) => {
   const restaurant = useSelector(state => state.restaurants[restaurantId]);
   const business = useSelector(state => state.session.user)
   const cuisines = useSelector((state) => Object.values(state.cuisines));
