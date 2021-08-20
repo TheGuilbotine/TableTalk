@@ -12,13 +12,11 @@ import './DeleteRestaurant.css'
 function DeleteRestaurant({restaurantId, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
-    const {id} = useParams()
+    const { id } = useParams()
     const handleDelete = async (e) => {
-        e.preventDefault();
         const success = await dispatch(destroyRestaurant(restaurantId));
         if (success) {
             e.preventDefault();
-            debugger
             setShowModal(false);
             return <Redirect to={`/business/${id}`} />;
         } else {
