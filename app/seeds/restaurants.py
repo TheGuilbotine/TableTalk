@@ -26,7 +26,7 @@ def seed_restaurants():
     restaurant11 = Restaurant(
         restaurant_name='Tucanos', phone_number='(801) 456-2550', address_id=11, business_id=4, description='Brazilian steakhouse chain serving all-you-can-eat churrasco" & specialty skewers in a vibrant space.', price_range='4', cuisine_id=12)
     restaurant12 = Restaurant(
-        restaurant_name='Fleming’s Prime Steakhouse & Wine Bar', phone_number='(801) 355-3704', address_id=12, business_id=4, description='High-end steakhouse chain with aged prime beef & classics such as lobster tails.', price_range='5', cuisine_id=9)
+        restaurant_name='Fleming’s Prime Steakhouse', phone_number='(801) 355-3704', address_id=12, business_id=4, description='High-end steakhouse chain with aged prime beef & classics such as lobster tails.', price_range='4', cuisine_id=9)
 
     db.session.add(restaurant1)
     db.session.add(restaurant2)

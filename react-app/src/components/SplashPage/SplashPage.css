@@ -79,7 +79,11 @@
 
 .city-state {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: .9rem;
   color: rgb(121, 121, 121);
+  text-decoration: none;
+}
+
+.navlink {
   text-decoration: none;
 }
