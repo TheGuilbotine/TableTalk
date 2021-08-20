@@ -80,15 +80,17 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
 
 
 export const destroyRestaurant = restaurantId => async dispatch => {
+    console.log('%cHERERERERERER', 'color:blue', restaurantId)
     const res = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'DELETE'
     });
     debugger
     if (res.ok) {
-        let result = await  res.json();
+        let result = await res.json();
         dispatch(removeRestaurant(restaurantId));
         return result;
     }
+    return null
 };
 
 

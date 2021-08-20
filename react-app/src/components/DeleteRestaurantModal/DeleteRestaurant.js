@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -16,9 +17,10 @@ function DeleteRestaurant({restaurantId, setShowModal}) {
         e.preventDefault();
         const success = await dispatch(destroyRestaurant(restaurantId));
         if (success) {
+            e.preventDefault();
             debugger
-            setShowModal(false)
-            history.push(`/business/${id}`)
+            setShowModal(false);
+            return <Redirect to={`/business/${id}`} />;
         } else {
             alert('Please try again')
         }
