@@ -41,8 +41,8 @@ class Restaurant(db.Model):
             'cuisine_id': self.cuisine_id,
             # 'address': self.address,
             # 'business': self.business,
-            # 'cuisine': self.cuisine,
-            # 'image': self.images,
+            # 'cuisine': self.cuisine.to_dict(),
+            # 'image': [image.to_dict() for image in self.images]
             # 'reservations': self.reservations,
             # 'restaurant_reviews': self.restaurant_reviews,
             # 'reward': self.reward

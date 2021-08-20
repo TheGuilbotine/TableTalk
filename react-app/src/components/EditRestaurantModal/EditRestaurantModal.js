@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import { getCuisines } from '../../store/cuisine';
+import { getImages } from '../../store/images'
 import { editRestaurant, getOneRestaurant } from '../../store/restaurants';
 import './EditRestaurantModal.css';
 
-const EditRestaurantForm = ({restaurantId, showModal}) => {
+const EditRestaurantForm = ({restaurantId, setShowModal}) => {
   const restaurant = useSelector(state => state.restaurants[restaurantId]);
   const business = useSelector(state => state.session.user)
   const cuisines = useSelector((state) => Object.values(state.cuisines));
@@ -14,34 +15,37 @@ const EditRestaurantForm = ({restaurantId, showModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [restaurantName, setRestaurantName] = useState(restaurant.restaurant_name);
 	const [phoneNumber, setPhoneNumber] = useState(restaurant.phone_number);
-	const [cuisineId, setCuisineId] = useState(restaurant.cuisine_id);
+	const [cuisineId, setCuisineId] = useState(restaurant.cuisine_id.id);
 	const [description, setDescription] = useState(restaurant.description);
 	const [priceRange, setPriceRange] = useState(restaurant.price_range);
-	const [imgUrl, setImgUrl] = useState(restaurant.img_url);
+	const [imgUrl, setImgUrl] = useState(restaurant.images[0].img_url);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCuisines());
-		dispatch(getOneRestaurant())
+		dispatch(getImages());
 	}, [dispatch]);
 
 	const onEdit = async (e) => {
 		e.preventDefault();
 		const data = await dispatch(
 			editRestaurant(
-				restaurantId,
+				restaurant.id,
 				businessId,
 				restaurantName,
 				phoneNumber,
-				cuisineId,
+				+cuisineId,
 				description,
 				priceRange,
 				imgUrl
-			)
+			),
 		);
+		if (data.ok) {
+			setShowModal(false)
+		}
+		console.log("DATA", data, "<==============")
 		if (data.errors) {
-			console.log("%cYou,ve got errors", "color:yellow")
 			setErrors(data.errors);
 		}
 	};
