@@ -25,8 +25,8 @@ export default function SplashPage() {
                         for (let i = 0; i < restaurant?.price_range; i++) {
                             range +="$"
                         }
-                        return range
-                    }
+                        return <p>{range}</p>
+                    }}
 
                     <p className="restaurants-cuisine">{restaurant?.cuisine_id.type}</p>
                 </div>
