@@ -6,13 +6,15 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 85px
 }
 
 .restaurants-img {
   height: 200px;
   width: 300px;
   border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 5px;
 }
 
 .restaurant-container {
@@ -20,15 +22,14 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0px;
+  border-left: 1px solid rgb(215, 214, 214);
+  border-right: 1px solid rgb(215, 214, 214);
   border-bottom: 1px solid rgb(215, 214, 214);
+  border-radius: 15px;
   margin: 15px;
   margin-bottom: 5px;
   text-decoration: none;
 }
-.restaurant-container p {
-  text-decoration: none;
-}
-
 .restaurants-name {
   text-decoration: none;
   font-size: 1.2rem;
@@ -45,13 +46,40 @@
 .restaurants-cuisine {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  padding: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin: 0px;
-  display: flex;
-  justify-content: flex-end;
   color: rgb(121, 121, 121);
   text-decoration: none;
+  margin-left: 10px;
+}
+
+.splash-img {
+  height: auto;
+  width: 100%;
   padding-bottom: 10px;
+}
+
+.share-table {
+  display: absolute;
+  color: black;
+  font-family: "Baloo 2", serif;
+  font-size: 2em;
+  top: 20px;
+}
+
+.restaurant-container:hover {
+  margin-bottom: 2px;
+}
+
+.cuisine-city-state-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.city-state {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: rgb(121, 121, 121);
+  text-decoration: none;
 }
