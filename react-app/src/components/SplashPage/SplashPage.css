@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+
+.restaurants-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 85px
+}
+
+.restaurants-img {
+  height: 200px;
+  width: 300px;
+  border-radius: 15px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0px;
+  border-bottom: 1px solid rgb(215, 214, 214);
+  margin: 15px;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+.restaurant-container p {
+  text-decoration: none;
+}
+
+.restaurants-name {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Baloo 2', sans-serif;
+  padding: 0px;
+  padding-bottom: 10px;
+  margin: 0px;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-weight: lighter;
+  color: black;
+}
+
+.restaurants-cuisine {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin: 0px;
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(121, 121, 121);
+  text-decoration: none;
+  padding-bottom: 10px;
+}

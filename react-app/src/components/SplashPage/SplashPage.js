@@ -8,22 +8,27 @@ import './SplashPage.css'
 export default function SplashPage() {
     const dispatch = useDispatch();
     const restaurants = Object.values(useSelector((state) => state.restaurants));
-    console.log("COMCOMCOMCOMCOMCOCMCOMCOCMCOMCOM")
-    console.log(restaurants)
 
     useEffect(() => {
         dispatch(getRestaurants())
     }, [dispatch])
 
     return (
-    <div>
-        <h1>SPLASH PAGE</h1>
+    <div className="restaurants-page">
         {restaurants && restaurants?.map(restaurant => (
             <NavLink to={`/restaurants/${restaurant.id}`} key={restaurant.id} >
                 <div className='restaurant-container'>
-                    {restaurant?.image !== undefined && (<img className="restaurant-img" src={restaurant?.image[0].img_url}/>)}
-                    <p>{restaurant.restaurant_name}</p>
-                    <p>{restaurant?.cuisine_id.type}</p>
+                    {restaurant?.image !== undefined && (<img className="restaurants-img" src={restaurant?.image[0].img_url}/>)}
+                    <p className="restaurants-name">{restaurant?.restaurant_name}</p>
+                    {function priceRange() {
+                        let range = ""
+                        for (let i = 0; i < restaurant?.price_range; i++) {
+                            range +="$"
+                        }
+                        return <p>{range}</p>
+                    }}
+
+                    <p className="restaurants-cuisine">{restaurant?.cuisine_id.type}</p>
                 </div>
             </NavLink>
         ))}
