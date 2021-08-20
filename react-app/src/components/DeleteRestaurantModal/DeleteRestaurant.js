@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
@@ -13,8 +13,9 @@ function DeleteRestaurant({restaurantId, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams()
-    const handleDelete = async (e) => {
-        const success = await dispatch(destroyRestaurant(restaurantId));
+
+    const handleDelete = (e) => {
+        const success = dispatch(destroyRestaurant(restaurantId));
         if (success) {
             e.preventDefault();
             setShowModal(false);

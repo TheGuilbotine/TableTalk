@@ -89,8 +89,10 @@ export const destroyRestaurant = restaurantId => async dispatch => {
     //     dispatch(removeRestaurant(restaurantId));
     //     return result;
     // }
-    dispatch(removeRestaurant(restaurantId))
-    return deleted;
+    if (deleted) {
+        dispatch(removeRestaurant(restaurantId))
+        return deleted;
+    }
 };
 
 
