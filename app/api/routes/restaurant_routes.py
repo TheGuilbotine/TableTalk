@@ -136,20 +136,23 @@ def edit_restaurant(
     priceRange,
     imgUrl
 ):
+    restaurant = Restaurant.query.get(id)
     print(businessId, "Bout to edit <=XXX====XX==XX====XX=>")
     image = Image.query.filter(
-        Image.restaurant_id == businessId).update(dict(img_url=imgUrl))
-    print(image.img_url, '<xxxxxxxxxxxxxxxxxxxxxxxxxxxx>')
+            Image.restaurant_id == restaurant["id"]).first()
+
+    # restaurant["image"] = [image.to_dict() for image in images]
+    # print(image.img_url, '<xxxxxxxxxxxxxxxxxxxxxxxxxxxx>')
     # db.session.update(image.img_url)
     print('updated??????????????????4')
-    db.session.commit()
     Restaurant.query.get(businessId).update(
         dict(
             restaurant_name=restaurantName,
             phone_number=phoneNumber,
             cuisine_id=cuisineId,
             description=description,
-            price_range=priceRange
+            price_range=priceRange,
+            image=imgUrl
         )
     )
     db.session.commit()
