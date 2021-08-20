@@ -32,10 +32,13 @@ def restaurants():
     restaurants_query = Restaurant.query.all()
     restaurants = [restaurant.to_dict() for restaurant in restaurants_query]
     for restaurant in restaurants:
-#   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
-        restaurant['cuisine_id'] = Cuisine.query.get(restaurant["cuisine_id"]).to_dict()
-        restaurant['address_id'] = Address.query.get(restaurant["address_id"]).to_dict()
-        images = Image.query.filter(Image.restaurant_id == restaurant["id"]).all()
+        #   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
+        restaurant['cuisine_id'] = Cuisine.query.get(
+            restaurant["cuisine_id"]).to_dict()
+        restaurant['address_id'] = Address.query.get(
+            restaurant["address_id"]).to_dict()
+        images = Image.query.filter(
+            Image.restaurant_id == restaurant["id"]).all()
         restaurant["image"] = [image.to_dict() for image in images]
     return {"restaurants": restaurants}
 
