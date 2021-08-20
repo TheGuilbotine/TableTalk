@@ -85,7 +85,7 @@ export const destroyRestaurant = restaurantId => async dispatch => {
     });
     debugger
     if (res.ok) {
-        let result = await  res.json();
+        let result = await res.json();
         dispatch(removeRestaurant(restaurantId));
         return result;
     }
