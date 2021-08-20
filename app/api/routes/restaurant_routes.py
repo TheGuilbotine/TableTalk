@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, request, jsonify
 # from flask_request_params import bind_request_params
 from app.models.restaurant import Restaurant
 from flask_login import login_required
+# Import request to use. .json()
 # from app.forms.restaurant_form import RestaurantForm
 from app.models.db import db
 # from app.models.business import Business
@@ -127,33 +128,23 @@ def delete_restaurant(id):
 
 @restaurant_routes.route('/<int:id>', methods=['PUT'])
 # @login_required
-def edit_restaurant(
-    businessId,
-    restaurantName,
-    phoneNumber,
-    cuisineId,
-    description,
-    priceRange,
-    imgUrl
-):
+def edit_restaurant(id):
+    data = request.json
+    # print(request.json, 'jason bourne')
     restaurant = Restaurant.query.get(id)
-    print(businessId, "Bout to edit <=XXX====XX==XX====XX=>")
-    image = Image.query.filter(
-            Image.restaurant_id == restaurant["id"]).first()
-
-    # restaurant["image"] = [image.to_dict() for image in images]
-    # print(image.img_url, '<xxxxxxxxxxxxxxxxxxxxxxxxxxxx>')
-    # db.session.update(image.img_url)
-    print('updated??????????????????4')
-    Restaurant.query.get(businessId).update(
-        dict(
-            restaurant_name=restaurantName,
-            phone_number=phoneNumber,
-            cuisine_id=cuisineId,
-            description=description,
-            price_range=priceRange,
-            image=imgUrl
-        )
-    )
+    image = Image.query.filter(Image.restaurant_id == id).first()
+    # data = restaurant.to_dict()
+    # ourKeys = data.keys()
+    # print(list(ourKeys))
+    # toChange = list(request.json.keys())
+    # print(toChange)
+    restaurant.restaurant_name = data["restaurant_name"]
+    restaurant.phone_number = data["phone_number"]
+    restaurant.cuisine_id = data["cuisine_id"]
+    restaurant.description = data["description"]
+    restaurant.price_range = data["price_range"]
+    image.img_url = data["img_url"]
+    # restaurant.img_url = form.images[0].img_url
     db.session.commit()
-    return {"message": "UPDATED SUCCESSFULLY"}, 204
+    print(restaurant.to_dict(), "Bout to edit <=XXX====XX==XX====XX=>")
+    return {**restaurant.to_dict(), "images": [{"img_url": data['img_url']}]}

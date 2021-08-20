@@ -92,13 +92,14 @@ export const destroyRestaurant = restaurantId => async dispatch => {
 
 
 export const editRestaurant = (restaurantId, businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl) => async dispatch => {
-    // console.log(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl, "<========================")
+    console.log(restaurantId, businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl, "<========================")
     const res = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            id: restaurantId,
             business_id: businessId,
             restaurant_name: restaurantName,
             phone_number: phoneNumber,
@@ -147,6 +148,13 @@ const restaurantsReducer = (state = {}, action) => {
             return newState;
         }
         case CREATE_RESTAURANT: {
+            if (state[action.restaurant.id]) {
+                const newState = {
+                    ...state
+                };
+                newState[action.restaurant.id] = action.restaurant
+                return newState;
+            }
             const newState = {
                 ...state,
                 [action.restaurant.id]: action.restaurant
