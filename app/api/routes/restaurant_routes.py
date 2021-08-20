@@ -31,8 +31,20 @@ def validation_errors_to_error_messages(validation_errors):
 @restaurant_routes.route('/')
 def restaurants():
     restaurants = Restaurant.query.all()
+    cuisines = Cuisine.query.all()
+    addresses = Address.query.all()
+    images = Image.query.all()
+    restaurantslist = [restaurant.to_dict() for restaurant in restaurants]
     print(restaurants)
-    return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
+    for restaurant in restaurantslist: {
+        'restaurant': restaurant.id,
+        'images': [image.to_dict() for image in images if image.restaurant_id == restaurant.id],
+        'cuisines': [cuisine.to_dict() for cuisine in cuisines if cuisine.id == restaurant.cuisine_id],
+        'addresses': [address.to_dict() for address in addresses if address.id == restaurant.address_id]
+    }
+
+    # return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
+    return {'restaurants': restaurantlist}
 
 # Get one restaurant by restaurant_id
 
