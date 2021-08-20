@@ -22,7 +22,7 @@ const BusinessNavBar = () => {
   } else {
     sessionLinks = (
       <>
-        <NavLink to='/' className='are-you-a-business' exact={true} activeClassName='active'>
+        <NavLink to='/' className='looking-for-a-table' exact={true} activeClassName='active'>
           Looking for a table?
         </NavLink>
         <BusinessLoginModal />
