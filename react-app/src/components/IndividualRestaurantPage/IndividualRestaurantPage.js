@@ -17,26 +17,27 @@ function IndividualRestaurant() {
     }, [dispatch, id])
 
     return (
-        <>
-            <div className='restaurant-details'>
-                <div className="restaurant-image-container">
-                    {restaurant?.images?.map(image => (
-                    <img className="restaurant-image"src={image.img_url}/>
-                    ))}
-                </div>
-                {/* <img src={restaurant.images[0].img_url}></img> */}
-                <h1>{restaurant?.restaurant_name}</h1>
-                <p>{restaurant?.description}</p>
-                <p>{restaurant?.phone_number}</p>
-                <p>{restaurant?.type}</p>
-                <p>{restaurant?.address_line_one}</p>
-                <p>{restaurant?.address_line_two}</p>
-                <p>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
+        <div className='restaurant-details'>
+          <div className="restaurant-image-container">
+              {restaurant?.images?.map(image => (
+               <img className="restaurant-image"src={image.img_url}/>
+              ))}
+           </div>
+           <div className="name-cuisine">
+              <h1 className='restaurant-name'>{restaurant?.restaurant_name}   -  </h1>
+              <p className='restaurant-type'>{restaurant?.type}</p>
             </div>
+           <div className="restaurant-name-address-phone">
+              <p className='restaurant-phone'>{restaurant?.phone_number}</p>
+              <p className='restaurant-add1'>{restaurant?.address_line_one}</p>
+              <p className='restaurant-add2'>{restaurant?.address_line_two}</p>
+              <p className='restaurant-city-state-zip'>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
+           </div>
+                <p className='restaurant-description'>{restaurant?.description}</p>
             <div>
-                <CreateNewReservation />
+                {/* <CreateNewReservation /> */}
             </div>
-        </>
+        </div>
     )
 }
 
