@@ -18,7 +18,7 @@ export default function SplashPage() {
         {restaurants && restaurants?.map(restaurant => (
             <NavLink to={`/restaurants/${restaurant.id}`} key={restaurant.id} >
                 <div className='restaurant-container'>
-                    {restaurant?.image !== undefined && (<img className="restaurant-img" src={restaurant?.image[0].img_url}/>)}
+                    {restaurant?.image !== undefined && (<img className="restaurants-img" src={restaurant?.image[0].img_url}/>)}
                     <p className="restaurants-name">{restaurant?.restaurant_name}</p>
                     {function priceRange() {
                         let range = ""
