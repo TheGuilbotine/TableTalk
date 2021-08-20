@@ -23,6 +23,7 @@ export const getRestaurants = () => async dispatch => {
 
     if (res.ok) {
         const restaurants = await res.json();
+        console.log("+++++++++++++++++", restaurants)
         dispatch(load(restaurants.restaurants));
         return res
     }
