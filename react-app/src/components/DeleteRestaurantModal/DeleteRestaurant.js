@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
@@ -12,13 +12,12 @@ import './DeleteRestaurant.css'
 function DeleteRestaurant({restaurantId, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
-    const {id} = useParams()
-    const handleDelete = async (e) => {
-        e.preventDefault();
-        const success = await dispatch(destroyRestaurant(restaurantId));
+    const { id } = useParams()
+
+    const handleDelete = (e) => {
+        const success = dispatch(destroyRestaurant(restaurantId));
         if (success) {
             e.preventDefault();
-            debugger
             setShowModal(false);
             return <Redirect to={`/business/${id}`} />;
         } else {

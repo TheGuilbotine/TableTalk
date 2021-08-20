@@ -80,33 +80,52 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
 
 
 export const destroyRestaurant = restaurantId => async dispatch => {
-    console.log('%cHERERERERERER', 'color:blue', restaurantId)
-    const res = await fetch(`/api/restaurants/${restaurantId}`, {
+    // console.log('%cHERERERERERER', 'color:blue', restaurantId)
+    const deleted = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'DELETE'
     });
-    debugger
-    if (res.ok) {
-        let result = await res.json();
-        dispatch(removeRestaurant(restaurantId));
-        return result;
+    // if (res.ok) {
+    //     let result = await res.json();
+    //     dispatch(removeRestaurant(restaurantId));
+    //     return result;
+    // }
+    if (deleted) {
+        dispatch(removeRestaurant(restaurantId))
+        return deleted;
     }
-    return null
 };
 
 
-export const editRestaurant = (payload) => async dispatch => {
-    const res = await fetch(`/api/restaurants/${payload.id}`, {
+export const editRestaurant = (
+    businessId,
+    restaurantName,
+    phoneNumber,
+    cuisineId,
+    description,
+    priceRange,
+    imgUrl
+    ) => async dispatch => {
+    console.log(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl, "<========================")
+    const res = await fetch(`/api/restaurants/${businessId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+            business_id: businessId,
+            restaurant_name: restaurantName,
+            phone_number: phoneNumber,
+            cuisine_id: +cuisineId,
+            description,
+            price_range: priceRange,
+            img_url: imgUrl
+        })
     });
+    const restaurant = await res.json();
     if (res.ok) {
-        const restaurant = await res.json();
         dispatch(addOneRestaurant(restaurant));
     }
-    return res;
+    return restaurant;
 };
 
 
@@ -149,9 +168,10 @@ const restaurantsReducer = (state = {}, action) => {
         }
         case DESTROY_RESTAURANT: {
             const newState = {...state};
-            const restaurants = newState.restaurants.filter(restaurantId => restaurantId !== action.restaurantId);
-            newState.restaurants = restaurants;
-            delete newState[action.restaurantId];
+            delete newState[action.restaurantId]
+            // const restaurants = newState.restaurants.filter(restaurantId => restaurantId !== action.restaurantId);
+            // newState.restaurants = restaurants;
+            // delete newState[action.restaurantId];
 
             return newState;
         }
