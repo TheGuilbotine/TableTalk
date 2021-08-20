@@ -37,8 +37,6 @@ def restaurants():
         restaurant['address_id'] = Address.query.get(restaurant["address_id"]).to_dict()
         images = Image.query.filter(Image.restaurant_id == restaurant["id"]).all()
         restaurant["image"] = [image.to_dict() for image in images]
-    print("=============================")
-    print(restaurants)
     return {"restaurants": restaurants}
 
 
