@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
 @reservation_routes.route('/users/<int:userId>')
 @login_required
 def user_reservations(userId):
-    reservations = Reservation.query.filter(Reservation.user_id == userId)
+    reservations = Reservation.query.filter(Reservation.user_id == userId).all()
     return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 # Get restaurant reservations

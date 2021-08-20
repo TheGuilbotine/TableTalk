@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, request
+from flask import Blueprint, redirect, request, jsonify
 # from flask_request_params import bind_request_params
 from app.models.restaurant import Restaurant
 from flask_login import login_required
@@ -29,21 +29,17 @@ def validation_errors_to_error_messages(validation_errors):
 
 @restaurant_routes.route('/')
 def restaurants():
-    restaurants = Restaurant.query.all()
-    cuisines = Cuisine.query.all()
-    addresses = Address.query.all()
-    images = Image.query.all()
-    restaurantslist = [restaurant.to_dict() for restaurant in restaurants]
+    restaurants_query = Restaurant.query.all()
+    restaurants = [restaurant.to_dict() for restaurant in restaurants_query]
+    for restaurant in restaurants:
+#   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
+        restaurant['cuisine_id'] = Cuisine.query.get(restaurant["cuisine_id"]).to_dict()
+        restaurant['address_id'] = Address.query.get(restaurant["address_id"]).to_dict()
+        images = Image.query.filter(Image.restaurant_id == restaurant["id"]).all()
+        restaurant["image"] = [image.to_dict() for image in images]
+    print("=============================")
     print(restaurants)
-    for restaurant in restaurantslist: {
-        'restaurant': restaurant.id,
-        'images': [image.to_dict() for image in images if image.restaurant_id == restaurant.id],
-        'cuisines': [cuisine.to_dict() for cuisine in cuisines if cuisine.id == restaurant.cuisine_id],
-        'addresses': [address.to_dict() for address in addresses if address.id == restaurant.address_id]
-    }
-
-    # return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
-    return {'restaurants': restaurantlist}
+    return {"restaurants": restaurants}
 
 
 # Get one restaurant by restaurant_id
