@@ -35,7 +35,6 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true}>
-          <h1>Home</h1>
           <SplashPage />
         </Route>
         <ProtectedRoute path='/users' exact={true}>
