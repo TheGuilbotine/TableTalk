@@ -1,3 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
 .restaurant-details {
     margin-left: 10px;
+}
+
+.restaurant-image-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+    margin-left: 30px;
+}
+
+.restaurant-image {
+    width: 500px;
+    height: 300px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.restaurant-name {
+    font-size: 1.7em;
+    font-family: 'Baloo 2', serif;
+    font-weight: lighter;
+    margin: 0px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.restaurant-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+    color: rgb(68, 68, 68);
+    padding-bottom: 15px;
+}
+
+.restaurant-add1,
+.restaurant-add2,
+.restaurant-city-state-zip {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.0em;
+    font-weight: 300;
+    padding-bottom: 3px;
+}
+
+.restaurant-name-address-phone {
+    margin-left: 50px;
+}
+
+.name-cuisine {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.restaurant-type {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.restaurant-description {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin-left: 50px;
+    padding-top: 20px;
+    font-weight: 300;
+    line-height: 24px;
 }
