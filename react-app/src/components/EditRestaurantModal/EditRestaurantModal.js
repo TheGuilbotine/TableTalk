@@ -30,6 +30,7 @@ const EditRestaurantForm = ({restaurantId, showModal}) => {
 		e.preventDefault();
 		const data = await dispatch(
 			editRestaurant(
+				restaurantId,
 				businessId,
 				restaurantName,
 				phoneNumber,
