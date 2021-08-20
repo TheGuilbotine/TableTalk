@@ -80,17 +80,19 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
 
 
 export const destroyRestaurant = restaurantId => async dispatch => {
-    console.log('%cHERERERERERER', 'color:blue', restaurantId)
-    const res = await fetch(`/api/restaurants/${restaurantId}`, {
+    // console.log('%cHERERERERERER', 'color:blue', restaurantId)
+    const deleted = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'DELETE'
     });
-    debugger
-    if (res.ok) {
-        let result = await res.json();
-        dispatch(removeRestaurant(restaurantId));
-        return result;
+    // if (res.ok) {
+    //     let result = await res.json();
+    //     dispatch(removeRestaurant(restaurantId));
+    //     return result;
+    // }
+    if (deleted) {
+        dispatch(removeRestaurant(restaurantId))
+        return deleted;
     }
-    return null
 };
 
 
@@ -149,9 +151,10 @@ const restaurantsReducer = (state = {}, action) => {
         }
         case DESTROY_RESTAURANT: {
             const newState = {...state};
-            const restaurants = newState.restaurants.filter(restaurantId => restaurantId !== action.restaurantId);
-            newState.restaurants = restaurants;
-            delete newState[action.restaurantId];
+            delete newState[action.restaurantId]
+            // const restaurants = newState.restaurants.filter(restaurantId => restaurantId !== action.restaurantId);
+            // newState.restaurants = restaurants;
+            // delete newState[action.restaurantId];
 
             return newState;
         }
