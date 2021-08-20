@@ -96,19 +96,36 @@ export const destroyRestaurant = restaurantId => async dispatch => {
 };
 
 
-export const editRestaurant = (payload) => async dispatch => {
-    const res = await fetch(`/api/restaurants/${payload.id}`, {
+export const editRestaurant = (
+    businessId,
+    restaurantName,
+    phoneNumber,
+    cuisineId,
+    description,
+    priceRange,
+    imgUrl
+    ) => async dispatch => {
+    console.log(businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl, "<========================")
+    const res = await fetch(`/api/restaurants/${businessId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+            business_id: businessId,
+            restaurant_name: restaurantName,
+            phone_number: phoneNumber,
+            cuisine_id: +cuisineId,
+            description,
+            price_range: priceRange,
+            img_url: imgUrl
+        })
     });
+    const restaurant = await res.json();
     if (res.ok) {
-        const restaurant = await res.json();
         dispatch(addOneRestaurant(restaurant));
     }
-    return res;
+    return restaurant;
 };
 
 

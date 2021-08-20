@@ -11,7 +11,6 @@ from app.forms.restaurant_form import RestaurantForm
 from app.models.images import Image
 from app.models.cuisine import Cuisine
 
-
 restaurant_routes = Blueprint('restaurants', __name__)
 
 
@@ -31,8 +30,14 @@ def validation_errors_to_error_messages(validation_errors):
 @restaurant_routes.route('/')
 def restaurants():
     restaurants = Restaurant.query.all()
+    cuisines = Cuisine.query.all()
+    # addresses = Address.query.all()
+    print('Your cusines m\'lord', cuisines)
     print(restaurants)
-    return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
+    # {     # 'cuisines': [cuisine for cuisine in cuisines if restaurant.cuisine_id == restaurant.id],
+    # 'addresses': [address for address in addresses if restaurant.address_id == restaurant.id]    }
+    return {
+        'restaurants': [restaurant.to_dict() for restaurant in restaurants], **cuisines.to_dict()}
 
 # Get one restaurant by restaurant_id
 
@@ -117,10 +122,31 @@ def delete_restaurant(id):
 
 
 @restaurant_routes.route('/<int:id>', methods=['PUT'])
-@login_required
-def edit_restaurant(id):
-    Image.query.get(Image.restaurant_id == id).update()
+# @login_required
+def edit_restaurant(
+    businessId,
+    restaurantName,
+    phoneNumber,
+    cuisineId,
+    description,
+    priceRange,
+    imgUrl
+):
+    print(businessId, "Bout to edit <=XXX====XX==XX====XX=>")
+    image = Image.query.filter(
+        Image.restaurant_id == businessId).update(dict(img_url=imgUrl))
+    print(image.img_url, '<xxxxxxxxxxxxxxxxxxxxxxxxxxxx>')
+    # db.session.update(image.img_url)
+    print('updated??????????????????4')
     db.session.commit()
-    Restaurant.query.get(id).update()
+    Restaurant.query.get(businessId).update(
+        dict(
+            restaurant_name=restaurantName,
+            phone_number=phoneNumber,
+            cuisine_id=cuisineId,
+            description=description,
+            price_range=priceRange
+        )
+    )
     db.session.commit()
-    return redirect("/<int:id>")
+    return {"message": "UPDATED SUCCESSFULLY"}, 204
