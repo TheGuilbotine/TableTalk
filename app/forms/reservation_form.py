@@ -12,5 +12,5 @@ class ReservationForm(FlaskForm):
     number_of_guests = IntegerField("Guests", validators=[DataRequired()])
     date_start = DateField("Date", validators=[DataRequired()])
     time_start = TimeField("Time", validators=[DataRequired()])
-    share_table = BooleanField("Up to sharing?", validators=[DataRequired()])
+    share_table = BooleanField("Up to sharing?")
     submit = SubmitField('Reserve my Table!')

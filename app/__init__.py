@@ -12,6 +12,7 @@ from .api.routes.auth_routes import auth_routes
 from .api.routes.business_routes import business_routes
 from .api.routes.cuisine_routes import cuisine_routes
 from .api.routes.restaurant_routes import restaurant_routes
+from .api.routes.reservation_routes import reservation_routes
 
 from .seeds import seed_commands
 
@@ -38,6 +39,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(cuisine_routes, url_prefix='/api/cuisine')
 app.register_blueprint(restaurant_routes, url_prefix='/api/restaurants')
+app.register_blueprint(reservation_routes, url_prefix='/api/reservations')
 db.init_app(app)
 Migrate(app, db)
 

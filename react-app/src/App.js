@@ -10,6 +10,7 @@ import User from './components/User';
 import SplashPage from './components/SplashPage';
 import BusinessProfile from './components/BusinessProfilePage';
 import IndividualRestaurant from './components/IndividualRestaurantPage';
+import CreateNewReservation from './components/CreateNewReservation/CreateNewReservation'
 import { authenticate } from './store/session';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         </Route>
         <Route path='/restaurants/:id'>
           <IndividualRestaurant />
+          <CreateNewReservation />
         </Route>
       </Switch>
     </BrowserRouter>
