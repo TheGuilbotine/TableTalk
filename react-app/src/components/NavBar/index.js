@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import * as sessionActions from '../../store/session'
 import UserLogoutButton from '../auth/UserLogoutButton';
 import UserSignUpFormModal from '../UserSignUpFormModal';
@@ -11,38 +11,40 @@ import './NavBar.css';
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const location = useLocation();
+  console.log("LOCATION LOCATION LOCATION", location)
 
   const demoLogin = () => {
     return dispatch(sessionActions.userLogin({ credential: 'demo@user.com', password: 'password' }))
   }
 
   let sessionLinks;
-  if (sessionUser) {
-    if (sessionUser.business_name) {
-      sessionLinks = (
-        <>
-          <NavLink to={`/business/${sessionUser.id}`} className="business-profile-button">Business Profile</NavLink>
-          <BusinessLogoutButton />
-        </>
-        );
-    } else {
-      sessionLinks = (
-        <>
-          <NavLink to='/' className='looking-for-a-table' exact={true} activeClassName='active'>
-            Looking for a table?
-          </NavLink>
-          <BusinessLoginModal />
-        </>
-      );
-    }
+  if (sessionUser && sessionUser.business_name) {
     sessionLinks = (
       <>
+        <NavLink to={`/business/${sessionUser.id}`} className="business-profile-button">Business Profile</NavLink>
+        <BusinessLogoutButton />
+      </>
+      );
+  } else if (sessionUser && !sessionUser.business_name) {
+    sessionLinks = (
+      <>
+        {/* <button className="demo-button" onClick={demoLogin}>Demo</button> */}
         <NavLink to={`/users/${sessionUser.id}`} className="profile-page-button">My Profile</NavLink>
         <UserLogoutButton />
       </>
-      );
-  } else if (sessionUser.birth_date) {
+    );
+  } else if (location.pathname == "/business") {
+    sessionLinks = (
+      <>
+        <NavLink to='/' className='looking-for-a-table' exact={true} activeClassName='active'>
+          Looking for a table?
+        </NavLink>
+        <BusinessLoginModal />
+      </>
+    );
+  } else {
     sessionLinks = (
       <>
         {/* <button className="demo-button" onClick={demoLogin}>Demo</button> */}
