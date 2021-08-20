@@ -29,15 +29,18 @@ def validation_errors_to_error_messages(validation_errors):
 
 @restaurant_routes.route('/')
 def restaurants():
-    restaurants = Restaurant.query.all()
-    cuisines = Cuisine.query.all()
+    # restaurants = Restaurant.query.all()
+    stuff = db.session.query(Restaurant).join(Image).all()
+    print("Here yo stuff at", stuff)
+    # cuisines = Cuisine.query.all()
     # addresses = Address.query.all()
-    print('Your cusines m\'lord', cuisines)
+    # print('Your cusines m\'lord', cuisines)
+    # , **cuisines.to_dict()
     print(restaurants)
     # {     # 'cuisines': [cuisine for cuisine in cuisines if restaurant.cuisine_id == restaurant.id],
     # 'addresses': [address for address in addresses if restaurant.address_id == restaurant.id]    }
-    return {
-        'restaurants': [restaurant.to_dict() for restaurant in restaurants], **cuisines.to_dict()}
+    # return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
+    return {**stuff.to_dict()}
 
 # Get one restaurant by restaurant_id
 

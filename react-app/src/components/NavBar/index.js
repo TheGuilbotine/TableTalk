@@ -5,6 +5,8 @@ import * as sessionActions from '../../store/session'
 import UserLogoutButton from '../auth/UserLogoutButton';
 import UserSignUpFormModal from '../UserSignUpFormModal';
 import UserLoginModal from '../UserLoginModal';
+import BusinessLoginModal from '../BusinessLoginFormModal'
+import BusinessLogoutButton from '../auth/BusinessLogoutButton';
 import './NavBar.css';
 
 function NavBar() {
@@ -17,13 +19,30 @@ function NavBar() {
 
   let sessionLinks;
   if (sessionUser) {
+    if (sessionUser.business_name) {
+      sessionLinks = (
+        <>
+          <NavLink to={`/business/${sessionUser.id}`} className="business-profile-button">Business Profile</NavLink>
+          <BusinessLogoutButton />
+        </>
+        );
+    } else {
+      sessionLinks = (
+        <>
+          <NavLink to='/' className='looking-for-a-table' exact={true} activeClassName='active'>
+            Looking for a table?
+          </NavLink>
+          <BusinessLoginModal />
+        </>
+      );
+    }
     sessionLinks = (
       <>
         <NavLink to={`/users/${sessionUser.id}`} className="profile-page-button">My Profile</NavLink>
         <UserLogoutButton />
       </>
       );
-  } else {
+  } else if (sessionUser.birth_date) {
     sessionLinks = (
       <>
         {/* <button className="demo-button" onClick={demoLogin}>Demo</button> */}

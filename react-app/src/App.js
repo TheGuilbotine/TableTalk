@@ -33,30 +33,31 @@ function App() {
 
   return (
     <BrowserRouter >
+      <NavBar />
       <Switch>
         <Route path='/' exact={true}>
-          <NavBar />
+          {/* <NavBar /> */}
           <h1>Home</h1>
           <SplashPage />
         </Route>
         <ProtectedRoute path='/users' exact={true}>
-          <NavBar />
+          {/* <NavBar /> */}
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true}>
-          <NavBar />
+          {/* <NavBar /> */}
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/business/:id' exact={true}>
-          <BusinessNavBar />
+          {/* <BusinessNavBar /> */}
           <BusinessProfile />
         </ProtectedRoute>
         <Route path='/business' exact={true}>
-          <BusinessNavBar />
+          {/* <BusinessNavBar /> */}
           <BusinessHomePage />
         </Route>
         <Route path='/restaurants/:id'>
-          <NavBar />
+          {/* <NavBar /> */}
           <IndividualRestaurant />
         </Route>
       </Switch>
