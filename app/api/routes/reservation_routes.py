@@ -43,12 +43,19 @@ def reservation(id):
 
 # Create one reservation
 
-@reservation_routes.route('/', methods=['POST'])
+@reservation_routes.route('/', methods=['GET', 'POST'])
 @login_required
 def create_reservation():
     form = ReservationForm()
+    print('======Flaggship=======')
+    print(form.data)
+    print('======================')
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = ReservationForm()
+        print('======Guilboutine======')
+        print(data.data)
+        print('======================')
         form.populate_obj(data)
         db.session.add(data)
         db.session.commit()

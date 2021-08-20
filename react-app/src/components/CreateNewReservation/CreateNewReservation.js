@@ -12,7 +12,6 @@ const CreateNewReservation = () => {
     const { id } = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser?.id
-    console.log(userId)
     const restaurantId = id //total roundabout way to get restaurantId as we are doing useParams()
     const [errors, setErrors] = useState([]);
     const [partySize, setPartySize] = useState(1)
@@ -25,8 +24,12 @@ const CreateNewReservation = () => {
        e.preventDefault()
        const data = await dispatch(createReservation(userId, restaurantId, partySize, date, time, shareTable))
 
+       if (data) {
+           alert('Success')
+       }
        if (data.errors) {
             setErrors(data.errors)
+            alert('this is an error')
        }
    }
 
@@ -43,7 +46,7 @@ const CreateNewReservation = () => {
    }
 
    const updateShareTable = async (e) => {
-       setShareTable(e.target.value)
+       setShareTable(e.target.checked)
    }
 
    let sessionLinks;
@@ -98,7 +101,6 @@ const CreateNewReservation = () => {
                         name='time'
                         value={shareTable}
                         onChange={updateShareTable}
-                        required={true}
                     ></input>
                     {sessionLinks}
                 </form>
