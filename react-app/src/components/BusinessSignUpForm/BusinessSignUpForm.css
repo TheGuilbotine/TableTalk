@@ -31,10 +31,10 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-	display: flex;
-	flex-direction: column;
-	float: left;
-	padding: 20px;
+	  display: flex;
+	  flex-direction: column;
+	  float: left;
+	  padding: 20px;
 }
 
 .restaurant-form-container {
@@ -56,7 +56,7 @@
 	width: 100%;
 	padding: 10px;
 	margin: 5px;
-	font-family: 'Montserrat', serif;
+  font-family: 'Montserrat', serif;
 }
 
 .bottom-form {

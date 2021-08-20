@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import BusinessLoginModal from '../BusinessLoginFormModal'
 import BusinessLogoutButton from '../auth/BusinessLogoutButton';
 import BusinessSignUpForm from '../BusinessSignUpForm/index';
+import './BusinessNavBar.css'
 
 const BusinessNavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -43,7 +44,7 @@ const BusinessNavBar = () => {
           </form>
         </div>
       </div>
-      <div className="right-nav">
+      <div className="business-right-nav">
         {sessionLinks}
       </div>
     </div>
