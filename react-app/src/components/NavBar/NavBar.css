@@ -106,3 +106,25 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+
+.business-right-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.login-button {
+  height: 20px;
+  color: white;
+  border: 1px solid white;
+  padding-bottom: 0px;
+  cursor: pointer;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
