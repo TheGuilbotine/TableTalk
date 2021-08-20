@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import { getCuisines } from '../../store/cuisine';
-import { editRestaurant } from '../../store/restaurants';
+import { editRestaurant, getOneRestaurant } from '../../store/restaurants';
 import './EditRestaurantModal.css';
 
 const EditRestaurantForm = ({restaurantId, showModal}) => {
@@ -17,12 +17,13 @@ const EditRestaurantForm = ({restaurantId, showModal}) => {
 	const [cuisineId, setCuisineId] = useState(restaurant.cuisine_id);
 	const [description, setDescription] = useState(restaurant.description);
 	const [priceRange, setPriceRange] = useState(restaurant.price_range);
-	const [imgUrl, setImgUrl] = useState(restaurant.Image.img_url);
+	const [imgUrl, setImgUrl] = useState(restaurant.img_url);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCuisines());
+		dispatch(getOneRestaurant())
 	}, [dispatch]);
 
 	const onEdit = async (e) => {
@@ -38,8 +39,9 @@ const EditRestaurantForm = ({restaurantId, showModal}) => {
 				imgUrl
 			)
 		);
-		if (data) {
-			setErrors(data);
+		if (data.errors) {
+			console.log("%cYou,ve got errors", "color:yellow")
+			setErrors(data.errors);
 		}
 	};
 
