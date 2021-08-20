@@ -20,7 +20,7 @@ function DeleteRestaurant({restaurantId, setShowModal}) {
             e.preventDefault();
             debugger
             setShowModal(false);
-            return <Redirect to='/business' />;
+            return <Redirect to={`/business/${id}`} />;
         } else {
             alert('Please try again')
         }

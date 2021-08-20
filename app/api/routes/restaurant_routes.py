@@ -92,7 +92,7 @@ def create_restaurant():
 # Delete one restaurant
 
 @restaurant_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
+# @login_required
 def delete_restaurant(id):
     # business = request.args.get('business')
     # TODO delete all images if there are more.
@@ -100,6 +100,7 @@ def delete_restaurant(id):
     # print('IMAGE ==========>', image)
     # db.session.delete(image)
     # db.session.commit()
+    print('YOOOOOOOOOOOOOOOOOOOOOOOOOOOO', id)
     restaurant = Restaurant.query.get(id)
     print('Restaurant ==========>', restaurant)
     db.session.delete(restaurant)
