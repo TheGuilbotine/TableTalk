@@ -31,6 +31,7 @@ def validation_errors_to_error_messages(validation_errors):
 @restaurant_routes.route('/')
 def restaurants():
     restaurants = Restaurant.query.all()
+    print(restaurants)
     return {'restaurants': [restaurant.to_dict() for restaurant in restaurants]}
 
 # Get one restaurant by restaurant_id
