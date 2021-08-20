@@ -13,7 +13,6 @@ function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log("LOCATION LOCATION LOCATION", location)
 
   const demoLogin = () => {
     return dispatch(sessionActions.userLogin({ credential: 'demo@user.com', password: 'password' }))
