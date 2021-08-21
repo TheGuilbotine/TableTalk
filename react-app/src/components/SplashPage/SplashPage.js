@@ -14,39 +14,25 @@ export default function SplashPage() {
     }, [dispatch])
 
     return (
-    <div className="restaurants-page">
-        <img className='splash-img' src='https://i.imgur.com/4PE9VQY.png'/>
-        {restaurants && restaurants?.map(restaurant => (
-            <NavLink className="navlink" to={`/restaurants/${restaurant.id}`} key={restaurant.id} >
-                <div className='restaurant-container'>
-                    {restaurant?.image !== undefined && (<img className="restaurants-img" src={restaurant?.image[0].img_url}/>)}
-                      <div className="name-address-container">
-                            <div className="name-cuisine-container">
-                             <p className="restaurants-name">{restaurant?.restaurant_name}</p>
-                             {/* {function priceRange() {
-                                 let range = ""
-                                 for (let i = 0; i < restaurant?.price_range; i++) {
-                                     range +="$"
-                                 } */}
-                             {function range() {
-                                 if (restaurant.price_range === 1)
-                                     return <p>$</p>
-                                 if(restaurant.price_range === 2)
-                                     return <p>$$</p>
-                             }}
-                             {/* <p>{restaurant.price_range}</p> */}
-                             <div className="cuisine-city-state-container">
-                                <p className="restaurants-cuisine">{restaurant?.cuisine_id.type}</p>
-                                <p className="city-state">{restaurant?.address_id.city} , {restaurant?.address_id.state} </p>
-                             </div>
+        <div className="restaurants-page">
+            <img className='splash-img' src='https://i.imgur.com/4PE9VQY.png'/>
+            {restaurants && restaurants?.map(restaurant => (
+                <NavLink className="navlink" to={`/restaurants/${restaurant.id}`} key={restaurant.id} >
+                    <div className='restaurant-container'>
+                        {restaurant?.image !== undefined && (<img className="restaurants-img" src={restaurant?.image[0].img_url}/>)}
+                          <div className="name-address-container">
+                                <div className="name-cuisine-container">
+                                 <p className="restaurants-name">{restaurant?.restaurant_name}</p>
+                                 <div className="cuisine-city-state-container">
+                                    <p className="restaurants-cuisine">{restaurant?.cuisine.type}</p>
+                                    <p className="city-state">{restaurant?.address.city} , {restaurant?.address.state} </p>
+                                 </div>
                             </div>
-                            <div>
-                            </div>
-                      </div>
-                </div>
-            </NavLink>
-        ))}
-    </div>
+                        </div>
+                    </div>
+                </NavLink>
+            ))}
+        </div>
     )
 }
 

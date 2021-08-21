@@ -15,7 +15,7 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [restaurantName, setRestaurantName] = useState(restaurant.restaurant_name);
 	const [phoneNumber, setPhoneNumber] = useState(restaurant.phone_number);
-	const [cuisineId, setCuisineId] = useState(restaurant.cuisine_id.id);
+	const [cuisineId, setCuisineId] = useState(restaurant.cuisine.id);
 	const [description, setDescription] = useState(restaurant.description);
 	const [priceRange, setPriceRange] = useState(restaurant.price_range);
 	const [imgUrl, setImgUrl] = useState(restaurant.images[0].img_url);

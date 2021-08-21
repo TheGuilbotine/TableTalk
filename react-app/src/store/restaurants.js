@@ -23,7 +23,6 @@ export const getRestaurants = () => async dispatch => {
 
     if (res.ok) {
         const restaurants = await res.json();
-        console.log("+++++++++++++++++", restaurants)
         dispatch(load(restaurants.restaurants));
         return res
     }
@@ -73,8 +72,34 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
         })
     });
     const restaurant = await res.json();
+    console.log('------------------------------------');
+    console.log(restaurant);
+    console.log('------------------------------------');
     if (res.ok){
-        dispatch(addOneRestaurant(restaurant));
+        const formattedRestaurant = {
+            address: {
+                address_line_one: addressLineOne,
+                address_line_two: addressLineTwo,
+                city,
+                state,
+                postal_code: postalCode,
+                country,
+            },
+            address_id: restaurant.address_id,
+            business_id: businessId,
+            cuisine: {
+                id: cuisineId,
+                type: restaurant?.cuisine_type
+            },
+            cuisine_id: cuisineId,
+            description,
+            id: restaurant.id,
+            images: [imgUrl],
+            phone_number: phoneNumber,
+            price_range: priceRange,
+            restaurant_name: restaurantName,
+        }
+        dispatch(addOneRestaurant(formattedRestaurant));
         return restaurant;
     }
 };
@@ -148,17 +173,13 @@ const restaurantsReducer = (state = {}, action) => {
             return newState;
         }
         case CREATE_RESTAURANT: {
-            if (state[action.restaurant.id]) {
-                const newState = {
-                    ...state
-                };
-                newState[action.restaurant.id] = action.restaurant
-                return newState;
-            }
             const newState = {
                 ...state,
                 [action.restaurant.id]: action.restaurant
             };
+            console.log('------------------------------------');
+            console.log(newState);
+            console.log('------------------------------------');
             return newState;
         }
         case DESTROY_RESTAURANT: {

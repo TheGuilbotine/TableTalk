@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+.business-restaurant-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0px;
+  border-top: 1px solid rgb(215, 214, 214);
+  border-left: 1px solid rgb(215, 214, 214);
+  border-right: 1px solid rgb(215, 214, 214);
+  border-bottom: 1px solid rgb(215, 214, 214);
+  border-radius: 15px;
+  margin: 15px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-new {
+  font-family: "Baloo 2", serif;
+  font-size: 18px;
+}
+
+#plus-button {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.business-restaurant-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

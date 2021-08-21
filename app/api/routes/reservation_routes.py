@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request, redirect
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models.reservations import Reservation
 from app.forms.reservation_form import ReservationForm
 from app.models.db import db
@@ -46,18 +46,28 @@ def reservation(id):
 @reservation_routes.route('/', methods=['GET', 'POST'])
 @login_required
 def create_reservation():
+    print("++++++++++++++")
+    print(current_user)
+    print("++++++++++++++")
     form = ReservationForm()
-    print('======Flaggship=======')
-    print(form.data)
-    print('======================')
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = ReservationForm()
-        print('======Guilboutine======')
-        print(data.data)
-        print('======================')
-        form.populate_obj(data)
-        db.session.add(data)
+        reservation = Reservation(
+            user_id = current_user.id,
+            restaurant_id=form.data['restaurant_id'],
+            number_of_guests=form.data['number_of_guests'],
+            date_start=form.data['date_start'],
+            time_start=form.data['time_start'],
+            share_table=form.data['share_table'],
+        )
+        db.session.add(reservation)
+        db.session.commit()
+        reward = Reward (
+            user_id=current_user.id,
+            restaurant_id=form.data['restaurant_id'],
+            reward_amount=50,
+        )
+        db.session.commit(reward)
         db.session.commit()
         return redirect("/")
     errors = form.errors
