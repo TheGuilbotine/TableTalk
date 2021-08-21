@@ -20,21 +20,26 @@ def validation_errors_to_error_messages(validation_errors):
 
 # Get user reservations
 
+
 @reservation_routes.route('/users/<int:userId>')
 @login_required
 def user_reservations(userId):
-    reservations = Reservation.query.filter(Reservation.user_id == userId).all()
+    reservations = Reservation.query.filter(
+        Reservation.user_id == userId).all()
     return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 # Get restaurant reservations
 
+
 @reservation_routes.route('/restaurants/<int:restaurantId>')
 @login_required
 def restaurant_reservations(restaurantId):
-    reservations = Reservation.query.filter(Reservation.restaurant_id == restaurantId)
+    reservations = Reservation.query.filter(
+        Reservation.restaurant_id == restaurantId)
     return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 # Get one reservation
+
 
 @reservation_routes.route('/<int:id>')
 @login_required
@@ -43,6 +48,7 @@ def reservation(id):
     return reservation.to_dict()
 
 # Create one reservation
+
 
 @reservation_routes.route('/', methods=['GET', 'POST'])
 @login_required
@@ -75,7 +81,8 @@ def create_reservation():
     print(errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-#Delete one reservation
+# Delete one reservation
+
 
 @reservation_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
@@ -83,11 +90,13 @@ def delete_reservation(id):
     reservation = Reservation.query.get(id)
     db.session.delete(reservation)
     db.session.commit()
+
     # TODO which business f'{business.id}
     return {}, 200
 
 
-#Edit one reservation
+
+# Edit one reservation
 
 @reservation_routes.route('/<int:id>', methods=['PUT'])
 @login_required

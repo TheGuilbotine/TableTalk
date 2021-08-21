@@ -35,6 +35,7 @@ def restaurants():
     for restaurant in restaurants:
         #   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
         restaurant['cuisine'] = Cuisine.query.get(
+
             restaurant["cuisine_id"]).to_dict()
         restaurant['address'] = Address.query.get(
             restaurant["address_id"]).to_dict()
@@ -104,7 +105,6 @@ def create_restaurant():
         return {**address_dict, **restaurant_dict, **image_dict, "cuisine_type": restaurant.cuisine.type}
 
     errors = form.errors
-    print(errors)
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
 
@@ -113,6 +113,7 @@ def create_restaurant():
 @restaurant_routes.route('/<int:id>', methods=['DELETE'])
 # @login_required
 def delete_restaurant(id):
+
     print("====================")
     print(id)
     print("====================")
@@ -126,13 +127,10 @@ def delete_restaurant(id):
     print("====================")
     print(restaurant)
     print("====================")
+
     db.session.delete(restaurant)
     db.session.commit()
-    # address = Address.query.filter_by(Address.restaurant_id == id).first()
-    # print('Address ==========>', address)
-    # db.session.delete(address)
-    # db.session.commit()
-    # TODO which business f'{business.id}
+
     return {"message": "SUCCESS"}, 204
 
     # Edit/Update one restaurant
@@ -142,21 +140,17 @@ def delete_restaurant(id):
 # @login_required
 def edit_restaurant(id):
     data = request.json
-    # print(request.json, 'jason bourne')
+
     restaurant = Restaurant.query.get(id)
     image = Image.query.filter(Image.restaurant_id == id).first()
-    # data = restaurant.to_dict()
-    # ourKeys = data.keys()
-    # print(list(ourKeys))
-    # toChange = list(request.json.keys())
-    # print(toChange)
+
     restaurant.restaurant_name = data["restaurant_name"]
     restaurant.phone_number = data["phone_number"]
     restaurant.cuisine_id = data["cuisine_id"]
     restaurant.description = data["description"]
     restaurant.price_range = data["price_range"]
     image.img_url = data["img_url"]
-    # restaurant.img_url = form.images[0].img_url
+
     db.session.commit()
-    print(restaurant.to_dict(), "Bout to edit <=XXX====XX==XX====XX=>")
+
     return {**restaurant.to_dict(), "images": [{"img_url": data['img_url']}]}

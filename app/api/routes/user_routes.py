@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models.user import User
+from app.models.rewards import Reward
 
 user_routes = Blueprint('users', __name__)
 
@@ -16,4 +17,6 @@ def users():
 @login_required
 def user(id):
     user = User.query.get(id)
-    return user.to_dict()
+    reward_points = Reward.query.filter(Reward.user_id == id)
+
+    return {**user.to_dict(), "reward_points": reward_points}
