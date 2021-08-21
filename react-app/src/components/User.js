@@ -37,10 +37,13 @@ function User() {
           <p>{sessionUser.email}</p>
         </div>
       </div>
+      <div className="space-filler">
+
+      </div>
       <div className="user-profile__rewards-container">
         <div className="rewards-points__container">
-          <h1 className="rewards-total__text">Total Rewards Points:</h1>
-          <h1 className="rewards-total__text">1 000</h1>
+          <h1 className="rewards-total__text">Total TableTalk Points:</h1>
+          <h1 className="rewards-total__text-amount">1 000</h1>
         </div>
         <div className="reward-examples__container">
           <table>
@@ -79,6 +82,9 @@ function User() {
           </table>
         </div>
       </div>
+      <div className="space-filler">
+
+</div>
       <div className="reservations__container">
         {/* TODO Move below code into map of reservations */}
         <div className="reservation-info__container">

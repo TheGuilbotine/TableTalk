@@ -12,17 +12,28 @@
     text-align: center;
 }
 
+h2 {
+    font-size: 30px;
+}
+
 .user-profile__rewards-container {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
+    width: 90%;
     margin-bottom: 20px;
 }
 
 .rewards-total__text {
     font-size: 30px;
-    margin: 20px 0
+    margin: 20px 0;
 }
+
+.rewards-total__text-amount {
+    font-size: 30px;
+    margin: 20px 0;
+    color:rgb(145, 93, 26)
+}
+
 
 .rewards-points__container {
     text-align: center;
@@ -30,9 +41,18 @@
 
 .reward-examples__container {
     text-align: center;
-    /* margin-bottom: 20px; */
+    border: 1px solid rgb(215, 214, 214);
+    border-radius: 15px;
+    padding: 20px;
 }
 
 th {
     font-size: 1.5rem;
+}
+
+.space-filler {
+    background-color: rgb(78, 23, 85);
+    height: 70px;
+    width: 100%;
+    margin: 20px
 }
