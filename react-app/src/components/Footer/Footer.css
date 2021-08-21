@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
 footer {
     color: #d8d9db;
+    font-family: "Montserrat", sans-serif;
 }
 
 .footer__container {
@@ -7,7 +10,6 @@ footer {
     border-top: .0625rem solid rgba(0,0,0,.12);
     display: flex;
     justify-content: center;
-    /* flex-direction: row; */
 }
 
 .footer-info__container  {
