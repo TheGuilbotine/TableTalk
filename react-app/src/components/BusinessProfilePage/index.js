@@ -13,7 +13,6 @@ function BusinessProfile() {
     const dispatch = useDispatch();
     const { id } = useParams()
     const restaurants = Object.values(useSelector((state) => state.restaurants))
-    console.log("=================", restaurants)
 
     useEffect(() => {
         dispatch(getAllBusinessRestaurants(id))

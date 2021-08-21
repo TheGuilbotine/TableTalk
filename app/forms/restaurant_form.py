@@ -8,7 +8,7 @@ from app.models.restaurant import Restaurant
 
 def restaurant_types(form, field):
     cuisines = Cuisine.query.all()
-    print(cuisines)
+
     return cuisines
 
 

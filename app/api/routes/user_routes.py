@@ -18,6 +18,5 @@ def users():
 def user(id):
     user = User.query.get(id)
     reward_points = Reward.query.filter(Reward.user_id == id)
-    print(reward_points, "here for rewards <=======================")
-    # return user.to_dict()
+
     return {**user.to_dict(), "reward_points": reward_points}

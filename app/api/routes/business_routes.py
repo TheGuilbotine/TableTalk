@@ -18,8 +18,6 @@ business_routes = Blueprint('business', __name__)
 def business_home():
     return '<h1> Table Talk Business </h1>'
 
-# Get restaurants by business
-
 
 @business_routes.route('/<int:businessId>')
 def business_restaurants(businessId):
@@ -27,7 +25,6 @@ def business_restaurants(businessId):
         Restaurant.business_id == businessId).all()
     restaurants = [restaurant.to_dict() for restaurant in restaurants_query]
     for restaurant in restaurants:
-        #   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
         restaurant['cuisine_id'] = Cuisine.query.get(
             restaurant["cuisine_id"]).to_dict()
         restaurant['address_id'] = Address.query.get(

@@ -44,7 +44,6 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
 
 		setShowModal(false)
 
-		console.log("DATA", data, "<==============")
 		if (data.errors) {
 			setErrors(data.errors);
 		}
