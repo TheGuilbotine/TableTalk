@@ -14,9 +14,8 @@
   }
 
 #modal-content {
-	width: 55%;
-	border-radius: 45px;
-	box-shadow: 4px 3px 2px lightgray;
+	width: auto;
+	border-radius: 5px;
 }
 
 .signup-title,
@@ -24,20 +23,19 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 30px;
+	margin-bottom: 15px;
 	color: #312c80;
-	font-size: 20px;
-	font-weight: bold;
+  font-family: "Baloo 2", serif;
+	font-size: 35px;
+	font-weight: 500;
 }
 
 .form-label__container {
 	display: flex;
 	justify-content: space-between;
-	margin: 20px 40px;
-}
-
-.form-label {
-	margin-left: 25px;
-	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .form-input {
@@ -54,21 +52,33 @@
 	margin: 30px;
 }
 
-.form-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 25%;
-	height: 30px;
+.user-login-button {
+	width: 50%;
+	height: 40px;
 	background-color: #ee4036;
 	color: white;
-	font-size: 19px;
+	font-size: 20px;
 	font-family: 'Baloo 2', serif;
 	border: none;
-	border-radius: 30px;
+	border-radius: 5px;
 	cursor: pointer;
 }
 
-.form-button:hover {
+.user-login-button:hover {
 	background-color: #cd362e;
+}
+.demo-login-container {
+	margin-left: 120px;
+	padding-bottom: 20px;
+}
+
+.demo-text {
+	font-family: "Montserrat", sans-serif;
+	color: gray;
+}
+
+.demo-click-here {
+	text-decoration: underline;
+	color: #cd362e;
+	cursor: pointer;
 }
