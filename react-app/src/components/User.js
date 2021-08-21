@@ -28,16 +28,16 @@ function User() {
 
   return (
 //   Moontes incoming changes
-    <div>
-      {reservations?.map((reservation) => (
-        <>
-          <p>{reservation.date_start}</p>
-          <div onClick={() => onDelete(reservation.id)}>Delete</div>
-        </>
-      ))}
-    </div>
+    // <div>
+    //   {reservations?.map((reservation) => (
+    //     <>
+    //       <p>{reservation.date_start}</p>
+    //       <div onClick={() => onDelete(reservation.id)}>Delete</div>
+    //     </>
+    //   ))}
+    // </div>
 
-//       TODO: Adapt with new info 
+//       TODO: Adapt with new info
     <div className="user-profile__container">
       <div className="user-info__container">
         <h2>{sessionUser.first_name}'s Information</h2>
