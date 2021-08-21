@@ -41,10 +41,9 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
 				imgUrl
 			),
 		);
-		if (data.ok) {
-			setShowModal(false)
-		}
-		console.log("DATA", data, "<==============")
+
+		setShowModal(false)
+
 		if (data.errors) {
 			setErrors(data.errors);
 		}

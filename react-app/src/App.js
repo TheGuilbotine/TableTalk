@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import {createBrowserHistory} from "history"
 import { useDispatch } from 'react-redux';
 import BusinessHomePage from './components/BusinessHomePage'
-import NavBar from './components/NavBar/index';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -55,6 +56,7 @@ function App() {
           <CreateNewReservation />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

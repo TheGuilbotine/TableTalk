@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+footer {
+    color: #d8d9db;
+    font-family: "Montserrat", sans-serif;
+}
+
+.footer__container {
+    background-color: #373d47;
+    border-top: .0625rem solid rgba(0,0,0,.12);
+    display: flex;
+    justify-content: center;
+}
+
+.footer-info__container  {
+    width: 100%;
+    max-width: 64rem;
+    padding: 32px 32px 16px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-info {
+    border-bottom: .0625rem solid hsla(0,0%,100%,.2);
+    padding-bottom: 16px;
+    width: 100%
+}
+
+.footer-columns__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column__container {
+    list-style: none;
+    width: 100%;
+    padding-top: 16px;
+    text-align: center;
+}
+
+.column__title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: #d8d9db;
+}
+
+.fa-github-square {
+    color: #8a8b8d;
+}
+
+.fa-linkedin {
+    color: #3f66b3;
+}
+
+.asterisk {
+    color: #373d47;
+    line-height: 80%;;
+}
+
+
+/* footer {
+    border: 1px solid cadetblue;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #312c80;;
+}
+
+.footer__designed-by {
+    color: white;
+    font-size: 30px;
+}
+
+.footer__name-link__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer__name-link {
+    margin-right:50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer__link {
+    font-size: x-large;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer__name {
+    color: white;
+    font-size: 33px;
+    margin-bottom: 5px;
+} */
