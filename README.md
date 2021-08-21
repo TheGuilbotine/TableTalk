@@ -112,7 +112,7 @@ Sunny Mallick:
 <a href='https://www.linkedin.com/in/sunny-mallick-896a33169/'>
 <img src="https://logodix.com/logo/91031.png" width="25" height="25">
 </a>
-<a href='https://github.com/sunnymallick>
+<a href='https://github.com/sunnymallick'>
 <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" width="25" height="25">
 </a>
 
