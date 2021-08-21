@@ -3,7 +3,7 @@ footer {
 }
 
 .footer__container {
-    background-color: #2d333f;
+    background-color: #373d47;
     border-top: .0625rem solid rgba(0,0,0,.12);
     display: flex;
     justify-content: center;
@@ -63,7 +63,10 @@ footer {
     color: #3f66b3;
 }
 
-
+.asterisk {
+    color: #373d47;
+    line-height: 80%;;
+}
 
 
 /* footer {
