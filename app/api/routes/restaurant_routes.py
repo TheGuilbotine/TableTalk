@@ -33,9 +33,11 @@ def restaurants():
     restaurants_query = Restaurant.query.all()
     restaurants = [restaurant.to_dict() for restaurant in restaurants_query]
     for restaurant in restaurants:
-        restaurant['cuisine_id'] = Cuisine.query.get(
+        #   restaurant['images'] = [Image.query.get(id) for id in restaurant['image_id']]
+        restaurant['cuisine'] = Cuisine.query.get(
+
             restaurant["cuisine_id"]).to_dict()
-        restaurant['address_id'] = Address.query.get(
+        restaurant['address'] = Address.query.get(
             restaurant["address_id"]).to_dict()
         images = Image.query.filter(
             Image.restaurant_id == restaurant["id"]).all()
@@ -55,7 +57,6 @@ def restaurant(id):
     return {**restaurant.to_dict(), **cuisine.to_dict(), **address.to_dict(), 'images': [image.to_dict() for image in images]}
 
 # Create new restaurant
-
 
 @restaurant_routes.route('/', methods=['POST'])
 @login_required
@@ -93,7 +94,16 @@ def create_restaurant():
         )
         db.session.add(image)
         db.session.commit()
-        return {**address.to_dict(), **restaurant.to_dict(), **image.to_dict()}
+        address_dict = address.to_dict()
+        restaurant_dict = restaurant.to_dict()
+        image_dict = image.to_dict()
+        address_dict["address_id"]=address.id
+        image_dict["img_id"]=image.id
+        address_dict.pop("id", None)
+        image_dict.pop("id", None)
+
+        return {**address_dict, **restaurant_dict, **image_dict, "cuisine_type": restaurant.cuisine.type}
+
     errors = form.errors
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
@@ -104,7 +114,19 @@ def create_restaurant():
 # @login_required
 def delete_restaurant(id):
 
+    print("====================")
+    print(id)
+    print("====================")
+    # business = request.args.get('business')
+    # TODO delete all images if there are more.
+    # image = Image.query.filter(Image.restaurant_id == id).first()
+    # print('IMAGE ==========>', image)
+    # db.session.delete(image)
+    # db.session.commit()
     restaurant = Restaurant.query.get(id)
+    print("====================")
+    print(restaurant)
+    print("====================")
 
     db.session.delete(restaurant)
     db.session.commit()

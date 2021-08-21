@@ -28,6 +28,15 @@ export const getReservations = () => async dispatch => {
     }
 };
 
+export const getUserReservations = (id) => async dispatch => {
+    const res = await fetch(`/api/reservations/users/${id}`);
+
+    if (res.ok) {
+        const list = await res.json();
+        dispatch(load(list));
+    }
+};
+
 
 export const getOneReservation = id => async dispatch => {
     const res = await fetch(`/api/reservations/${id}`);
@@ -87,35 +96,32 @@ if (res.ok) {
   };
 
 
-const initialState = {
-    list: []
-};
+const initialState = {};
 
-const sortList = (reservations) => {
+// const sortList = (reservations) => {
 
-    reservations.sort((a, b) => {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });
+//     reservations.sort((a, b) => {
+//       if (a.name > b.name) {
+//         return 1;
+//       }
+//       if (a.name < b.name) {
+//         return -1;
+//       }
+//       return 0;
+//     });
 
-    return reservations.map(reservation => reservation.id);
-  };
+//     return reservations.map(reservation => reservation.id);
+//   };
 
 
 const reservationsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_RESERVATIONS: {
             const allReservations = {};
-            action.list.forEach(reservation => {
+            action.list.reservations.forEach(reservation => {
                 allReservations[reservation.id] = reservation;
             });
-            return {...allReservations, ...state, list: sortList(action.list),
-            };
+            return {...allReservations, ...state};
         }
         case ADD_ONE: {
           const newState = {
@@ -123,6 +129,11 @@ const reservationsReducer = (state = initialState, action) => {
               [action.reservation.id]: action.reservation
           }
             return newState
+        }
+        case REMOVE_RESERVATION: {
+          const newState = {...state};
+            delete newState[action.reservationId]
+          return newState
         }
         default:
             return state;
