@@ -4,12 +4,14 @@ import sessionReducer from './session'
 import cuisineReducer from './cuisine';
 import restaurantsReducer from './restaurants';
 import imageReducer from './images';
+import reservationsReducer from './reservations';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   cuisines: cuisineReducer,
   restaurants: restaurantsReducer,
-  images: imageReducer
+  images: imageReducer,
+  reservations: reservationsReducer,
 });
 
 

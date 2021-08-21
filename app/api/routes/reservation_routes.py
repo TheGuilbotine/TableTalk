@@ -80,12 +80,11 @@ def create_reservation():
 @reservation_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_reservation(id):
-    user = request.args.get('user')
-    print(user)
-    Reservation.query.get(id).delete()
+    reservation = Reservation.query.get(id)
+    db.session.delete(reservation)
     db.session.commit()
     # TODO which business f'{business.id}
-    return redirect("/")
+    return {}, 200
 
 
 #Edit one reservation

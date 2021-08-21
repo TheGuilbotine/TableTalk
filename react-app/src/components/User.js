@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
+import { getUserReservations, destroyReservation } from '../store/reservations'
+
 
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  const dispatch = useDispatch()
+  const reservations = Object.values(useSelector((state) => state.reservations))
+  console.log(reservations)
+
+  function onDelete(reservationId) {
+      dispatch(destroyReservation(reservationId))
+  }
 
   useEffect(() => {
     if (!userId) {
       return;
     }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
-
-  if (!user) {
-    return null;
-  }
+    dispatch(getUserReservations(userId))
+  }, [userId, dispatch]);
 
   return (
-    <ul>
-      <li>
-        <strong>User Id</strong> {userId}
-      </li>
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-    </ul>
+
+    <div>
+      {reservations?.map((reservation) => (
+        <>
+          <p>{reservation.date_start}</p>
+          <div onClick={() => onDelete(reservation.id)}>Delete</div>
+        </>
+      ))}
+    </div>
   );
 }
 export default User;
