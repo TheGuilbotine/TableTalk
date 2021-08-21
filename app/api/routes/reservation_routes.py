@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models.reservations import Reservation
 from app.forms.reservation_form import ReservationForm
 from app.models.db import db
+from app.models.rewards import Reward
 
 reservation_routes = Blueprint('reservations', __name__)
 
@@ -67,9 +68,9 @@ def create_reservation():
             restaurant_id=form.data['restaurant_id'],
             reward_amount=50,
         )
-        db.session.commit(reward)
+        db.session.add(reward)
         db.session.commit()
-        return redirect("/")
+        return {"message": "Let's Eat"}, 200
     errors = form.errors
     print(errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -72,9 +72,6 @@ export const createRestaurant = (businessId, restaurantName, phoneNumber, cuisin
         })
     });
     const restaurant = await res.json();
-    console.log('------------------------------------');
-    console.log(restaurant);
-    console.log('------------------------------------');
     if (res.ok){
         const formattedRestaurant = {
             address: {
