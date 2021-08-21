@@ -16,7 +16,7 @@ function UserLoginModal() {
 					<div className='login-title-container'>
 						<h3 className='login-title'>Login to TableTalk</h3>
 					</div>
-					<UserLoginForm />
+					<UserLoginForm setShowModal={setShowModal} />
 				</Modal>
 			)}
 		</>

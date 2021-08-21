@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { userSignUp } from '../../store/session';
+import { userLogin } from '../../store/session';
 
-const UserSignUpForm = () => {
+const UserSignUpForm = ({setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [email, setEmail] = useState('');
 	const [firstName, setFirstName] = useState('');
@@ -33,8 +34,20 @@ const UserSignUpForm = () => {
 			if (data) {
 				setErrors(data);
 			}
-		}
+			if (user) {
+				setShowModal(false)
+			}
+		};
+	
 	};
+
+	const demoLogin = async (e) => {
+		e.preventDefault()
+    const user = await dispatch(userLogin('demo@user.com','password'))
+		if (user) {
+			setShowModal(false)
+		}
+  }
 
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
@@ -81,9 +94,6 @@ const UserSignUpForm = () => {
 					))}
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Email
-					</label>
 					<input
 						className='form-input'
 						placeholder=' Email Address'
@@ -94,9 +104,6 @@ const UserSignUpForm = () => {
 						required={true}></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						First Name
-					</label>
 					<input
 						className='form-input'
 						placeholder=' First Name'
@@ -107,9 +114,6 @@ const UserSignUpForm = () => {
 						required></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Last Name
-					</label>
 					<input
 						className='form-input'
 						placeholder=' Last Name'
@@ -120,9 +124,6 @@ const UserSignUpForm = () => {
 						required></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Birth Date
-					</label>
 					<input
 						className='form-input'
 						placeholder=' Birth Date'
@@ -133,9 +134,6 @@ const UserSignUpForm = () => {
 						required={true}></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Image URL
-					</label>
 					<input
 						className='form-input'
 						placeholder=' Image URL'
@@ -146,9 +144,6 @@ const UserSignUpForm = () => {
 						required={false}></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Gender
-					</label>
 					<select
 						className='form-input'
 						value={gender}
@@ -163,7 +158,6 @@ const UserSignUpForm = () => {
 					</select>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label'>Password</label>
 					<input
 						className='form-input'
 						type='password'
@@ -174,7 +168,6 @@ const UserSignUpForm = () => {
 						placeholder=' Password'></input>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label'>Confirm Password</label>
 					<input
 						className='form-input'
 						type='password'
@@ -185,9 +178,12 @@ const UserSignUpForm = () => {
 						placeholder=' Confirm Password'></input>
 				</div>
 				<div className='form-button__container'>
-					<button className='form-button' type='submit'>
+					<button className='user-signup-button' type='submit'>
 						Sign Up
 					</button>
+				</div>
+				<div className="demo-login-container">
+					<p className="demo-text">To demo TableTalk, <a className="demo-click-here" onClick={demoLogin}>Click Here</a></p>
 				</div>
 			</form>
 		</div>

@@ -16,7 +16,7 @@ function UserSignUpFormModal() {
 					<div className='signup-title-container'>
 						<h3 className='signup-title'>Sign Up for TableTalk</h3>
 					</div>
-					<UserSignUpForm />
+					<UserSignUpForm setShowModal={setShowModal}/>
 				</Modal>
 			)}
 		</>
