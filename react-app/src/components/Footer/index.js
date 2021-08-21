@@ -88,8 +88,8 @@ export default function Footer() {
                                 <ul>
                                     <li>JONATHAN</li>
                                     <li>
-                                    <a className='footer__link' href='https://github.com/jborja-one/spade-magick-project' target="_blank">
-                                            SpadeMagick <i className="fab fa-github-square"></i>
+                                    <a className='footer__link' href='https://spademagick.herokuapp.com/' target="_blank">
+                                            SpadeMagick
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
