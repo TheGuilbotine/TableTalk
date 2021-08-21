@@ -118,7 +118,7 @@ Sunny Mallick:
 
 Pierre Guilbault:
 <br />
-<a href=''>
+<a href='guilbaultpj@gmail.com'>
 <img src="https://i.imgur.com/jLLwTjh.png" width="25" height="25">
 </a>
 <a href='https://www.linkedin.com/in/pierre-guilbault-30020549/'>
