@@ -42,9 +42,9 @@ export const userLogin = (email, password) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(setUser(data))
-    return null;
+    const user = await response.json();
+    dispatch(setUser(user))
+    return user;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -87,9 +87,9 @@ export const userSignUp = (email, firstName, lastName, birthDate, imgUrl, gender
   });
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(setUser(data))
-    return null;
+    const user = await response.json();
+    dispatch(setUser(user))
+    return user;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {

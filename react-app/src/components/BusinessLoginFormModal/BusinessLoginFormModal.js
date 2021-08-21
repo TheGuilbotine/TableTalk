@@ -39,9 +39,6 @@ const BusinessLoginForm = () => {
 					))}
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='email'>
-						Email
-					</label>
 					<input
 						className='form-input'
 						name='email'
@@ -52,9 +49,6 @@ const BusinessLoginForm = () => {
 					/>
 				</div>
 				<div className='form-label__container'>
-					<label className='form-label' htmlFor='password'>
-						Password
-					</label>
 					<input
 						className='form-input'
 						name='password'
@@ -65,7 +59,7 @@ const BusinessLoginForm = () => {
 					/>
 				</div>
 				<div className='form-button__container'>
-					<button className='form-button' type='submit'>
+					<button className='business-loginmodal-button' type='submit'>
 						Login
 					</button>
 				</div>

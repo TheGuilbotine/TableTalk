@@ -19,3 +19,18 @@
 	font-size: 20px;
 	font-weight: bold;
 }
+.business-loginmodal-button {
+	width: 50%;
+	height: 40px;
+	background-color: #ee4036;
+	color: white;
+	font-size: 20px;
+	font-family: 'Baloo 2', serif;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.business-loginmodal-button:hover {
+	background-color: #cd362e;
+}
