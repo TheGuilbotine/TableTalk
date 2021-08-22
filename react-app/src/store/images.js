@@ -10,7 +10,6 @@ export const getImages = () => async (dispatch) => {
 
     if (res.ok) {
         const images = await res.json();
-        console.log(images)
         dispatch(loadImages(images.images))
         return res;
     }

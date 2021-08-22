@@ -11,7 +11,6 @@ export const getCuisines = () => async (dispatch) => {
 
     if (res.ok) {
         const cuisines = await res.json();
-        console.log(cuisines)
         dispatch(loadCuisines(cuisines.cuisines))
         return res;
     }

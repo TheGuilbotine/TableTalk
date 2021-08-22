@@ -114,7 +114,6 @@ export const destroyRestaurant = restaurantId => async dispatch => {
 
 
 export const editRestaurant = (restaurantId, businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl) => async dispatch => {
-    console.log(restaurantId, businessId, restaurantName, phoneNumber, cuisineId, description, priceRange, imgUrl, "<========================")
     const res = await fetch(`/api/restaurants/${restaurantId}`, {
         method: 'PUT',
         headers: {
@@ -174,9 +173,6 @@ const restaurantsReducer = (state = {}, action) => {
                 ...state,
                 [action.restaurant.id]: action.restaurant
             };
-            console.log('------------------------------------');
-            console.log(newState);
-            console.log('------------------------------------');
             return newState;
         }
         case DESTROY_RESTAURANT: {

@@ -19,7 +19,6 @@ class Reservation(db.Model):
     restaurant = db.relationship("Restaurant", back_populates="reservations")
 
     def to_dict(self):
-        print("++++++++++++++++++++++",self.time_start,"+++++++++++++++++++++")
         return {
             'id': self.id,
             'user_id': self.user_id,

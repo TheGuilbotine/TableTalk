@@ -10,9 +10,6 @@ function User() {
   const { userId }  = useParams();
   const dispatch = useDispatch()
   const reservations = Object.values(useSelector((state) => state.reservations))
-  const reservationTime = new Date(reservations[2]?.date_start).toLocaleTimeString()
-  console.log(reservationTime)
-  console.log(reservations)
 
   function onDelete(reservationId) {
       dispatch(destroyReservation(reservationId))

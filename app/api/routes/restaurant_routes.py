@@ -114,19 +114,13 @@ def create_restaurant():
 # @login_required
 def delete_restaurant(id):
 
-    print("====================")
-    print(id)
-    print("====================")
     # business = request.args.get('business')
     # TODO delete all images if there are more.
     # image = Image.query.filter(Image.restaurant_id == id).first()
-    # print('IMAGE ==========>', image)
     # db.session.delete(image)
     # db.session.commit()
     restaurant = Restaurant.query.get(id)
-    print("====================")
-    print(restaurant)
-    print("====================")
+
 
     db.session.delete(restaurant)
     db.session.commit()
