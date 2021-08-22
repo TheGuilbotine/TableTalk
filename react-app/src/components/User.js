@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import { getUserReservations, destroyReservation } from '../store/reservations'
+import { getAllUserRewards } from '../store/rewards'
 import './User.css'
 
 
@@ -14,6 +15,7 @@ function User() {
 
   function onDelete(reservationId) {
       dispatch(destroyReservation(reservationId))
+      dispatch(getAllUserRewards(userId))
   }
 
   const sessionUser = useSelector(state => state.session.user);
@@ -90,8 +92,9 @@ function User() {
       <div className="reservations__container">
         {reservations?.map((reservation) => (
           <div className="reservation-info__container">
-            <p>{reservation.date_start.slice(0, 16)}</p>
-            <p>{reservation.time_start.slice(0, 5)}</p>
+            <p>{sessionUser.first_name}, you have a reservation at {reservation.restaurant.restaurant_name} on {reservation.date_start.slice(0, 16)}</p>
+            <p>Your reservation time is {reservation.time_start.slice(0, 5)}</p>
+            <p>If you have any questions for the restaurant please call {reservation.restaurant.phone_number}</p>
             <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
           </div>
       ))}
