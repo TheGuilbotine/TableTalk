@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
 
+
 #modal-content {
 	width: auto;
 	border-radius: 5px;
@@ -68,4 +69,19 @@
 #form-input-textarea-edit {
     resize: none;
     height: 80px;
+
+#edit-restaurant-button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #312c80;
+  border: 1px solid #312c80;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+}
+
+#edit-restaurant-button:hover {
+  background-color: rgb(240, 240, 240);
+
 }

@@ -2,6 +2,7 @@
 
 .restaurant-details {
     margin-left: 10px;
+    margin-bottom: 100px;
 }
 
 .restaurant-image-container {
@@ -10,6 +11,8 @@
     width: 100%;
     overflow-x: scroll;
     margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .restaurant-image {
@@ -70,4 +73,10 @@
     padding-top: 20px;
     font-weight: 300;
     line-height: 24px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
