@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { businessLogin } from '../../store/session';
 
 const BusinessLoginForm = () => {
@@ -8,6 +8,7 @@ const BusinessLoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const user = useSelector((state) => state.session.user);
+	const history = useHistory()
 	const dispatch = useDispatch();
 
 	const onLogin = async (e) => {
@@ -33,9 +34,9 @@ const BusinessLoginForm = () => {
 	return (
 		<div className='form_container'>
 			<form onSubmit={onLogin}>
-				<div>
+				<div className='errors-container'>
 					{errors.map((error, ind) => (
-						<div key={ind}>{error}</div>
+						<div className="errors" key={ind}>{error}</div>
 					))}
 				</div>
 				<div className='form-label__container'>

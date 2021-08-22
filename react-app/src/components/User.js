@@ -99,26 +99,21 @@ function User() {
 
 </div>
       <div className="reservations__container">
+        <h2>Reservations</h2>
         {/* TODO Move below code into map of reservations */}
         <div className="reservation-info__container">
-          {/* TODO add reservation cards here */}
+        {reservations?.map((reservation) => (
+            <>
+              <p>{reservation.date_start}</p>
+              <div onClick={() => onDelete(reservation.id)}>Delete</div>
+            </>
+        ))}
         </div>
         {/* {reservations && reservations?.map(reservation => (
           // TODO: Add reservation cards here
         ))} */}
       </div>
     </div>
-    // <ul>
-    //   <li>
-    //     <strong>User Id</strong> {userId}
-    //   </li>
-    //   <li>
-    //     <strong>Username</strong> {user.username}
-    //   </li>
-    //   <li>
-    //     <strong>Email</strong> {user.email}
-    //   </li>
-    // </ul>
   );
 }
 export default User;

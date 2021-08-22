@@ -34,9 +34,9 @@ function IndividualRestaurant() {
               <p className='restaurant-city-state-zip'>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
            </div>
                 <p className='restaurant-description'>{restaurant?.description}</p>
-            {/* <div>
+            <div>
                 <CreateNewReservation />
-            </div> */}
+            </div>
         </div>
     )
 }

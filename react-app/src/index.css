@@ -124,3 +124,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.errors {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(191, 0, 0);
+  margin-bottom: 5px;
+}
+
+.errors-container {
+  text-align: center;
+}

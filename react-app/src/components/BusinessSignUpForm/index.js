@@ -109,11 +109,11 @@ const BusinessSignUpForm = () => {
   return (
     <div className='business-signup-form-container'>
         <form onSubmit={onSignUp} className='business-signup-form'>
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div>
+          <div className='errors-container'>
+				  	{errors.map((error, ind) => (
+				  		<div className="errors" key={ind}>{error}</div>
+				  	))}
+				  </div>
           <div className="forms-container">
             <div className="information-form-container">
               <p className='account-info'>Account Info:</p>

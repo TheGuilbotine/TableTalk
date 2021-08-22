@@ -35,13 +35,3 @@ export default function SplashPage() {
         </div>
     )
 }
-
-
-// {lodgings?.map(lodging => (
-//     <NavLink key={lodging?.id} to={`/lodgings/${lodging?.id}`}>
-//       <div className="lodging-container">
-//           {lodging?.Images !== undefined && (<img className="lodging-img" src={lodging?.Images[0].imgUrl}/>)}
-//           <p className="lodging-name">{lodging?.name}</p>
-//           <p className="lodging-price">${lodging?.price} / night</p>
-//       </div>
-//     </NavLink>

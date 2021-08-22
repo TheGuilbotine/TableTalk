@@ -53,7 +53,7 @@ function App() {
         </Route>
         <Route path='/restaurants/:id'>
           <IndividualRestaurant />
-          <CreateNewReservation />
+          {/* <CreateNewReservation /> */}
         </Route>
       </Switch>
       <Footer />
