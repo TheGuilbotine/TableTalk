@@ -144,7 +144,7 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
 						</div>
 						<div className='form-label__container'>
 							<textarea
-								id='form-input-textarea'
+								id='form-input-textarea-edit'
 								className='form-input'
 								placeholder='Description'
 								type='text'
