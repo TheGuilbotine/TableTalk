@@ -7,7 +7,7 @@ const loadCuisines = (cuisines) => ({
 })
 
 export const getCuisines = () => async (dispatch) => {
-    const res = await fetch(`/api/cuisine`);
+    const res = await fetch(`/api/cuisine/`);
 
     if (res.ok) {
         const cuisines = await res.json();
