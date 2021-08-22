@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import { getUserReservations, destroyReservation } from '../store/reservations'
+import { getAllUserRewards } from '../store/rewards'
 import './User.css'
 
 
@@ -14,6 +15,7 @@ function User() {
 
   function onDelete(reservationId) {
       dispatch(destroyReservation(reservationId))
+      // dispatch(getAllUserRewards(userId))
   }
 
   const sessionUser = useSelector(state => state.session.user);
@@ -27,17 +29,6 @@ function User() {
   }, [userId, dispatch]);
 
   return (
-//   Moontes incoming changes
-    // <div>
-    //   {reservations?.map((reservation) => (
-    //     <>
-    //       <p>{reservation.date_start}</p>
-    //       <div onClick={() => onDelete(reservation.id)}>Delete</div>
-    //     </>
-    //   ))}
-    // </div>
-
-//       TODO: Adapt with new info
     <div className="user-profile__container">
       <div className="user-info__container">
         <h2>{sessionUser.first_name}'s Information</h2>
@@ -46,7 +37,7 @@ function User() {
         </div>
         <div className="user-info">
           <p>{sessionUser.first_name} {sessionUser.last_name}, {sessionUser.gender}</p>
-          <p>Born: {sessionUser.birth_date}</p>
+          <p>Born: {sessionUser.birth_date.slice(0, 16)}</p>
           <p>{sessionUser.email}</p>
         </div>
       </div>
@@ -97,28 +88,18 @@ function User() {
       </div>
       <div className="space-filler">
 
-</div>
+      </div>
       <div className="reservations__container">
-        {/* TODO Move below code into map of reservations */}
-        <div className="reservation-info__container">
-          {/* TODO add reservation cards here */}
-        </div>
-        {/* {reservations && reservations?.map(reservation => (
-          // TODO: Add reservation cards here
-        ))} */}
+        {reservations?.map((reservation) => (
+          <div className="reservation-info__container">
+            <p>{sessionUser.first_name}, you have a reservation at {reservation.restaurant.restaurant_name} on {reservation.date_start.slice(0, 16)}</p>
+            <p>Your reservation time is {reservation.time_start.slice(0, 5)}</p>
+            <p>If you have any questions for the restaurant please call {reservation.restaurant.phone_number}</p>
+            <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
+          </div>
+      ))}
       </div>
     </div>
-    // <ul>
-    //   <li>
-    //     <strong>User Id</strong> {userId}
-    //   </li>
-    //   <li>
-    //     <strong>Username</strong> {user.username}
-    //   </li>
-    //   <li>
-    //     <strong>Email</strong> {user.email}
-    //   </li>
-    // </ul>
   );
 }
 export default User;
