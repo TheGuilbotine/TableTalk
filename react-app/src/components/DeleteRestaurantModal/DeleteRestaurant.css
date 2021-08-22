@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+
+#modal-content {
+	width: auto;
+	border-radius: 5px;
+}
+
+.delete-confirmation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    font-family: "Baloo 2", serif;
+}
+
+.delete-confirmation-message {
+    text-align: center;
+    margin: 10px 0px 20px 0px;
+    font-size: 20px;
+}
+
+.delete-confirmation-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-confirmation-button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #ee4036;
+    padding: 5px 10px 5px 10px;
+    margin-left: 20px;
+  }
+
+.delete-confirmation-button:hover {
+    background-color: #cd362e;
+}
+
+.cancel-confirmation-button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #312c80;
+    border: 1px solid #312c80;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+}
+
+.cancel-confirmation-button:hover {
+    background-color: rgb(240, 240, 240);
+
+#delete-restaurant-button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #ee4036;
+  padding: 5px 10px 5px 10px;
+  margin-left: 20px;
+}
+
+#delete-restaurant-button:hover {
+  background-color: #cd362e;
+
+}

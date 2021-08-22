@@ -101,110 +101,149 @@ const RestaurantForm = ({setShowModal}) => {
 				</div>
 				<div className='forms-container'>
 					<div className='restaurant-info-container'>
-						<p>Restaurant Info:</p>
-						<input
-							placeholder='Restaurant Name'
-							type='text'
-							name='restaurantName'
-							onChange={updateRestaurantName}
-							value={restaurantName}
-							required={true}></input>
-						<input
-							placeholder='Image URL'
-							type='text'
-							name='imgUrl'
-							onChange={updateImgUrl}
-							value={imgUrl}
-							// required={true}
-						></input>
-						<input
-							placeholder='Phone Number'
-							type='text'
-							name='phoneNumber'
-							onChange={updatePhoneNumber}
-							value={phoneNumber}
-							required={true}></input>
-						<select
-							value={cuisineId}
-							onChange={updateCuisineId}
-							required={true}>
-							<option value='' disabled selected>
-								Select Cuisine Type
-							</option>
-							{cuisines?.map((cuisine) => (
-								<option key={cuisine.id} value={cuisine.id}>
-									{cuisine?.type}
+						<p className='add-restaurant-title'>Restaurant Info:</p>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Restaurant Name'
+								type='text'
+								name='restaurantName'
+								onChange={updateRestaurantName}
+								value={restaurantName}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Image URL'
+								type='text'
+								name='imgUrl'
+								onChange={updateImgUrl}
+								value={imgUrl}
+								// required={true}
+							></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Phone Number'
+								type='text'
+								name='phoneNumber'
+								onChange={updatePhoneNumber}
+								value={phoneNumber}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<select
+								className='form-input'
+								value={cuisineId}
+								onChange={updateCuisineId}
+								required={true}>
+								<option value='' disabled selected>
+									Select Cuisine Type
 								</option>
-							))}
-						</select>
-						<select
-							value={priceRange}
-							onChange={updatePriceRange}
-							required={true}>
-							<option value='' disabled selected>
-								Select Price Range
-							</option>
-							<option value='1'>$ - under $10 per plate</option>
-							<option value='2'>$$ - $11-$20 per plate</option>
-							<option value='3'>$$$ - $21 -$30 per plate</option>
-							<option value='4'>$$$$ - $31 + per plate</option>
-						</select>
-						<textarea
+								{cuisines?.map((cuisine) => (
+									<option key={cuisine.id} value={cuisine.id}>
+										{cuisine?.type}
+									</option>
+								))}
+							</select>
+						</div>
+						<div className='form-label__container'>
+							<select
+								className='form-input'
+								value={priceRange}
+								onChange={updatePriceRange}
+								required={true}>
+								<option value='' disabled selected>
+									Select Price Range
+								</option>
+								<option value='1'>$ - under $10 per plate</option>
+								<option value='2'>$$ - $11-$20 per plate</option>
+								<option value='3'>$$$ - $21 -$30 per plate</option>
+								<option value='4'>$$$$ - $31 + per plate</option>
+							</select>
+						</div>
+						<div className='form-label__container'>
+							<textarea
+							id='form-input-textarea'
+							className='form-input'
 							placeholder='Description'
 							type='text'
 							name='description'
 							onChange={updateDescription}
 							value={description}
 							required={true}></textarea>
+						</div>
 					</div>
 					<div className='restaurant-address-container'>
-						<p>Restaurant Address:</p>
-						<input
-							placeholder='Address Line One'
-							type='text'
-							name='addressLineOne'
-							onChange={updateAddressLineOne}
-							value={addressLineOne}
-							required={true}></input>
-						<input
-							placeholder='Address Line Two'
-							type='text'
-							name='addressLineTwo'
-							onChange={updateAddressLineTwo}
-							value={addressLineTwo}></input>
-						<input
-							placeholder='City'
-							type='text'
-							name='city'
-							onChange={updateCity}
-							value={city}
-							required={true}></input>
-						<input
-							placeholder='State'
-							type='text'
-							name='state'
-							onChange={updateState}
-							value={state}
-							required={true}></input>
-						<input
-							placeholder='Zip Code'
-							type='text'
-							name='postalCode'
-							onChange={updatePostalCode}
-							value={postalCode}
-							required={true}></input>
-						<input
-							placeholder='Country'
-							type='text'
-							name='country'
-							onChange={updateCountry}
-							value={country}
-							required={true}></input>
+						<p className='add-restaurant-title'>Restaurant Address:</p>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Address Line One'
+								type='text'
+								name='addressLineOne'
+								onChange={updateAddressLineOne}
+								value={addressLineOne}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Address Line Two'
+								type='text'
+								name='addressLineTwo'
+								onChange={updateAddressLineTwo}
+								value={addressLineTwo}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='City'
+								type='text'
+								name='city'
+								onChange={updateCity}
+								value={city}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='State'
+								type='text'
+								name='state'
+								onChange={updateState}
+								value={state}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Zip Code'
+								type='text'
+								name='postalCode'
+								onChange={updatePostalCode}
+								value={postalCode}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Country'
+								type='text'
+								name='country'
+								onChange={updateCountry}
+								value={country}
+								required={true}></input>
+						</div>
 					</div>
 				</div>
-				<button id='restaurant-submit-button' type='submit'>
-					Add your Restaurant
-				</button>
+				<div className='add-restaurant__button-container'>
+					<button id='restaurant-submit-button' type='submit'>
+						Add your Restaurant
+					</button>
+				</div>
 			</form>
 		</div>
 	);
