@@ -24,8 +24,8 @@ export default function SplashPage() {
                                 <div className="name-cuisine-container">
                                  <p className="restaurants-name">{restaurant?.restaurant_name}</p>
                                  <div className="cuisine-city-state-container">
-                                    <p className="restaurants-cuisine">{restaurant?.cuisine.type}</p>
-                                    <p className="city-state">{restaurant?.address.city} , {restaurant?.address.state} </p>
+                                    <p className="restaurants-cuisine">{restaurant?.cuisine?.type}</p>
+                                    <p className="city-state">{restaurant?.address?.city} , {restaurant?.address?.state} </p>
                                  </div>
                             </div>
                         </div>

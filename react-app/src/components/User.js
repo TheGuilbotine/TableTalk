@@ -10,6 +10,8 @@ function User() {
   const { userId }  = useParams();
   const dispatch = useDispatch()
   const reservations = Object.values(useSelector((state) => state.reservations))
+  const reservationTime = new Date(reservations[2]?.date_start).toLocaleTimeString()
+  console.log(reservationTime)
   console.log(reservations)
 
   function onDelete(reservationId) {
@@ -74,7 +76,7 @@ function User() {
             </tr>
             <tr>
               <td>100</td>
-              <td>Desert</td>
+              <td>Dessert</td>
             </tr>
             <tr>
               <td>250</td>
@@ -86,7 +88,7 @@ function User() {
             </tr>
             <tr>
               <td>1000</td>
-              <td>Appetizer, Two Entrees and Two Deserts</td>
+              <td>Appetizer, Two Entrees and Two Desserts</td>
             </tr>
             <tr>
               <td>5000</td>
@@ -102,10 +104,12 @@ function User() {
         <h2>Reservations</h2>
         {reservations?.map((reservation) => (
           <div className="reservation-info__container">
-            <p>{sessionUser.first_name}, you have a reservation at {reservation.restaurant.restaurant_name} on {reservation.date_start.slice(0, 16)}</p>
-            <p>Your reservation time is {reservation.time_start.slice(0, 5)}</p>
-            <p>If you have any questions for the restaurant please call {reservation.restaurant.phone_number}</p>
-            <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
+            <p className="reservation-info__text">{sessionUser.first_name}, your reservation at {reservation.restaurant?.restaurant_name} is on {new Date (reservation?.date_start).toLocaleDateString()}.</p>
+            <p className="reservation-info__text">Your reservation time is at {reservation.time_start.slice(0, 5)}.</p>
+            <p className="reservation-info__text">If you have any questions or would like to change your reservation, please call {reservation.restaurant?.restaurant_name} at {reservation.restaurant?.phone_number}.</p>
+            <div className="reservation-delete-button__container">
+              <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
+            </div>
           </div>
       ))}
       </div>
