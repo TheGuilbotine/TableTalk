@@ -4,6 +4,8 @@ from app.models.reservations import Reservation
 from app.forms.reservation_form import ReservationForm
 from app.models.db import db
 from app.models.rewards import Reward
+from app.models.restaurant import Restaurant
+
 
 reservation_routes = Blueprint('reservations', __name__)
 
@@ -24,9 +26,14 @@ def validation_errors_to_error_messages(validation_errors):
 @reservation_routes.route('/users/<int:userId>')
 @login_required
 def user_reservations(userId):
-    reservations = Reservation.query.filter(
+    reservations_query = Reservation.query.filter(
         Reservation.user_id == userId).all()
-    return {'reservations': [reservation.to_dict() for reservation in reservations]}
+    reservations = [reservation.to_dict()
+                    for reservation in reservations_query]
+    for reservation in reservations:
+        reservation['restaurant'] = Restaurant.query.get(
+            reservation['restaurant_id']).to_dict()
+    return {"reservations": reservations}
 
 # Get restaurant reservations
 
@@ -53,14 +60,11 @@ def reservation(id):
 @reservation_routes.route('/', methods=['GET', 'POST'])
 @login_required
 def create_reservation():
-    print("++++++++++++++")
-    print(current_user)
-    print("++++++++++++++")
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         reservation = Reservation(
-            user_id = current_user.id,
+            user_id=current_user.id,
             restaurant_id=form.data['restaurant_id'],
             number_of_guests=form.data['number_of_guests'],
             date_start=form.data['date_start'],
@@ -69,7 +73,7 @@ def create_reservation():
         )
         db.session.add(reservation)
         db.session.commit()
-        reward = Reward (
+        reward = Reward(
             user_id=current_user.id,
             restaurant_id=form.data['restaurant_id'],
             reward_amount=50,
@@ -90,8 +94,6 @@ def delete_reservation(id):
     reservation = Reservation.query.get(id)
     db.session.delete(reservation)
     db.session.commit()
-
-    # TODO which business f'{business.id}
     return {}, 200
 
 

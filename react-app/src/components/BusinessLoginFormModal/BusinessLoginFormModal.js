@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { businessLogin } from '../../store/session';
 
 const BusinessLoginForm = () => {
@@ -8,7 +8,6 @@ const BusinessLoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const user = useSelector((state) => state.session.user);
-	const history = useHistory()
 	const dispatch = useDispatch();
 
 	const onLogin = async (e) => {
