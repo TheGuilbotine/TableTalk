@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+#modal-content {
+	width: auto;
+	border-radius: 5px;
+
+}
+
+.restaurant-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    color: #312c80;
+    font-family: "Baloo 2", serif;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.restaurant-info-container,
+.restaurant-address-container {
+    display: flex;
+    justify-content: center;
+    width: 275px;
+    font-family: "Baloo 2", serif;
+}
+
+.add-restaurant-title {
+    text-align: center;
+    color: #312c80;
+    font-size: 20px;
+}
+
+
+.form-label__container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.form-input {
+	/* border-radius: 25px; */
+	width: 400px;
+	padding: 10px;
+	margin: 5px;
+	font-family: 'Montserrat', serif;
+}
+
+.form-button__container {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+}
+
+.add-restaurant__button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#restaurant-submit-button {
+	width: 50%;
+	height: 40px;
+	background-color: #ee4036;
+	color: white;
+	font-size: 20px;
+	font-family: 'Baloo 2', serif;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+    align-self: center;
+}
+
+#restaurant-submit-button:hover {
+	background-color: #cd362e;
+}
+
+#form-input-textarea {
+    resize: none;
+    height: 18px;
+}
