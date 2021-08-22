@@ -64,11 +64,11 @@ const CreateNewReservation = () => {
        <>
             <div className='reservation-form-container'>
                 <form onSubmit={handleSubmit} className='reservation-form'>
-                <div>
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
+                    <div className='errors-container'>
+				    	{errors.map((error, ind) => (
+				    		<div className="errors" key={ind}>{error}</div>
+				    	))}
+				    </div>
                     <h4>Make a reservation</h4>
                     <label>Party size</label>
                     <input

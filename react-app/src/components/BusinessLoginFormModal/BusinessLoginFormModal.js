@@ -33,9 +33,9 @@ const BusinessLoginForm = () => {
 	return (
 		<div className='form_container'>
 			<form onSubmit={onLogin}>
-				<div>
+				<div className='errors-container'>
 					{errors.map((error, ind) => (
-						<div key={ind}>{error}</div>
+						<div className="errors" key={ind}>{error}</div>
 					))}
 				</div>
 				<div className='form-label__container'>

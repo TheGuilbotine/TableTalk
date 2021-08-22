@@ -46,7 +46,7 @@ function User() {
         </div>
         <div className="user-info">
           <p>{sessionUser.first_name} {sessionUser.last_name}, {sessionUser.gender}</p>
-          <p>Born: {sessionUser.birth_date}</p>
+          <p>Born: {sessionUser.birth_date.slice(5,16)}</p>
           <p>{sessionUser.email}</p>
         </div>
       </div>
@@ -99,26 +99,17 @@ function User() {
 
 </div>
       <div className="reservations__container">
-        {/* TODO Move below code into map of reservations */}
-        <div className="reservation-info__container">
-          {/* TODO add reservation cards here */}
-        </div>
-        {/* {reservations && reservations?.map(reservation => (
-          // TODO: Add reservation cards here
-        ))} */}
+        <h2>Reservations</h2>
+        {reservations?.map((reservation) => (
+          <div className="reservation-info__container">
+            <p>{sessionUser.first_name}, you have a reservation at {reservation.restaurant.restaurant_name} on {reservation.date_start.slice(0, 16)}</p>
+            <p>Your reservation time is {reservation.time_start.slice(0, 5)}</p>
+            <p>If you have any questions for the restaurant please call {reservation.restaurant.phone_number}</p>
+            <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
+          </div>
+      ))}
       </div>
     </div>
-    // <ul>
-    //   <li>
-    //     <strong>User Id</strong> {userId}
-    //   </li>
-    //   <li>
-    //     <strong>Username</strong> {user.username}
-    //   </li>
-    //   <li>
-    //     <strong>Email</strong> {user.email}
-    //   </li>
-    // </ul>
   );
 }
 export default User;
