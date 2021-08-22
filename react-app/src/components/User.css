@@ -56,3 +56,40 @@ th {
     width: 100%;
     margin: 20px
 }
+
+.reservations__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.reservation-info__container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(215, 214, 214);
+    border-radius: 15px;
+    padding: 20px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.reservation-info__text {
+    padding: 5px;
+    line-height: 24px;
+}
+
+.reservation-delete__button {
+    padding: 10px;
+    border: 1px solid rgb(215, 214, 214);
+    background-color: #EE4036;
+    color: white;   
+}
+
+.reservation-delete__button:hover {
+    background-color: #CD362E;
+}
+
+.reservation-delete-button__container {
+    padding: 5px;
+}

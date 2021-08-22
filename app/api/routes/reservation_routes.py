@@ -82,7 +82,6 @@ def create_reservation():
         db.session.commit()
         return {"message": "Let's Eat"}, 200
     errors = form.errors
-    print(errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # Delete one reservation
