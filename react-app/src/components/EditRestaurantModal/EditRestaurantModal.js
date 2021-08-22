@@ -79,66 +79,87 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
 				</div>
 				<div className='forms-container'>
 					<div className='restaurant-info-container'>
-						<p>Restaurant Info:</p>
-						<input
-							placeholder='Restaurant Name'
-							type='text'
-							name='restaurantName'
-							onChange={updateRestaurantName}
-							value={restaurantName}
-							required={true}></input>
-						<input
-							placeholder='Image URL'
-							type='text'
-							name='imgUrl'
-							onChange={updateImgUrl}
-							value={imgUrl}
-							// required={true}
-						></input>
-						<input
-							placeholder='Phone Number'
-							type='text'
-							name='phoneNumber'
-							onChange={updatePhoneNumber}
-							value={phoneNumber}
-							required={true}></input>
-						<select
-							value={cuisineId}
-							onChange={updateCuisineId}
-							required={true}>
-							<option value='' disabled selected>
-								Select Cuisine Type
-							</option>
-							{cuisines?.map((cuisine) => (
-								<option key={cuisine.id} value={cuisine.id}>
-									{cuisine?.type}
+						<p className='edit-restaurant-title'>Restaurant Info:</p>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Restaurant Name'
+								type='text'
+								name='restaurantName'
+								onChange={updateRestaurantName}
+								value={restaurantName}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Image URL'
+								type='text'
+								name='imgUrl'
+								onChange={updateImgUrl}
+								value={imgUrl}
+								// required={true}
+								></input>
+						</div>
+						<div className='form-label__container'>
+							<input
+								className='form-input'
+								placeholder='Phone Number'
+								type='text'
+								name='phoneNumber'
+								onChange={updatePhoneNumber}
+								value={phoneNumber}
+								required={true}></input>
+						</div>
+						<div className='form-label__container'>
+							<select
+								className='form-input'
+								value={cuisineId}
+								onChange={updateCuisineId}
+								required={true}>
+								<option value='' disabled selected>
+									Select Cuisine Type
 								</option>
-							))}
-						</select>
-						<select
-							value={priceRange}
-							onChange={updatePriceRange}
-							required={true}>
-							<option value='' disabled selected>
-								Select Price Range
-							</option>
-							<option value='1'>$ - under $10 per plate</option>
-							<option value='2'>$$ - $11-$20 per plate</option>
-							<option value='3'>$$$ - $21 -$30 per plate</option>
-							<option value='4'>$$$$ - $31 + per plate</option>
-						</select>
-						<textarea
-							placeholder='Description'
-							type='text'
-							name='description'
-							onChange={updateDescription}
-							value={description}
-							required={true}></textarea>
+								{cuisines?.map((cuisine) => (
+									<option key={cuisine.id} value={cuisine.id}>
+										{cuisine?.type}
+									</option>
+								))}
+							</select>
+						</div>
+						<div className='form-label__container'>
+							<select
+								className='form-input'
+								value={priceRange}
+								onChange={updatePriceRange}
+								required={true}>
+								<option value='' disabled selected>
+									Select Price Range
+								</option>
+								<option value='1'>$ - under $10 per plate</option>
+								<option value='2'>$$ - $11-$20 per plate</option>
+								<option value='3'>$$$ - $21 -$30 per plate</option>
+								<option value='4'>$$$$ - $31 + per plate</option>
+							</select>
+						</div>
+						<div className='form-label__container'>
+							<textarea
+								id='form-input-textarea'
+								className='form-input'
+								placeholder='Description'
+								type='text'
+								name='description'
+								onChange={updateDescription}
+								value={description}
+								required={true}></textarea>
+						</div>
 					</div>
 				</div>
-				<button id='restaurant-submit-button' type='submit'>
-					Update Restaurant
-				</button>
+				<div className='edit-restaurant__button-container'>
+					<button id='restaurant-submit-button' type='submit'>
+						Update Restaurant
+					</button>
+				</div>
 			</form>
 		</div>
 	);

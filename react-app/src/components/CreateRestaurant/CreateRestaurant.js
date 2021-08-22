@@ -166,6 +166,7 @@ const RestaurantForm = ({setShowModal}) => {
 						</div>
 						<div className='form-label__container'>
 							<textarea
+							id='form-input-textarea'
 							className='form-input'
 							placeholder='Description'
 							type='text'

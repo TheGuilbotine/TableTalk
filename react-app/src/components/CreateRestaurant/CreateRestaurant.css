@@ -75,7 +75,7 @@
 	background-color: #cd362e;
 }
 
-textarea {
+#form-input-textarea {
     resize: none;
     height: 20px;
 }
