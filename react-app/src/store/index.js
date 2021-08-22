@@ -5,7 +5,7 @@ import cuisineReducer from './cuisine';
 import restaurantsReducer from './restaurants';
 import imageReducer from './images';
 import reservationsReducer from './reservations';
-import rewardsReducer from './rewards';
+// import rewardsReducer from './rewards';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   restaurants: restaurantsReducer,
   images: imageReducer,
   reservations: reservationsReducer,
-  rewards: rewardsReducer
+  // rewards: rewardsReducer
 });
 
 

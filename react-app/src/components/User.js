@@ -15,7 +15,7 @@ function User() {
 
   function onDelete(reservationId) {
       dispatch(destroyReservation(reservationId))
-      dispatch(getAllUserRewards(userId))
+      // dispatch(getAllUserRewards(userId))
   }
 
   const sessionUser = useSelector(state => state.session.user);
