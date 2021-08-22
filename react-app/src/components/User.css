@@ -56,3 +56,7 @@ th {
     width: 100%;
     margin: 20px
 }
+
+.reservation-delete__button {
+    cursor: pointer;
+}
