@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
 
+
+.business-profile-page {
+  margin-top: 40px;
+  margin-bottom: 150px;
+}
+
 .business-restaurant-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0px;
-  border-top: 1px solid rgb(215, 214, 214);
-  border-left: 1px solid rgb(215, 214, 214);
-  border-right: 1px solid rgb(215, 214, 214);
-  border-bottom: 1px solid rgb(215, 214, 214);
+  border: 1px solid rgb(215, 214, 214);
   border-radius: 15px;
   margin: 15px;
   margin-bottom: 5px;
@@ -31,4 +34,12 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.edit-delete-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 15px;
+  padding-top: 10px;
 }

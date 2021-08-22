@@ -52,11 +52,11 @@ const CreateNewReservation = () => {
    let sessionLinks;
    if (sessionUser) {
        sessionLinks = (
-           <button type='submit'>Find a table</button>
+           <button className="reservation-submit-button" type='submit'>Find a table</button>
        )
    } else {
        sessionLinks = (
-           <button type='submit' disabled>Please sign in to find a table</button>
+           <button className="reservation-submit-button" type='submit' disabled>Please sign in to find a table</button>
        )
    }
 
@@ -69,7 +69,7 @@ const CreateNewReservation = () => {
 				    		<div className="errors" key={ind}>{error}</div>
 				    	))}
 				    </div>
-                    <h4>Make a reservation</h4>
+                    <h4 className="make-a-reservation">Make a reservation</h4>
                     <label>Party size</label>
                     <input
                         type='number'
@@ -95,13 +95,16 @@ const CreateNewReservation = () => {
                         onChange={updateTime}
                         required={true}
                     ></input>
-                    <label>Would you like to share your table? Earn 50 TTPoints for sharing your table!</label>
+                    <div>
+                    <label>Would you like to share your table and earn 50 TTPoints!</label>
                     <input
                         type='checkbox'
+                        className="checkbox"
                         name='time'
                         value={shareTable}
                         onChange={updateShareTable}
                     ></input>
+                    </div>
                     {sessionLinks}
                 </form>
             </div>
