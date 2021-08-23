@@ -121,7 +121,7 @@ const reservationsReducer = (state = initialState, action) => {
             action.list.reservations.forEach(reservation => {
                 allReservations[reservation.id] = reservation;
             });
-            return {...allReservations, ...state};
+            return {...allReservations};
         }
         case ADD_ONE: {
           const newState = {

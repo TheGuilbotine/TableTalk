@@ -10,12 +10,12 @@ const EditRestaurantForm = ({restaurantId, setShowModal}) => {
   const restaurant = useSelector(state => state.restaurants[restaurantId]);
   const business = useSelector(state => state.session.user)
   const cuisines = useSelector((state) => Object.values(state.cuisines));
-  const businessId = useSelector((state) => state.session.user.id);
+  const businessId = useSelector((state) => state.session.user?.id);
 
 	const [errors, setErrors] = useState([]);
 	const [restaurantName, setRestaurantName] = useState(restaurant.restaurant_name);
 	const [phoneNumber, setPhoneNumber] = useState(restaurant.phone_number);
-	const [cuisineId, setCuisineId] = useState(restaurant.cuisine.id);
+	const [cuisineId, setCuisineId] = useState(restaurant.cuisine?.id);
 	const [description, setDescription] = useState(restaurant.description);
 	const [priceRange, setPriceRange] = useState(restaurant.price_range);
 	const [imgUrl, setImgUrl] = useState(restaurant.images[0].img_url);

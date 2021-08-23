@@ -102,7 +102,7 @@ function User() {
         {reservations?.map((reservation) => (
           <div className="reservation-info__container">
             <p className="reservation-info__text">{sessionUser.first_name}, your reservation at {reservation.restaurant?.restaurant_name} is on {new Date (reservation?.date_start).toLocaleDateString()}.</p>
-            <p className="reservation-info__text">Your reservation time is at {reservation.time_start.slice(0, 5)}.</p>
+            <p className="reservation-info__text">Your reservation time is at {reservation.time_start?.slice(0, 5)}.</p>
             <p className="reservation-info__text">If you have any questions or would like to change your reservation, please call {reservation.restaurant?.restaurant_name} at {reservation.restaurant?.phone_number}.</p>
             <div className="reservation-delete-button__container">
               <div className="reservation-delete__button" onClick={() => onDelete(reservation.id)}>Delete</div>
