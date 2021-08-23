@@ -83,11 +83,12 @@ th {
     padding: 10px;
     border: 1px solid rgb(215, 214, 214);
     background-color: #EE4036;
-    color: white;   
+    color: white;
 }
 
 .reservation-delete__button:hover {
     background-color: #CD362E;
+    cursor: pointer;
 }
 
 .reservation-delete-button__container {
