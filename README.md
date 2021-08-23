@@ -26,12 +26,22 @@ View live: <a href='https://table--talk.herokuapp.com/'>Table Talk</a>
 
 ## Home/Restaurants Page:
 
-<img src="" width='500px' />
+<img src="https://i.imgur.com/g3K37ie.png" width='500px' />
 <br />
 
 ## Individual Restaurant Page:
 
-<img src="" width='500px' />
+<img src="https://i.imgur.com/alWH0Jc.png" width='500px' />
+<br />
+
+## User Profile Page:
+
+<img src="https://i.imgur.com/6UUAYED.png" width='500px' />
+<br />
+
+## Business Home Page:
+
+<img src="https://i.imgur.com/sab2sXQ.png" width='500px' />
 <br />
 
 # Technologies
