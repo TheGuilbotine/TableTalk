@@ -77,45 +77,6 @@ function NavBar() {
       }
     }
   }
-  // if (sessionUser && sessionUser.business_name) {
-  //   sessionLinks = (
-  //     <>
-  //       <NavLink to={`/business/${sessionUser.id}`} className="business-profile-button">Business Profile</NavLink>
-  //       <BusinessLogoutButton />
-  //     </>
-  //     );
-  // } else if (sessionUser && !sessionUser.business_name) {
-  //   sessionLinks = (
-  //     <>
-  //       {/* <button className="demo-button" onClick={demoLogin}>Demo</button> */}
-  //       <NavLink to={`/users/${sessionUser.id}`} className="profile-page-button">My Profile</NavLink>
-  //       <UserLogoutButton />
-  //     </>
-  //   );
-  // } else if (location.pathname == "/business") {
-  //   sessionLinks = (
-  //     <>
-  //       <NavLink to='/' className='looking-for-a-table' exact={true} activeClassName='active'>
-  //         Looking for a table?
-  //       </NavLink>
-  //       <BusinessLoginModal />
-  //     </>
-  //   );
-  // } else {
-  //   sessionLinks = (
-  //     <>
-  //       {/* <button className="demo-button" onClick={demoLogin}>Demo</button> */}
-  //       <NavLink to='/business' className='are-you-a-business' exact={true} activeClassName='active'>
-  //         Are you a business?
-  //       </NavLink>
-  //       {/* <NavLink to='/login' className='login-button' exact={true} activeClassName='active'>
-  //         Login
-  //       </NavLink> */}
-  //       <UserLoginModal />
-  //       <UserSignUpFormModal />
-  //     </>
-  //   );
-  // }
 
   return (
     <div className="nav-container">
