@@ -126,17 +126,16 @@ export default function Footer() {
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>PIERRE</li>
                                     <li>
-                                        <a className='footer__link' href='https://goodcipa.herokuapp.com/' target="_blank">
-                                            GoodCIPA
+                                        <a className='footer__link' href='https://theguilbotine.github.io/Portfolio/' target="_blank">
+                                            Pierre Guilbault
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>SUNNY</li>
                                     <li>
-                                        <a className='footer__link' href='https://sunturo.herokuapp.com/' target="_blank">
-                                            Sunturo
+                                        <a className='footer__link' href='https://sunnymallick.github.io/' target="_blank">
+                                            Sunny Mallick
                                         </a>
                                     </li>
                                     <li></li>
