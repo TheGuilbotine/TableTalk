@@ -26,31 +26,31 @@ export default function Footer() {
                                 <ul>
                                     <li className="footer-link__container">
                                         <a className='footer__link' href='https://github.com/TheGuilbotine/TableTalk' target="_blank">
-                                        About TableTalk <i class="fab fa-github-square"></i>
+                                            TableTalk <i class="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/jborja-one' target="_blank">
-                                            About Jonathan Borja <i class="fab fa-github-square"></i>
+                                            Jonathan Borja <i class="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/theflaggship' target="_blank">
-                                            About Monte Flagg <i className="fab fa-github-square"></i>
+                                            Monte Flagg <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/TheGuilbotine' target="_blank">
-                                            About Pierre Guilbault <i className="fab fa-github-square"></i>
+                                            Pierre Guilbault <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/sunnymallick' target="_blank">
-                                            About Sunny Mallick <i className="fab fa-github-square"></i>
+                                            Sunny Mallick <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -132,7 +132,6 @@ export default function Footer() {
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>SUNNY</li>
                                     <li>
                                         <a className='footer__link' href='https://sunnymallick.github.io/' target="_blank">
                                             Sunny Mallick
