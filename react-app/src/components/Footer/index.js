@@ -84,7 +84,35 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="column__container">
-                                <div className="column__title">Our Projects</div>
+                                <div className="column__title">Check us out on AngelList</div>
+                                <ul>
+                                    <li>
+                                        <a className='footer__link' href='https://angel.co/u/jonathan-borja' target="_blank" rel="noreferrer">
+                                            Jonathan Borja <i className="fab fa-angellist"></i>
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://angel.co/u/monte-flagg' target="_blank" rel="noreferrer">
+                                            Monte Flagg <i className="fab fa-angellist"></i>
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://angel.co/u/pierre-guilbault-1' target="_blank" rel="noreferrer">
+                                            Pierre Guilbault <i className="fab fa-angellist"></i>
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://angel.co/u/sunny-mallick' target="_blank" rel="noreferrer">
+                                            Sunny Mallick <i className="fab fa-angellist"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="column__container">
+                                <div className="column__title">Our Portfolios</div>
                                 <ul>
                                     <li>JONATHAN</li>
                                     <li>
