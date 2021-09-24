@@ -120,10 +120,9 @@ export default function Footer() {
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>MONTE</li>
                                     <li>
-                                        <a className='footer__link' href='https://stayquaint.herokuapp.com/' target="_blank">
-                                            StayQuaint
+                                        <a className='footer__link' href='https://theflaggship.github.io/' target="_blank">
+                                            Monte Flagg
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
