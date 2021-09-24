@@ -25,7 +25,7 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const business = useSelector(state => state.session.business);
+  const business = useSelector(state => state.session.user);
   const cuisines = useSelector((state) => state.cuisines)
   const dispatch = useDispatch();
   const history = useHistory();
@@ -41,7 +41,9 @@ const BusinessSignUpForm = () => {
       if (data) {
         setErrors(data)
       } else {
-        history.push
+        return <Redirect to={`/business/${business?.id}`} />;
+        // history.push(`/business`)
+        // history.push(`/business/${business?.id}`)
       }
     }
   };
