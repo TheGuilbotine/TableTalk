@@ -22,35 +22,35 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="column__container">
-                                <div className="column__title">TableTalk</div>
+                                <div className="column__title">GitHub</div>
                                 <ul>
                                     <li className="footer-link__container">
                                         <a className='footer__link' href='https://github.com/TheGuilbotine/TableTalk' target="_blank">
-                                        About TableTalk <i class="fab fa-github-square"></i>
+                                            TableTalk <i class="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/jborja-one' target="_blank">
-                                            About Jonathan Borja <i class="fab fa-github-square"></i>
+                                            Jonathan Borja <i class="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/theflaggship' target="_blank">
-                                            About Monte Flagg <i className="fab fa-github-square"></i>
+                                            Monte Flagg <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/TheGuilbotine' target="_blank">
-                                            About Pierre Guilbault <i className="fab fa-github-square"></i>
+                                            Pierre Guilbault <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
                                     <li>
                                         <a className='footer__link' href='https://github.com/sunnymallick' target="_blank">
-                                            About Sunny Mallick <i className="fab fa-github-square"></i>
+                                            Sunny Mallick <i className="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -84,33 +84,57 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="column__container">
-                                <div className="column__title">Our Projects</div>
+                                <div className="column__title">Check us out on AngelList</div>
                                 <ul>
-                                    <li>JONATHAN</li>
                                     <li>
-                                    <a className='footer__link' href='https://spademagick.herokuapp.com/' target="_blank">
-                                            SpadeMagick
+                                        <a className='footer__link' href='https://angel.co/u/jonathan-borja' target="_blank" rel="noreferrer">
+                                            Jonathan Borja <i className="fab fa-angellist"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>MONTE</li>
                                     <li>
-                                        <a className='footer__link' href='https://stayquaint.herokuapp.com/' target="_blank">
-                                            StayQuaint
+                                        <a className='footer__link' href='https://angel.co/u/monte-flagg' target="_blank" rel="noreferrer">
+                                            Monte Flagg <i className="fab fa-angellist"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>PIERRE</li>
                                     <li>
-                                        <a className='footer__link' href='https://goodcipa.herokuapp.com/' target="_blank">
-                                            GoodCIPA
+                                        <a className='footer__link' href='https://angel.co/u/pierre-guilbault-1' target="_blank" rel="noreferrer">
+                                            Pierre Guilbault <i className="fab fa-angellist"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
-                                    <li>SUNNY</li>
                                     <li>
-                                        <a className='footer__link' href='https://sunturo.herokuapp.com/' target="_blank">
-                                            Sunturo
+                                        <a className='footer__link' href='https://angel.co/u/sunny-mallick' target="_blank" rel="noreferrer">
+                                            Sunny Mallick <i className="fab fa-angellist"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="column__container">
+                                <div className="column__title">TableTalk Contributors</div>
+                                <ul>
+                                    <li>
+                                    <a className='footer__link' href='https://jborja-one.github.io/' target="_blank">
+                                            Jonathan Borja
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://theflaggship.github.io/' target="_blank">
+                                            Monte Flagg
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://theguilbotine.github.io/Portfolio/' target="_blank">
+                                            Pierre Guilbault
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://sunnymallick.github.io/' target="_blank">
+                                            Sunny Mallick
                                         </a>
                                     </li>
                                     <li></li>
@@ -121,55 +145,5 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
-        // <footer className='footer'>
-        //     <p className='footer__designed-by'>Designed By:</p>
-        //     <div className='footer__name-link__container'>
-        //         <div className='footer__name-link'>
-        //             <h3 className='footer__name'>Jonathan Borja</h3>
-        //             <div className='footer__icons'>
-        //                 <a className='footer__link' href='https://github.com/jborja-one' target="_blank">
-        //                     <i class="fab fa-github-square"></i>
-        //                 </a>
-
-        //                 <a className='footer__link' href='https://www.linkedin.com/in/jonathan-borja-1a9959172/' target="_blank">
-        //                     <i className="fab fa-linkedin"></i>
-        //                 </a>
-        //             </div>
-        //         </div>
-        //         <div className='footer__name-link'>
-        //             <h3 className='footer__name'>Monte Flagg</h3>
-        //             <div className='footer__icons'>
-        //                 <a className='footer__link' href='https://github.com/theflaggship' target="_blank">
-        //                     <i className="fab fa-github-square"></i>
-        //                 </a>
-        //                 <a className='footer__link' href='https://www.linkedin.com/in/montgomeryflagg/' target="_blank">
-        //                     <i className="fab fa-linkedin"></i>
-        //                 </a>
-        //             </div>
-        //         </div>
-        //         <div className='footer__name-link'>
-        //             <h3 className='footer__name'>Pierre Guilbault</h3>
-        //             <div className='footer__icons'>
-        //                 <a className='footer__link' href='https://github.com/TheGuilbotine' target="_blank">
-        //                     <i className="fab fa-github-square"></i>
-        //                 </a>
-        //                 <a className='footer__link' href='https://www.linkedin.com/in/pierre-guilbault-30020549/' target="_blank">
-        //                     <i className="fab fa-linkedin"></i>
-        //                 </a>
-        //             </div>
-        //         </div>
-        //         <div className='footer__name-link'>
-        //             <h3 className='footer__name'>Sunny Mallick</h3>
-        //             <div className='footer__icons'>
-        //                 <a className='footer__link' href='https://github.com/sunnymallick' target="_blank">
-        //                     <i className="fab fa-github-square"></i>
-        //                 </a>
-        //                 <a className='footer__link' href='https://www.linkedin.com/in/sunny-mallick-896a33169/' target="_blank">
-        //                     <i className="fab fa-linkedin"></i>
-        //                 </a>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </footer>
     )
 }

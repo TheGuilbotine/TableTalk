@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { businessSignUp } from '../../store/session';
 import { getCuisines } from '../../store/cuisine';
 import './BusinessSignUpForm.css'
@@ -28,6 +28,8 @@ const BusinessSignUpForm = () => {
   const business = useSelector(state => state.session.business);
   const cuisines = useSelector((state) => state.cuisines)
   const dispatch = useDispatch();
+  const history = useHistory();
+
   useEffect(() => {
     dispatch(getCuisines())
   }, [dispatch])
@@ -39,6 +41,8 @@ const BusinessSignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords do not match"])
     }
   };
 
@@ -103,7 +107,7 @@ const BusinessSignUpForm = () => {
   };
 
   if (business) {
-    return <Redirect to='/business' />;
+    return <Redirect to={`/business/${business?.id}`} />;
   }
 
   return (
