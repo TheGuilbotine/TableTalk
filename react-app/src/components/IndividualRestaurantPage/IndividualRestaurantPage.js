@@ -8,7 +8,8 @@ import './IndividualRestaurantPage.css'
 function IndividualRestaurant() {
     const dispatch = useDispatch()
     const { id } = useParams()
-
+    const sessionUser = useSelector(state => state.session.user)
+    const [review, setReview] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])
     // const cuisine = useSelector((state) => state.cuisine[id])
 
@@ -16,6 +17,22 @@ function IndividualRestaurant() {
         dispatch(getOneRestaurant(id))
     }, [dispatch, id])
 
+    let reviewSubmitButton;
+    if (sessionUser) {
+       
+        reviewSubmitButton = (
+            <button className='bid-comment-submit-edit-delete' type='submit'>Submit Comment</button>   
+        )
+    } else {
+        reviewSubmitButton = (
+            <p>You need to be logged in to place a comment.</p> 
+        )
+    }
+
+    const updateReview = (e) => {
+       setReview(e.target.value)
+    }
+  
     return (
         <div className='restaurant-details'>
             <div className="restaurant-image-container">
@@ -34,6 +51,21 @@ function IndividualRestaurant() {
               <p className='restaurant-city-state-zip'>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
             </div>
                 <p className='restaurant-description'>{restaurant?.description}</p>
+            <div className='restaurant-reviews-container'>
+                <div className='review-form'>
+                  <form>
+                    <input
+                      id='review-input'
+                      type='text'
+                      placeholder='Post a review...'
+                      name='reviewArea'
+                      maxLength='500'
+                      value={review}
+                      onChange={updateReview}></input>
+                      {reviewSubmitButton}
+                  </form>
+                </div>
+            </div>
             <div>
                 <CreateNewReservation />
             </div>
