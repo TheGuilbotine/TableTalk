@@ -65,6 +65,9 @@ function IndividualRestaurant() {
                       {reviewSubmitButton}
                   </form>
                 </div>
+                <div className='posted-reviews-container'>
+                    <h3>Restaurant Reviews:</h3>
+                </div>
             </div>
             <div>
                 <CreateNewReservation />
