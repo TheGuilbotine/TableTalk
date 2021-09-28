@@ -21,11 +21,11 @@ function IndividualRestaurant() {
     if (sessionUser) {
        
         reviewSubmitButton = (
-            <button className='bid-comment-submit-edit-delete' type='submit'>Submit Comment</button>   
+            <button className='submit-review-button' type='submit'>Submit Review</button>   
         )
     } else {
         reviewSubmitButton = (
-            <p>You need to be logged in to place a comment.</p> 
+            <p>You need to be logged in to place a review.</p> 
         )
     }
 
