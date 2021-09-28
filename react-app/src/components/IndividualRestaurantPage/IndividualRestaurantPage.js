@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getOneRestaurant } from '../../store/restaurants';
+import { getReviews, createReview, deleteReview } from '../../store/reviews';
 import CreateNewReservation from '../CreateNewReservation/CreateNewReservation';
 import './IndividualRestaurantPage.css'
 
@@ -14,7 +15,8 @@ function IndividualRestaurant() {
     // const cuisine = useSelector((state) => state.cuisine[id])
 
     useEffect(() => {
-        dispatch(getOneRestaurant(id))
+      dispatch(getOneRestaurant(id))
+      dispatch(getReviews())
     }, [dispatch, id])
 
     let reviewSubmitButton;
