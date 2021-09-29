@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getOneRestaurant } from '../../store/restaurants';
 import CreateNewReservation from '../CreateNewReservation/CreateNewReservation';
+import MapContainer from '../GoogleMap';
 import './IndividualRestaurantPage.css'
+
 
 function IndividualRestaurant() {
     const dispatch = useDispatch()
@@ -22,6 +24,9 @@ function IndividualRestaurant() {
               {restaurant?.images?.map(image => (
                <img className="restaurant-image"src={image.img_url} key={image.id}/>
               ))}
+            </div>
+            <div className="google-map__component-container">
+              {/* <MapContainer className="google-map__component" addressLineOne={restaurant?.address_line_one} zipCode={restaurant?.postal_code} /> */}
             </div>
             <div className="name-cuisine">
               <h1 className='restaurant-name'>{restaurant?.restaurant_name}   -  </h1>

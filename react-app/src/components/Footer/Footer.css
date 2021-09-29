@@ -3,6 +3,9 @@
 footer {
     color: #d8d9db;
     font-family: "Montserrat", sans-serif;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
 }
 
 .footer__container {

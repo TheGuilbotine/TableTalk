@@ -80,3 +80,13 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.google-map__component-container {
+    box-sizing: border-box;
+    height: 600px;
+    width: 600px;
+}
+
+/* .google-map__component {
+    overflow: scroll;
+} */
