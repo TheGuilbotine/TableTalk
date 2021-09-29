@@ -19,3 +19,22 @@ def user_reviews():
     user_reviews = User.query.all()
     return {'reviews': [review.to_dict() for review in user_reviews]}
 
+
+@user_review_routes.route('/', methods=['POST'])
+def create_review():
+    form = UserReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print('---------')
+    print(form.data)
+    print('---------')
+    if form.validate_on_submit():
+        new_review = UserReview(
+            user_id=form.data['user_id'],
+            comment=form.data['comment'],
+            photo=form.data['photo']
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        return {'message': 'We made a review!'}, 200
+    errors = form.errors
+    return {'errors': validation_errors_to_error_messages(errors)}, 401

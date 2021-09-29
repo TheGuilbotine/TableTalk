@@ -10,7 +10,9 @@ function IndividualRestaurant() {
     const dispatch = useDispatch()
     const { id } = useParams()
     const sessionUser = useSelector(state => state.session.user)
+    const userId = sessionUser.id
     const [review, setReview] = useState('')
+    const [photoUrl, setPhotoUrl] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])
     // const cuisine = useSelector((state) => state.cuisine[id])
 
@@ -18,6 +20,19 @@ function IndividualRestaurant() {
       dispatch(getOneRestaurant(id))
       dispatch(getReviews())
     }, [dispatch, id])
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      if (review) {
+        const data = await dispatch(createReview(review, photoUrl, userId))
+        if (data) {
+          dispatch(getReviews())
+          setReview('')
+        }
+      } else {
+        alert('Review field cannot be empty.')
+      }
+    }
 
     let reviewSubmitButton;
     if (sessionUser) {
@@ -33,6 +48,10 @@ function IndividualRestaurant() {
 
     const updateReview = (e) => {
        setReview(e.target.value)
+    }
+
+    const updatePhotoUrl = (e) => {
+      setPhotoUrl(e.target.value)
     }
   
     return (
@@ -55,7 +74,7 @@ function IndividualRestaurant() {
                 <p className='restaurant-description'>{restaurant?.description}</p>
             <div className='restaurant-reviews-container'>
                 <div className='review-form'>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <input
                       id='review-input'
                       type='text'
@@ -64,6 +83,13 @@ function IndividualRestaurant() {
                       maxLength='500'
                       value={review}
                       onChange={updateReview}></input>
+                      <input 
+                      id='review-photo'
+                      type='text'
+                      placeholder='Photo URL'
+                      name='reviewPhoto'
+                      value={photoUrl}
+                      onChange={updatePhotoUrl}></input>
                       {reviewSubmitButton}
                   </form>
                 </div>

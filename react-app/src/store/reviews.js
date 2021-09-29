@@ -18,7 +18,7 @@ const destroy = reviewId => ({
 })
 
 export const getReviews = () => async dispatch => {
-    const res = await fetch('/api/reviews/');
+    const res = await fetch('/api/user_reviews/');
 
     if (res.ok) {
         const reviews = await res.json();
@@ -27,23 +27,14 @@ export const getReviews = () => async dispatch => {
     }
 }
 
-// export const getOneReview = (id) => async dispatch => {
-//     const res = await fetch(`/api/reviews/${id}`);
-
-//     const review = await res.json();
-//     if (res.ok) {
-//         dispatch(placeReview(review))
-//     }
-// }
-
-export const createReview = (review, userId, photoUrl) => async dispatch => {
-    const res = await fetch('/api/reviews/', {
+export const createReview = (review, photoUrl, userId) => async dispatch => {
+    const res = await fetch('/api/user_reviews/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            review: review,
-            user_id: userId,
-            photo: photoUrl
+            comment: review,
+            photo: photoUrl,
+            user_id: userId
         })
     })
     if (res.ok) {
@@ -54,7 +45,7 @@ export const createReview = (review, userId, photoUrl) => async dispatch => {
 }
 
 export const editReview = (reviewId, review, userId, restaurantId) => async dispatch => {
-    const res = await fetch(`/api/reviews/${reviewId}`, {
+    const res = await fetch(`/api/user_reviews/${reviewId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -71,7 +62,7 @@ export const editReview = (reviewId, review, userId, restaurantId) => async disp
 }
 
 export const deleteReview = (id) => async dispatch => {
-    const res = await fetch(`/api/reviews/${id}`, {
+    const res = await fetch(`/api/user_reviews/${id}`, {
         method: 'DELETE'
     })
     if (res.ok) {
