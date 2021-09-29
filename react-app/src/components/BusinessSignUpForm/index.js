@@ -25,7 +25,7 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const business = useSelector(state => state.session.user);
+  const business = useSelector(state => state.session.business);
   const cuisines = useSelector((state) => state.cuisines)
   const dispatch = useDispatch();
   const history = useHistory();
@@ -45,6 +45,8 @@ const BusinessSignUpForm = () => {
         // history.push(`/business`)
         // history.push(`/business/${business?.id}`)
       }
+    } else {
+      setErrors(["Passwords do not match"])
     }
   };
 
