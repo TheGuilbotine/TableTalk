@@ -10,8 +10,15 @@ import './IndividualRestaurantPage.css'
 function IndividualRestaurant() {
     const dispatch = useDispatch()
     const { id } = useParams()
-
     const restaurant = useSelector((state) => state.restaurants[id])
+    console.log('------------------------------------');
+    console.log(restaurant);
+    console.log('------------------------------------');
+    const address = restaurant?.address_line_one + " " + restaurant?.postal_code
+    console.log('------------------------------------');
+    console.log(address);
+    console.log('------------------------------------');
+
     // const cuisine = useSelector((state) => state.cuisine[id])
 
     useEffect(() => {
@@ -26,7 +33,7 @@ function IndividualRestaurant() {
               ))}
             </div>
             <div className="google-map__component-container">
-              <MapContainer address={`${restaurant?.address_line_one} ${restaurant?.postal_code}` } />
+              <MapContainer address={address} />
             </div>
             <div className="name-cuisine">
               <h1 className='restaurant-name'>{restaurant?.restaurant_name}   -  </h1>
