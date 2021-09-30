@@ -9,10 +9,13 @@ export default function SearchBarDropdown({ setShowModal }) {
     const dispatch = useDispatch();
     const [searchString, setSearchString] = useState('');
     const [results, setResults] = useState([]);
+    console.log('------------------------------------');
+    console.log(results);
+    console.log('------------------------------------');
 
     const handleLink = async (e, id) => {
         e.preventDefault();
-        await history.push(`/restaurant/${id}`)
+        await history.push(`/restaurants/${id}`)
         await setShowModal(false)
     };
 
@@ -56,7 +59,7 @@ export default function SearchBarDropdown({ setShowModal }) {
                         key={result.id}
                         className="search__link"
                     >
-                        <a className="question-link" onClick={(e)=>handleLink(e, result?.id)}>{result.question}</a>
+                        <a className="restaurant-link" onClick={(e)=>handleLink(e, result?.id)}>{result.restaurant_name}</a>
                     </li>
                 ))}
             </ul>
