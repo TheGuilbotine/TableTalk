@@ -2,15 +2,13 @@ import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 
-const MapContainer = async ({addressLineOne, zipCode}) => {
+const MapContainer = async ({address}) => {
 
 console.log('------------------------------------');
-console.log("AddressLineOne", addressLineOne);
-console.log("Zip", zipCode);
+console.log("Address", address);
 console.log('------------------------------------');
 
 Geocode.setApiKey("AIzaSyADWdTTdivnw39tHOT9H59yhbklqmON6T8");
-const address = addressLineOne + " " + zipCode
 let res = await Geocode.fromAddress(address)
 
 // Geocode.setLanguage("en");

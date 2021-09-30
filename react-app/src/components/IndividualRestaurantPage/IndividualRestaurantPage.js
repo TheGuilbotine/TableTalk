@@ -26,7 +26,7 @@ function IndividualRestaurant() {
               ))}
             </div>
             <div className="google-map__component-container">
-              {/* <MapContainer addressLineOne={restaurant?.address_line_one} zipCode={restaurant?.postal_code} /> */}
+              <MapContainer address={`${restaurant?.address_line_one} ${restaurant?.postal_code}` } />
             </div>
             <div className="name-cuisine">
               <h1 className='restaurant-name'>{restaurant?.restaurant_name}   -  </h1>
