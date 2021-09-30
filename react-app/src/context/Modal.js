@@ -37,3 +37,19 @@ export function Modal({ onClose, children }) {
     modalNode
   );
 }
+
+
+export function SearchModal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div id="search-modal">
+      <div id="search-modal-background" onClick={onClose} />
+      <div id="search-modal-content">
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}
