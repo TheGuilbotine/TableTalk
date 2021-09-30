@@ -10,7 +10,7 @@ function IndividualRestaurant() {
     const dispatch = useDispatch()
     const { id } = useParams()
     const sessionUser = useSelector(state => state.session.user)
-    const userId = sessionUser.id
+    const userId = sessionUser?.id
     const [review, setReview] = useState('')
     const [photoUrl, setPhotoUrl] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])

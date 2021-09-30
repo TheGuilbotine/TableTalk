@@ -30,6 +30,7 @@ def create_review():
     if form.validate_on_submit():
         new_review = UserReview(
             user_id=form.data['user_id'],
+            image_id=form.data['image_id'],
             comment=form.data['comment'],
             photo=form.data['photo']
         )
