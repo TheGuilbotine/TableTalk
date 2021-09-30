@@ -4,9 +4,7 @@ import Geocode from "react-geocode";
 
 const MapContainer = async ({address}) => {
 
-console.log('------------------------------------');
-console.log("Address", address);
-console.log('------------------------------------');
+
 
 Geocode.setApiKey("AIzaSyADWdTTdivnw39tHOT9H59yhbklqmON6T8");
 let res = await Geocode.fromAddress(address)
