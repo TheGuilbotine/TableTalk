@@ -29,9 +29,8 @@ div.search-results__container
     position: fixed;
     width: 23vw;
     height: auto;
-    top: 36px;
+    top:65px;
     margin: 5px;
-    right: 51vw;
 }
 
 div.search-dropdown__container i
