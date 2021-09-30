@@ -1,6 +1,6 @@
-export const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS';
-export const CREATE_REVIEW = 'reviews/CREATE_REVIEW';
-export const DESTROY_REVIEW = 'reviews/DESTROY_REVIEW';
+export const LOAD_REVIEWS = 'user_reviews/LOAD_REVIEWS';
+export const CREATE_REVIEW = 'user_reviews/CREATE_REVIEW';
+export const DESTROY_REVIEW = 'user_reviews/DESTROY_REVIEW';
 
 const load = reviews => ({
     type: LOAD_REVIEWS,
@@ -28,9 +28,6 @@ export const getReviews = () => async dispatch => {
 }
 
 export const createReview = (review, photoUrl, userId) => async dispatch => {
-    console.log('++++++++++', 'state')
-    console.log(review)
-    console.log('++++++++++')
     const res = await fetch('/api/user_reviews/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

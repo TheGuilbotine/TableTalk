@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @user_review_routes.route('/')
 def user_reviews():
-    user_reviews = User.query.all()
+    user_reviews = UserReview.query.all()
     return {'reviews': [review.to_dict() for review in user_reviews]}
 
 
@@ -24,9 +24,6 @@ def user_reviews():
 def create_review():
     form = UserReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('---------')
-    print(form.data)
-    print('---------')
     if form.validate_on_submit():
         new_review = UserReview(
             user_id=form.data['user_id'],
