@@ -2,20 +2,68 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getOneRestaurant } from '../../store/restaurants';
+import { getReviews, createReview, deleteReview } from '../../store/reviews';
 import CreateNewReservation from '../CreateNewReservation/CreateNewReservation';
+import EditUserReviewModal from '../EditUserReviewModal';
 import './IndividualRestaurantPage.css'
 
 function IndividualRestaurant() {
     const dispatch = useDispatch()
     const { id } = useParams()
-
+    const sessionUser = useSelector(state => state.session.user)
+    const userId = sessionUser?.id
+    const [review, setReview] = useState('')
+    const [photoUrl, setPhotoUrl] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])
+    const restaurantId = restaurant?.id
+    const reviews = Object.values(useSelector(state => state.reviews))
+    const restaurantReviews = reviews.filter(review => review?.restaurant_id === +id)
+    // const restaurantReviews = reviews.filter(review => review?.)
     // const cuisine = useSelector((state) => state.cuisine[id])
 
     useEffect(() => {
-        dispatch(getOneRestaurant(id))
+      dispatch(getOneRestaurant(id))
+      dispatch(getReviews())
     }, [dispatch, id])
 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      if (review) {
+        const data = await dispatch(createReview(review, photoUrl, userId, restaurantId))
+        if (data) {
+          dispatch(getReviews())
+          setReview('')
+          setPhotoUrl('')
+        }
+      } else {
+        alert('Review field cannot be empty.')
+      }
+    }
+
+    const handleReviewDelete = (id) => {
+      dispatch(deleteReview(id))
+    }
+
+    let reviewSubmitButton;
+    if (sessionUser) {
+       
+        reviewSubmitButton = (
+            <button className='submit-review-button' type='submit'>Submit Review</button>   
+        )
+    } else {
+        reviewSubmitButton = (
+            <p>You need to be logged in to place a review.</p> 
+        )
+    }
+
+    const updateReview = (e) => {
+       setReview(e.target.value)
+    }
+
+    const updatePhotoUrl = (e) => {
+      setPhotoUrl(e.target.value)
+    }
+  
     return (
         <div className='restaurant-details'>
             <div className="restaurant-image-container">
@@ -34,6 +82,48 @@ function IndividualRestaurant() {
               <p className='restaurant-city-state-zip'>{restaurant?.city}, {restaurant?.state} {restaurant?.postal_code}</p>
             </div>
                 <p className='restaurant-description'>{restaurant?.description}</p>
+            <div className='restaurant-reviews-container'>
+                <div className='review-form'>
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      id='review-input'
+                      type='text'
+                      placeholder='Post a review...'
+                      name='reviewArea'
+                      maxLength='500'
+                      value={review}
+                      onChange={updateReview}></input>
+                      <input 
+                      id='review-photo'
+                      type='text'
+                      placeholder='Photo URL'
+                      name='reviewPhoto'
+                      value={photoUrl}
+                      onChange={updatePhotoUrl}></input>
+                      {reviewSubmitButton}
+                  </form>
+                </div>
+                <div className='posted-reviews-container'>
+                    <h3>Restaurant Reviews:</h3>
+                    {restaurantReviews.map(review => {
+                      return (
+                        <>
+                          <h3>{review?.user}: </h3>
+                          <h3>"{review?.comment}"</h3>
+                          <img src={review?.photo} alt='review-photo'></img>
+                          <div className='edit-delete-container'>
+                            {sessionUser?.id === review?.user_id && 
+                            <>
+                            <EditUserReviewModal reviewId={review?.id} />
+                            <button className='delete-button' onClick={() => handleReviewDelete(review.id)}>Delete Review</button>
+                            </>
+                            }
+                          </div>
+                        </>
+                      )
+                    })}
+                </div>
+            </div>
             <div>
                 <CreateNewReservation />
             </div>
