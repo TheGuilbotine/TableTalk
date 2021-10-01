@@ -39,6 +39,15 @@ def create_review():
     errors = form.errors
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
+@user_review_routes.route('/<int:id>', methods=['PUT'])
+def edit_review(id):
+    data = request.json
+    review = UserReview.query.get(id)
+
+    review.comment = data['review']
+    db.session.commit()
+    return review.to_dict()
+
 @user_review_routes.route('/<int:id>', methods=['DELETE'])
 def delete_review(id):
     review = UserReview.query.get(id)

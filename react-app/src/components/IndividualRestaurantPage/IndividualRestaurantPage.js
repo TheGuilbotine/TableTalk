@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getOneRestaurant } from '../../store/restaurants';
 import { getReviews, createReview, deleteReview } from '../../store/reviews';
 import CreateNewReservation from '../CreateNewReservation/CreateNewReservation';
+import EditUserReviewModal from '../EditUserReviewModal';
 import './IndividualRestaurantPage.css'
 
 function IndividualRestaurant() {
@@ -113,6 +114,7 @@ function IndividualRestaurant() {
                           <div className='edit-delete-container'>
                             {sessionUser?.id === review?.user_id && 
                             <>
+                            <EditUserReviewModal reviewId={review?.id} />
                             <button className='delete-button' onClick={() => handleReviewDelete(review.id)}>Delete Review</button>
                             </>
                             }
