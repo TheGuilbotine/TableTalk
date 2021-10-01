@@ -15,10 +15,8 @@ function IndividualRestaurant() {
     const [photoUrl, setPhotoUrl] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])
     const restaurantId = restaurant?.id
-    console.log(id)
     const reviews = Object.values(useSelector(state => state.reviews))
     const restaurantReviews = reviews.filter(review => review?.restaurant_id === +id)
-    console.log(restaurantReviews)
     // const restaurantReviews = reviews.filter(review => review?.)
     // const cuisine = useSelector((state) => state.cuisine[id])
 
@@ -39,6 +37,10 @@ function IndividualRestaurant() {
       } else {
         alert('Review field cannot be empty.')
       }
+    }
+
+    const handleReviewDelete = (id) => {
+      dispatch(deleteReview(id))
     }
 
     let reviewSubmitButton;
@@ -108,6 +110,13 @@ function IndividualRestaurant() {
                           <h3>{review?.user}: </h3>
                           <h3>"{review?.comment}"</h3>
                           <img src={review?.photo} alt='review-photo'></img>
+                          <div className='edit-delete-container'>
+                            {sessionUser?.id === review?.user_id && 
+                            <>
+                            <button className='delete-button' onClick={() => handleReviewDelete(review.id)}>Delete Review</button>
+                            </>
+                            }
+                          </div>
                         </>
                       )
                     })}

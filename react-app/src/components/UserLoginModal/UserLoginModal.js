@@ -23,9 +23,9 @@ const UserLoginForm = ({setShowModal}) => {
 		}
 	};
 
-	const demoLogin = async (e) => {
+	const demoLogin = (e) => {
 		e.preventDefault()
-    const user = await dispatch(userLogin('demo@user.com','password'))
+    const user = dispatch(userLogin('demo@user.com','password'))
 		if (user) {
 			setShowModal(false)
 		}
