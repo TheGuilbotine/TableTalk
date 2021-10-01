@@ -7,6 +7,7 @@ import UserSignUpFormModal from '../UserSignUpFormModal';
 import UserLoginModal from '../UserLoginModal';
 import BusinessLoginModal from '../BusinessLoginFormModal'
 import BusinessLogoutButton from '../auth/BusinessLogoutButton';
+import SearchBar from '../Search/SearchBar';
 import './NavBar.css';
 
 function NavBar() {
@@ -87,9 +88,10 @@ function NavBar() {
       </div>
       <div className="mid-nav">
         <div className="search-bar-container">
-          <form>
+          <SearchBar />
+          {/* <form>
             <input placeholder="Search for restaurants or cuisines" className="search-input"></input>
-          </form>
+          </form> */}
         </div>
       </div>
       <div className="right-nav">

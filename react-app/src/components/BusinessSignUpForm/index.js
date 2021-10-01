@@ -25,7 +25,7 @@ const BusinessSignUpForm = () => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const business = useSelector(state => state.session.business);
+  const business = useSelector(state => state.session.user);
   const cuisines = useSelector((state) => state.cuisines)
   const dispatch = useDispatch();
   const history = useHistory();
@@ -40,6 +40,10 @@ const BusinessSignUpForm = () => {
       const data = await dispatch(businessSignUp(email, password, firstName, lastName, businessName, restaurantName, phoneNumber, cuisineId, description, priceRange, addressLineOne, addressLineTwo, city, state, postalCode, country, imgUrl));
       if (data) {
         setErrors(data)
+      } else {
+        return <Redirect to={`/business/${business?.id}`} />;
+        // history.push(`/business`)
+        // history.push(`/business/${business?.id}`)
       }
     } else {
       setErrors(["Passwords do not match"])
