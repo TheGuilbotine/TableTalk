@@ -38,3 +38,11 @@ def create_review():
         return {'message': 'We made a review!'}, 200
     errors = form.errors
     return {'errors': validation_errors_to_error_messages(errors)}, 401
+
+@user_review_routes.route('/<int:id>', methods=['DELETE'])
+def delete_review(id):
+    review = UserReview.query.get(id)
+
+    db.session.delete(review)
+    db.session.commit()
+    return {}, 200
