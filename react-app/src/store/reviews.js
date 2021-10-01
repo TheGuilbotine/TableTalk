@@ -27,15 +27,16 @@ export const getReviews = () => async dispatch => {
     }
 }
 
-export const createReview = (review, photoUrl, userId) => async dispatch => {
+export const createReview = (review, photoUrl, userId, restaurantId) => async dispatch => {
     const res = await fetch('/api/user_reviews/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             user_id: userId,
-            image_id: userId,
             comment: review,
             photo: photoUrl,
+            image_id: userId,
+            restaurant_id: restaurantId,
         })
     })
     if (res.ok) {

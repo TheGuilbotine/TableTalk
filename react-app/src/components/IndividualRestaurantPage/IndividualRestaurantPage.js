@@ -14,6 +14,10 @@ function IndividualRestaurant() {
     const [review, setReview] = useState('')
     const [photoUrl, setPhotoUrl] = useState('')
     const restaurant = useSelector((state) => state.restaurants[id])
+    const restaurantId = restaurant?.id
+    console.log(id)
+    const reviews = Object.values(useSelector(state => state.reviews))
+    // const restaurantReviews = reviews.filter(review => review?.)
     // const cuisine = useSelector((state) => state.cuisine[id])
 
     useEffect(() => {
@@ -24,10 +28,11 @@ function IndividualRestaurant() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       if (review) {
-        const data = await dispatch(createReview(review, photoUrl, userId))
+        const data = await dispatch(createReview(review, photoUrl, userId, restaurantId))
         if (data) {
           dispatch(getReviews())
           setReview('')
+          setPhotoUrl('')
         }
       } else {
         alert('Review field cannot be empty.')

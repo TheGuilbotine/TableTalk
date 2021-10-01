@@ -23,11 +23,13 @@ def user_reviews():
 @user_review_routes.route('/', methods=['POST'])
 def create_review():
     form = UserReviewForm()
+    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_review = UserReview(
             user_id=form.data['user_id'],
             image_id=form.data['image_id'],
+            restaurant_id=form.data['restaurant_id'],
             comment=form.data['comment'],
             photo=form.data['photo']
         )
