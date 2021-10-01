@@ -9,15 +9,16 @@ const EditUserReviewForm = ({reviewId, setShowModal}) => {
     const restaurantId = editedReview?.restaurant_id
     const [errors, setErrors] = useState([])
     const [review, setReview] = useState(editedReview.comment)
+    const [photoUrl, setPhotoUrl] = useState(editedReview.photo)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getReviews())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getReviews())
+    // }, [dispatch])
 
     const handleEdit = (e) => {
         e.preventDefault();
-        const data = dispatch(editReview(+reviewId, review, userId, restaurantId))
+        const data = dispatch(editReview(+reviewId, review, photoUrl, userId, restaurantId))
 
         if (data) {
             setShowModal(false)
@@ -29,6 +30,10 @@ const EditUserReviewForm = ({reviewId, setShowModal}) => {
 
     const updateReview = (e) => {
         setReview(e.target.value)
+    }
+
+    const updatePhotoUrl = (e) => {
+        setPhotoUrl(e.target.value)
     }
 
     return (
@@ -49,6 +54,14 @@ const EditUserReviewForm = ({reviewId, setShowModal}) => {
                             onChange={updateReview}
                             value={review}
                             required={true}></textarea>
+                        
+                        <input 
+                            className='form-input'
+                            placeholder='Edit Photo URL'
+                            name='photo-url'
+                            onChange={updatePhotoUrl}
+                            value={photoUrl}
+                            required={true}></input>
                     </div>
                     <div className='confirm-edit-button'>
                         <button className='confirm-button' type='submit'>

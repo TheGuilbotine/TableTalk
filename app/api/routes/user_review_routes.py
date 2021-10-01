@@ -42,9 +42,13 @@ def create_review():
 @user_review_routes.route('/<int:id>', methods=['PUT'])
 def edit_review(id):
     data = request.json
+    print('==========')
+    print(data)
+    print('=============')
     review = UserReview.query.get(id)
 
     review.comment = data['review']
+    review.photo = data['photo']
     db.session.commit()
     return review.to_dict()
 
