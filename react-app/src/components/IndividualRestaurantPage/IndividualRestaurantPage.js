@@ -17,6 +17,8 @@ function IndividualRestaurant() {
     const restaurantId = restaurant?.id
     console.log(id)
     const reviews = Object.values(useSelector(state => state.reviews))
+    const restaurantReviews = reviews.filter(review => review?.restaurant_id === +id)
+    console.log(restaurantReviews)
     // const restaurantReviews = reviews.filter(review => review?.)
     // const cuisine = useSelector((state) => state.cuisine[id])
 
@@ -100,6 +102,15 @@ function IndividualRestaurant() {
                 </div>
                 <div className='posted-reviews-container'>
                     <h3>Restaurant Reviews:</h3>
+                    {restaurantReviews.map(review => {
+                      return (
+                        <>
+                          <h3>{review?.user}: </h3>
+                          <h3>"{review?.comment}"</h3>
+                          <img src={review?.photo} alt='review-photo'></img>
+                        </>
+                      )
+                    })}
                 </div>
             </div>
             <div>
